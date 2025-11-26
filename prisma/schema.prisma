@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@map("subscribers")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  cardId    String
+  name      String
+  text      String
+  createdAt DateTime @default(now())
+
+  @@index([cardId])
+  @@map("comments")
+}
+
+model Vote {
+  id        String   @id @default(cuid())
+  cardId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  @@unique([cardId, userId])
+  @@index([cardId])
+  @@map("votes")
+}
