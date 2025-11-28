@@ -358,6 +358,11 @@ export function DailySpread({ messages, cards }: DailySpreadProps) {
         {hasMounted && (
         <Dialog open={!!selectedCardForDetail} onOpenChange={() => setSelectedCardForDetail(null)}>
           <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="sr-only">
+                {selectedCardForDetail?.name || 'Card Details'}
+              </DialogTitle>
+            </DialogHeader>
             {selectedCardForDetail && (
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Card Image */}
@@ -384,7 +389,7 @@ export function DailySpread({ messages, cards }: DailySpreadProps) {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                       <Lightbulb className="w-5 h-5 text-amber-500" />
-                      Meaning
+                      {messages.cardDetail?.meaning || 'Meaning'}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                       {selectedCardForDetail.meaning}
@@ -393,7 +398,7 @@ export function DailySpread({ messages, cards }: DailySpreadProps) {
 
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                      Keywords
+                      {messages.cardDetail?.keywords || 'Keywords'}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300">
                       {selectedCardForDetail.reading}

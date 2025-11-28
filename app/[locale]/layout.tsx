@@ -2,6 +2,25 @@ import { notFound } from "next/navigation"
 import { locales, isRTL, type Locale } from "@/lib/i18n"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "../globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "SunLight - Tarot & Spiritual Guidance",
+  description: "A revolutionary tarot deck blending ancient wisdom with modern consciousness",
+};
 
 async function getMessages(locale: Locale) {
   try {
@@ -34,10 +53,23 @@ export default async function LocaleLayout({
   const direction = isRTL(validLocale) ? 'rtl' : 'ltr'
 
   return (
-    <div dir={direction} className="min-h-screen flex flex-col">
-      <Header locale={validLocale} messages={messages} />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <html lang={validLocale} dir={direction} suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen flex flex-col">
+            <Header locale={validLocale} messages={messages} />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

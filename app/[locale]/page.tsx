@@ -14,13 +14,15 @@ import { TAROT_CARDS } from "@/lib/tarot-cards"
 // For now, importing directly
 import enMessages from "@/messages/en.json"
 import heMessages from "@/messages/he.json"
+import esMessages from "@/messages/es.json"
+import frMessages from "@/messages/fr.json"
 
 const messagesMap = {
   en: enMessages,
   he: heMessages,
-  es: enMessages, // TODO: Add Spanish translations
-  fr: enMessages, // TODO: Add French translations
-  ar: heMessages, // TODO: Add Arabic translations (using Hebrew RTL for now)
+  es: esMessages,
+  fr: frMessages,
+  ar: heMessages, // Arabic translations coming soon (using Hebrew RTL for now)
 }
 
 export default function HomePage({ params }: { params: Promise<{ locale: string }> }) {

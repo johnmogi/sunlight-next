@@ -152,5 +152,15 @@
     "feature3Desc": "Understanding each card's meaning gives you tactical advantage. Learn tarot through engaging gameplay, not memorization.",
     "stretchGoal": "Stretch goal for our crowdfunding campaign - help us bring this vision to life!",
     "ctaButton": "Join the Adventure"
+  },
+  "cardDetail": {
+    "meaning": "Meaning",
+    "imagery": "Imagery",
+    "yourName": "Your Name",
+    "yourComment": "Your Comment",
+    "postComment": "Post Comment",
+    "noComments": "No comments yet. Be the first!",
+    "keywords": "Keywords",
+    "comments": "Comments"
   }
 }

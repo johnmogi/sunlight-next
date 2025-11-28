@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ['image/webp'],
-    qualities: [75, 90],
-    unoptimized: false,
+    unoptimized: true, // Disable image optimization to allow all formats
   },
 };
 

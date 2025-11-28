@@ -21,6 +21,19 @@ interface HeaderProps {
 
 export function Header({ locale, messages }: HeaderProps) {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [scrolled])
 
   const navLinks = [
     { href: `/${locale}#about`, label: messages.header.about },
@@ -30,8 +43,16 @@ export function Header({ locale, messages }: HeaderProps) {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header
+      className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ${
+        scrolled ? "h-16" : "h-20"
+      }`}
+    >
+      <div
+        className={`container mx-auto flex items-center justify-between px-4 transition-all duration-300 ${
+          scrolled ? "h-16" : "h-20"
+        }`}
+      >
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center space-x-2">
           <div className="flex items-center">

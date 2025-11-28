@@ -237,6 +237,8 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
         isOpen={!!selectedCard}
         onClose={() => setSelectedCard(null)}
         messages={messages}
+        cards={filteredCards}
+        onNavigate={setSelectedCard}
       />
     </section>
   )

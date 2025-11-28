@@ -1,0 +1,166 @@
+{
+  "header": {
+    "projectName": "Projet SunLight",
+    "about": "À propos",
+    "gallery": "Galerie",
+    "daily": "Tirage Quotidien",
+    "collections": "Collections"
+  },
+  "hero": {
+    "title": "Découvrez Votre Lumière Intérieure",
+    "subtitle": "Un jeu de tarot révolutionnaire alliant sagesse ancienne et conscience moderne",
+    "cta": "Rejoignez le Voyage"
+  },
+  "join": {
+    "title": "Restez Informé",
+    "subtitle": "Soyez le premier à savoir quand le Tarot SunLight sera lancé",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "Votre email",
+    "submit": "Rejoindre la Liste d'Attente",
+    "success": "Bienvenue dans la communauté SunLight !",
+    "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+  },
+  "media": {
+    "title": "Explorez le Voyage",
+    "subtitle": "Plongez plus profondément dans le Tarot SunLight à travers le son et la vision",
+    "podcastTab": "Podcast",
+    "videoTab": "Vidéo"
+  },
+  "spotify": {
+    "title": "Écoutez & Apprenez",
+    "subtitle": "Podcast en hébreu sur le voyage du Tarot SunLight"
+  },
+  "youtube": {
+    "title": "Regardez le Voyage",
+    "subtitle": "Explorez le processus de création et la philosophie derrière le Tarot SunLight",
+    "caption": "Un album explorant la conscience et l'éveil spirituel"
+  },
+  "completeDeck": {
+    "title": "Tarot SunLight Jeu 0.1.0",
+    "description": "L'ensemble du jeu reconstruit autour de 5 éléments avec un nouveau voyage intérieur pour les Arcanes Majeurs.",
+    "all": "Tout",
+    "aether": "Éther (Majeur)",
+    "roses": "Roses (Air)",
+    "cards": "Cartes (Feu)",
+    "hearts": "Cœurs (Eau)",
+    "coins": "Pièces (Terre)",
+    "majorArcana": "Arcanes Majeurs"
+  },
+  "about": {
+    "title": "La Philosophie SunLight",
+    "description": "Un système de tarot réinventé basé sur la sagesse ancienne et la compréhension moderne"
+  },
+  "aboutTabs": {
+    "babylon": "Tour de Babel",
+    "rosetta": "Rosette du Soleil",
+    "transformations": "Transformations",
+    "enneagram": "Ennéagramme",
+    "fifth": "Élément Éther"
+  },
+  "tabContent": {
+    "babylonTitle": "Le Phare Reconstruit",
+    "rosettaTitle": "La Pierre de Rosette du Soleil",
+    "transformationsTitle": "Transformations des Cartes",
+    "enneagramTitle": "L'Intégration de l'Ennéagramme",
+    "fifthTitle": "L'Élément Éther"
+  },
+  "cta": {
+    "slide1": {
+      "title": "Un Appel au Changement",
+      "description": "Le monde s'éveille à une nouvelle conscience. La sagesse ancienne rencontre la compréhension moderne dans un voyage révolutionnaire de découverte de soi.",
+      "highlight": "Rejoignez-nous pour transformer la façon dont nous nous connectons à la sagesse intérieure",
+      "cta": "Rejoignez le Mouvement"
+    },
+    "slide2": {
+      "title": "Une Nouvelle Approche du Tarot",
+      "description": "Reconstruit autour de 5 éléments avec des Arcanes Majeurs réinventés axés sur le voyage intérieur. Chaque carte redessinée avec intention et profondeur.",
+      "highlight": "78 cartes de transformation et d'éveil",
+      "cta": "Explorez le Jeu"
+    },
+    "slide3": {
+      "title": "La Vision en 3 Phases",
+      "description": "Créer le Tarot SunLight, un Journal Guide illustré pour votre voyage, et le jeu de plateau ScrollMaze - trois projets interconnectés pour l'exploration spirituelle.",
+      "highlight": "Jeu de Tarot • Journal Guide • Jeu ScrollMaze",
+      "cta": "En Savoir Plus"
+    },
+    "slide4": {
+      "title": "Faites Partie du Voyage",
+      "description": "Soutenez la création de quelque chose de vraiment transformateur. Ensemble, nous construisons un nouveau paradigme pour l'exploration de la conscience.",
+      "highlight": "Bientôt sur Kickstarter",
+      "cta": "Obtenez un Accès Anticipé"
+    },
+    "phase1": {
+      "title": "Jeu de Tarot",
+      "description": "78 cartes magnifiquement illustrées avec une refonte complète autour de 5 éléments : Éther, Air, Feu, Eau et Terre. Les Arcanes Majeurs réinventés comme un voyage intérieur."
+    },
+    "phase2": {
+      "title": "Guide Illustré",
+      "description": "Un guide complet explorant la philosophie, le symbolisme et les significations profondes de chaque carte. Comprend des tirages, des rituels et des applications pratiques."
+    },
+    "phase3": {
+      "title": "Jeu de Cartes",
+      "description": "Un jeu de stratégie innovant construit sur le nouveau système de jeu, permettant aux joueurs de découvrir la sagesse du tarot à travers un jeu interactif et une exploration."
+    }
+  },
+  "daily": {
+    "title": "Votre Tirage Quotidien",
+    "description": "Tirez des cartes pour la réflexion et l'activation - connectez-vous à votre sagesse intérieure",
+    "intro": "Prenez un moment pour contempler la carte tirée pour vous. Visualisez, respirez ou prononcez à haute voix sa signification. Si elle ne résonne pas, tirez-en simplement une autre jusqu'à ce que vous trouviez votre correspondance.",
+    "reflectionTitle": "Carte de Réflexion",
+    "reflectionDesc": "Sélectionnée aléatoirement pour la contemplation",
+    "activationTitle": "Carte d'Activation",
+    "activationDesc": "Choisissez votre carte pour l'action",
+    "drawBtn": "Tirer une Réflexion",
+    "redrawBtn": "Tirer une Autre",
+    "chooseBtn": "Choisir l'Activation",
+    "rechooseBtn": "Choisir une Autre",
+    "modalTitle": "Choisissez Votre Carte d'Activation"
+  },
+  "support": {
+    "title": "Rejoignez Notre Voyage",
+    "subtitle": "Nous construisons quelque chose de transformateur et nous avons besoin de votre aide",
+    "writing": "Rédaction & Contenu",
+    "writingDesc": "Aidez à rédiger le guide journal et les significations des cartes",
+    "illustration": "Illustration & Design",
+    "illustrationDesc": "Donnez vie à la vision à travers l'art",
+    "campaign": "Construction de Campagne",
+    "campaignDesc": "Soutenez les lancements Kickstarter et Gamefound",
+    "team": "Rejoignez l'Équipe",
+    "teamDesc": "Devenez membre de l'équipe créative principale",
+    "nameLabel": "Votre Nom",
+    "namePlaceholder": "Jean Dupont",
+    "emailLabel": "Email",
+    "emailPlaceholder": "jean@exemple.com",
+    "interestLabel": "Je suis intéressé par",
+    "interestPlaceholder": "Rédaction, Illustration, Soutien de Campagne...",
+    "messageLabel": "Parlez-nous de vous",
+    "messagePlaceholder": "Partagez votre expérience, vos compétences et pourquoi vous aimeriez nous rejoindre...",
+    "submit": "Envoyer le Message",
+    "sending": "Envoi...",
+    "success": "Merci ! Nous vous contacterons bientôt.",
+    "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+  },
+  "scrollMaze": {
+    "badge": "Phase 3",
+    "title": "Bientôt : ScrollMaze",
+    "subtitle": "Transformez le Tarot SunLight en un jeu d'aventure roguelike",
+    "feature1Title": "Exploration de Donjons",
+    "feature1Desc": "Disposez des cartes face cachée pour créer un labyrinthe en constante évolution. Retournez les cartes pour révéler des salles, lancez les dés pour déterminer les rencontres.",
+    "feature2Title": "Combat Élémentaire",
+    "feature2Desc": "Combattez des monstres en utilisant le système des cinq éléments. L'eau éteint le feu, le feu évapore l'eau - maîtrisez les cycles pour gagner.",
+    "feature3Title": "Apprendre par le Jeu",
+    "feature3Desc": "Comprendre la signification de chaque carte vous donne un avantage tactique. Apprenez le tarot à travers un jeu engageant, pas par mémorisation.",
+    "stretchGoal": "Objectif extensible pour notre campagne de financement participatif - aidez-nous à donner vie à cette vision !",
+    "ctaButton": "Rejoignez l'Aventure"
+  },
+  "cardDetail": {
+    "meaning": "Signification",
+    "imagery": "Imagerie",
+    "yourName": "Votre Nom",
+    "yourComment": "Votre Commentaire",
+    "postComment": "Publier le Commentaire",
+    "noComments": "Pas encore de commentaires. Soyez le premier !",
+    "keywords": "Mots-clés",
+    "comments": "Commentaires"
+  }
+}

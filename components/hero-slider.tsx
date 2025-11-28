@@ -165,7 +165,7 @@ export function HeroSlider({ messages }: HeroSliderProps) {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <section className="relative w-full overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 -mt-20">
         {/* Background Slider - Crossfade */}
         <AnimatePresence initial={false}>
           <motion.div
