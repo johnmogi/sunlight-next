@@ -19,5 +19,138 @@
     "submit": "Join Waitlist",
     "success": "Welcome to the SunLight community!",
     "error": "Something went wrong. Please try again."
+  },
+  "media": {
+    "title": "Explore the Journey",
+    "subtitle": "Dive deeper into the SunLight Tarot through sound and vision",
+    "podcastTab": "Podcast",
+    "videoTab": "Video"
+  },
+  "spotify": {
+    "title": "Listen & Learn",
+    "subtitle": "Hebrew podcast about the SunLight Tarot journey"
+  },
+  "youtube": {
+    "title": "Watch the Journey",
+    "subtitle": "Explore the creation process and philosophy behind SunLight Tarot",
+    "caption": "An album exploring consciousness and spiritual awakening"
+  },
+  "completeDeck": {
+    "title": "Sunlight Tarot Deck 0.1.0",
+    "description": "The entire deck rebuilt around 5 elements with a new inward journey for the Major Arcana.",
+    "all": "All",
+    "aether": "Aether (Major)",
+    "roses": "Roses (Air)",
+    "cards": "Cards (Fire)",
+    "hearts": "Hearts (Water)",
+    "coins": "Coins (Earth)",
+    "majorArcana": "Major Arcana"
+  },
+  "about": {
+    "title": "The SunLight Philosophy",
+    "description": "A reimagined tarot system based on ancient wisdom and modern understanding"
+  },
+  "aboutTabs": {
+    "babylon": "Babylon Tower",
+    "rosetta": "Sun Rosetta",
+    "transformations": "Transformations",
+    "enneagram": "Enneagram",
+    "fifth": "Aether Element"
+  },
+  "tabContent": {
+    "babylonTitle": "The Rebuilt Lighthouse",
+    "rosettaTitle": "The Sun Rosetta Stone",
+    "transformationsTitle": "Card Transformations",
+    "enneagramTitle": "The Enneagram Integration",
+    "fifthTitle": "The Aether Element"
+  },
+  "cta": {
+    "slide1": {
+      "title": "A Call for Change",
+      "description": "The world is awakening to a new consciousness. Ancient wisdom meets modern understanding in a revolutionary journey of self-discovery.",
+      "highlight": "Join us in transforming the way we connect with inner wisdom",
+      "cta": "Join the Movement"
+    },
+    "slide2": {
+      "title": "A New Approach to Tarot",
+      "description": "Rebuilt around 5 elements with reimagined Major Arcana focused on the inward journey. Every card redesigned with intention and depth.",
+      "highlight": "78 cards of transformation and awakening",
+      "cta": "Explore the Deck"
+    },
+    "slide3": {
+      "title": "The 3-Phase Vision",
+      "description": "Creating the SunLight Tarot Deck, an illustrated Guide Diary for your journey, and the ScrollMaze board game—three interconnected projects for spiritual exploration.",
+      "highlight": "Tarot Deck • Guide Diary • ScrollMaze Game",
+      "cta": "Learn More"
+    },
+    "slide4": {
+      "title": "Be Part of the Journey",
+      "description": "Support the creation of something truly transformative. Together, we're building a new paradigm for consciousness exploration.",
+      "highlight": "Coming soon to Kickstarter",
+      "cta": "Get Early Access"
+    },
+    "phase1": {
+      "title": "Tarot Deck",
+      "description": "78 beautifully illustrated cards featuring a complete redesign around 5 elements: Aether, Air, Fire, Water, and Earth. The Major Arcana reimagined as an inward journey."
+    },
+    "phase2": {
+      "title": "Illustrated Guidebook",
+      "description": "A comprehensive guide exploring the philosophy, symbolism, and deeper meanings behind each card. Includes spreads, rituals, and practical applications."
+    },
+    "phase3": {
+      "title": "Card Game",
+      "description": "An innovative strategy game built on the new deck system, allowing players to experience tarot wisdom through interactive gameplay and exploration."
+    }
+  },
+  "daily": {
+    "title": "Your Daily Spread",
+    "description": "Draw cards for reflection and activation—connect with your inner wisdom",
+    "intro": "Take a moment to contemplate the card drawn for you. Visualize, breathe into, or speak aloud its meaning. If it doesn't resonate, simply draw another until you find your match.",
+    "reflectionTitle": "Reflection Card",
+    "reflectionDesc": "Randomly selected for contemplation",
+    "activationTitle": "Activation Card",
+    "activationDesc": "Choose your card for action",
+    "drawBtn": "Draw Reflection",
+    "redrawBtn": "Draw Another",
+    "chooseBtn": "Choose Activation",
+    "rechooseBtn": "Choose Another",
+    "modalTitle": "Choose Your Activation Card"
+  },
+  "support": {
+    "title": "Join Our Journey",
+    "subtitle": "We're building something transformative and we need your help",
+    "writing": "Writing & Content",
+    "writingDesc": "Help craft the guide diary and card meanings",
+    "illustration": "Illustration & Design",
+    "illustrationDesc": "Bring the vision to life through art",
+    "campaign": "Campaign Building",
+    "campaignDesc": "Support Kickstarter & Gamefound launches",
+    "team": "Join the Team",
+    "teamDesc": "Become part of the core creative team",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "John Doe",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@example.com",
+    "interestLabel": "I'm interested in",
+    "interestPlaceholder": "Writing, Illustration, Campaign Support...",
+    "messageLabel": "Tell us about yourself",
+    "messagePlaceholder": "Share your experience, skills, and why you'd like to join...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you! We'll be in touch soon.",
+    "error": "Something went wrong. Please try again."
+  },
+  "scrollMaze": {
+    "badge": "Phase 3",
+    "title": "Coming Soon: ScrollMaze",
+    "subtitle": "Transform the Sunlight Tarot into a roguelike adventure game",
+    "feature1Title": "Dungeon Exploration",
+    "feature1Desc": "Lay out cards face-down to create an ever-changing maze. Flip cards to reveal rooms, roll dice to determine encounters.",
+    "feature2Title": "Elemental Combat",
+    "feature2Desc": "Battle monsters using the five-element system. Water douses fire, fire evaporates water - master the cycles to win.",
+    "feature3Title": "Learn Through Play",
+    "feature3Desc": "Understanding each card's meaning gives you tactical advantage. Learn tarot through engaging gameplay, not memorization.",
+    "stretchGoal": "Stretch goal for our crowdfunding campaign - help us bring this vision to life!",
+    "ctaButton": "Join the Adventure"
   }
 }

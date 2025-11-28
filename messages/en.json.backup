@@ -1,0 +1,67 @@
+{
+  "header": {
+    "projectName": "SunLight Project",
+    "about": "About",
+    "gallery": "Gallery",
+    "daily": "Daily Spread",
+    "collections": "Collections"
+  },
+  "hero": {
+    "title": "Discover Your Inner Light",
+    "subtitle": "A revolutionary tarot deck blending ancient wisdom with modern consciousness",
+    "cta": "Join the Journey"
+  },
+  "join": {
+    "title": "Keep Me in the Loop",
+    "subtitle": "Be the first to know when the SunLight Tarot deck launches",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "submit": "Join Waitlist",
+    "success": "Welcome to the SunLight community!",
+    "error": "Something went wrong. Please try again."
+  },
+  "media": {
+    "title": "Explore the Journey",
+    "subtitle": "Dive deeper into the SunLight Tarot through sound and vision",
+    "podcastTab": "Podcast",
+    "videoTab": "Video"
+  },
+  "spotify": {
+    "title": "Listen & Learn",
+    "subtitle": "Hebrew podcast about the SunLight Tarot journey"
+  },
+  "youtube": {
+    "title": "Watch the Journey",
+    "subtitle": "Explore the creation process and philosophy behind SunLight Tarot",
+    "caption": "An album exploring consciousness and spiritual awakening"
+  },
+  "completeDeck": {
+    "title": "Sunlight Tarot Deck 0.1.0",
+    "description": "The entire deck rebuilt around 5 elements with a new inward journey for the Major Arcana.",
+    "all": "All",
+    "aether": "Aether (Major)",
+    "roses": "Roses (Air)",
+    "cards": "Cards (Fire)",
+    "hearts": "Hearts (Water)",
+    "coins": "Coins (Earth)",
+    "majorArcana": "Major Arcana"
+  },
+  "about": {
+    "title": "The SunLight Philosophy",
+    "description": "A reimagined tarot system based on ancient wisdom and modern understanding"
+  },
+  "aboutTabs": {
+    "babylon": "Babylon Tower",
+    "rosetta": "Sun Rosetta",
+    "transformations": "Transformations",
+    "enneagram": "Enneagram",
+    "fifth": "Aether Element"
+  },
+  "tabContent": {
+    "babylonTitle": "The Rebuilt Lighthouse",
+    "rosettaTitle": "The Sun Rosetta Stone",
+    "transformationsTitle": "Card Transformations",
+    "enneagramTitle": "The Enneagram Integration",
+    "fifthTitle": "The Aether Element"
+  }
+}

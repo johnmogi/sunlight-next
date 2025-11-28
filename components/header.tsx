@@ -35,8 +35,8 @@ export function Header({ locale, messages }: HeaderProps) {
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center space-x-2">
           <div className="flex items-center">
-            <span className="text-xl font-bold bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">
-              {messages.header.projectName}
+            <span className="text-2xl font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent tracking-tight">
+              SunLight
             </span>
           </div>
         </Link>

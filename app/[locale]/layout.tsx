@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { locales, isRTL, type Locale } from "@/lib/i18n"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 async function getMessages(locale: Locale) {
   try {
@@ -33,9 +34,10 @@ export default async function LocaleLayout({
   const direction = isRTL(validLocale) ? 'rtl' : 'ltr'
 
   return (
-    <div dir={direction} className="min-h-screen">
+    <div dir={direction} className="min-h-screen flex flex-col">
       <Header locale={validLocale} messages={messages} />
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
+      <Footer />
     </div>
   )
 }
