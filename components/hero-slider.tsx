@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { Loader2, CheckCircle2 } from "lucide-react"
+import { Loader2, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -158,14 +158,22 @@ export function HeroSlider({ messages }: HeroSliderProps) {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % ctaSlides.length)
-    }, 7000)
+    }, 12000) // Slowed down to 12 seconds
 
     return () => clearInterval(timer)
   }, [])
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % ctaSlides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + ctaSlides.length) % ctaSlides.length)
+  }
+
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 -mt-20">
+      <section className="relative w-full overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         {/* Background Slider - Crossfade */}
         <AnimatePresence initial={false}>
           <motion.div
@@ -173,10 +181,10 @@ export function HeroSlider({ messages }: HeroSliderProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <div className="relative h-full w-full min-h-[90vh]">
+            <div className="relative h-full w-full min-h-[100vh]">
               <Image
                 src={ctaSlides[currentSlide].image}
                 alt={getNestedProperty(messages, ctaSlides[currentSlide].titleKey) || "SunLight Project"}
@@ -185,29 +193,29 @@ export function HeroSlider({ messages }: HeroSliderProps) {
                 priority={currentSlide === 0}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-between py-16 min-h-[90vh]">
-          {/* Slide Indicators - Top */}
-          <div className="flex space-x-2 pt-4">
-            {ctaSlides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? "w-8 bg-white"
-                    : "w-2 bg-white/50 hover:bg-white/75"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
 
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-between py-20 min-h-[100vh]">
           {/* Main Content - Center (Dynamic per slide) */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -215,34 +223,51 @@ export function HeroSlider({ messages }: HeroSliderProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl space-y-8 text-center"
+              transition={{ duration: 0.8 }}
+              className="flex-1 flex flex-col items-center justify-center max-w-4xl space-y-6 text-center"
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl leading-tight">
                 {getNestedProperty(messages, ctaSlides[currentSlide].titleKey)}
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">
                 {getNestedProperty(messages, ctaSlides[currentSlide].descriptionKey)}
               </p>
               <Button
                 size="lg"
                 onClick={() => setIsSupportModalOpen(true)}
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-lg px-8 py-6 shadow-2xl"
+                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-lg px-8 py-6 shadow-2xl mt-4"
               >
                 {getNestedProperty(messages, ctaSlides[currentSlide].ctaKey)}
               </Button>
             </motion.div>
           </AnimatePresence>
 
-          {/* Join Form - Bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full max-w-4xl pb-4"
-          >
-            <HeroJoinForm messages={messages} />
-          </motion.div>
+          {/* Bottom Section: Join Form and Indicators */}
+          <div className="w-full max-w-4xl space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <HeroJoinForm messages={messages} />
+            </motion.div>
+
+            {/* Slide Indicators - Bottom */}
+            <div className="flex justify-center space-x-3 pb-4">
+              {ctaSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "w-10 bg-white shadow-lg"
+                      : "w-2.5 bg-white/40 hover:bg-white/70"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

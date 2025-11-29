@@ -16,13 +16,14 @@ import enMessages from "@/messages/en.json"
 import heMessages from "@/messages/he.json"
 import esMessages from "@/messages/es.json"
 import frMessages from "@/messages/fr.json"
+import arMessages from "@/messages/ar.json"
 
 const messagesMap = {
   en: enMessages,
   he: heMessages,
   es: esMessages,
   fr: frMessages,
-  ar: heMessages, // Arabic translations coming soon (using Hebrew RTL for now)
+  ar: arMessages,
 }
 
 export default function HomePage({ params }: { params: Promise<{ locale: string }> }) {

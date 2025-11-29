@@ -1,0 +1,16 @@
+# Sunlight Tarot - Robots.txt
+# Allow all search engines to index the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sunlight-nextjs.vercel.app/sitemap.xml
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1
+
+# Disallow admin/API routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Exclude large image directory
 # public/images/
+
+.vercel
+.env*.local
