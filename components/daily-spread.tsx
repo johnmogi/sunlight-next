@@ -18,9 +18,11 @@ function useHasMounted() {
   return hasMounted
 }
 
+import { TAROT_CARDS as defaultCards } from "@/lib/card-sets/set-default"
+import { TAROT_CARDS as newCards } from "@/lib/card-sets/set-update112"
+
 interface DailySpreadProps {
   messages: any
-  cards: any[]
 }
 
 interface DrawnCard {
@@ -55,7 +57,7 @@ const cardTips = [
   }
 ]
 
-export function DailySpread({ messages, cards }: DailySpreadProps) {
+export function DailySpread({ messages }: DailySpreadProps) {
   const hasMounted = useHasMounted()
   const [reflectionCard, setReflectionCard] = React.useState<DrawnCard | null>(null)
   const [activationCard, setActivationCard] = React.useState<DrawnCard | null>(null)
@@ -63,6 +65,11 @@ export function DailySpread({ messages, cards }: DailySpreadProps) {
   const [selectedCardForDetail, setSelectedCardForDetail] = React.useState<DrawnCard | null>(null)
   const [currentTipIndex, setCurrentTipIndex] = React.useState(0)
   const [isFlipping, setIsFlipping] = React.useState(false)
+  const [cards, setCards] = React.useState<any[]>([])
+
+  React.useEffect(() => {
+    setCards(newCards)
+  }, [])
 
   const drawRandomCard = () => {
     if (isFlipping) return

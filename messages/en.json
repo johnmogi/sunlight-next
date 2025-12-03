@@ -7,17 +7,32 @@
     "collections": "Collections"
   },
   "hero": {
-    "title": "Discover Your Inner Light",
-    "subtitle": "A revolutionary tarot deck blending ancient wisdom with modern consciousness",
-    "cta": "Join the Journey"
+    "healer": {
+      "title": "Step Out of the Shadow.",
+      "subtitle": "A tarot deck reclaimed from fear. No devils, no death—only light, growth, and the courage to wake up.",
+      "cta": "See the Cards",
+      "ctaSecondary": "Read the Philosophy"
+    },
+    "dreamer": {
+      "title": "Wake Up Inside the Dream.",
+      "subtitle": "The first tarot deck designed for lucid dreaming. Use the symbols of the day to unlock the awareness of the night.",
+      "cta": "Start the Practice",
+      "ctaSecondary": "Get the Guide"
+    },
+    "builder": {
+      "title": "Build the Deck with Us.",
+      "subtitle": "The Sunlight Tarot is an open-source project. Your voice, your art, and your wisdom belong here.",
+      "cta": "Join the Inner Circle",
+      "ctaSecondary": "View the Roadmap"
+    }
   },
   "join": {
-    "title": "Keep Me in the Loop",
-    "subtitle": "Be the first to know when the SunLight Tarot deck launches",
+    "title": "We Are Rebuilding the Tower.",
+    "subtitle": "The old structures of tarot are crumbling. We are gathering the stones to build a Lighthouse. Join 1,000+ dreamers, artists, and seekers in the Sunlight Inner Circle.",
     "namePlaceholder": "Your name",
-    "emailPlaceholder": "Your email",
-    "submit": "Join Waitlist",
-    "success": "Welcome to the SunLight community!",
+    "emailPlaceholder": "Enter your email to hold a brick...",
+    "submit": "Join the Restoration",
+    "success": "Welcome to the inner circle!",
     "error": "Something went wrong. Please try again."
   },
   "media": {
@@ -46,9 +61,17 @@
     "coins": "Coins (Earth)",
     "majorArcana": "Major Arcana"
   },
+  "healing": {
+    "title": "A Tarot for Healing, Not Fear",
+    "description": "Replacing the old symbols of doom with understanding and regenerative Light."
+  },
+  "system": {
+    "title": "Everything Begins at Zero",
+    "description": "The Sun is the Zero Point from which five elements radiate: Aether, Air, Fire, Water, and Earth."
+  },
   "about": {
-    "title": "The SunLight Philosophy",
-    "description": "A reimagined tarot system based on ancient wisdom and modern understanding"
+    "title": "Rebuilding the Lighthouse",
+    "description": "The Tower wasn't meant to be a ruin. It was meant to be a beacon. We are rebuilding the shattered languages of humanity into a single, unified light."
   },
   "aboutTabs": {
     "babylon": "Babylon Tower",

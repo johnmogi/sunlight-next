@@ -2,13 +2,12 @@
 
 import * as React from "react"
 import { HeroSlider } from "@/components/hero-slider"
+import { SunlightPhilosophy } from "@/components/sunlight-philosophy"
 import { MediaTabs } from "@/components/media-tabs"
-import { AboutSection } from "@/components/about-section"
 import { CompleteDeck } from "@/components/complete-deck"
 import { DailySpread } from "@/components/daily-spread"
 import { ScrollMazeBanner } from "@/components/scrollmaze-banner"
 import { type Locale } from "@/lib/i18n"
-import { TAROT_CARDS } from "@/lib/tarot-cards"
 
 // This will be replaced with server-side messages in production
 // For now, importing directly
@@ -37,19 +36,20 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
 
   return (
     <div className="min-h-screen">
+      {/* Hero - Visual Impact Above the Fold */}
       <HeroSlider messages={messages} />
 
-      {/* About Section with Tabs + Accordions */}
-      <AboutSection messages={messages} />
+      {/* Consolidated Philosophy Section - System, Suits, Vision, Healing */}
+      <SunlightPhilosophy messages={messages} locale={locale} />
 
       {/* Complete Deck with Voting */}
-      <CompleteDeck messages={messages} cards={TAROT_CARDS} />
+      <CompleteDeck messages={messages} />
 
       {/* ScrollMaze Banner */}
       <ScrollMazeBanner messages={messages} />
 
       {/* Daily Spread */}
-      <DailySpread messages={messages} cards={TAROT_CARDS} />
+      <DailySpread messages={messages} />
 
       {/* Media Section (Tabbed: Podcast + Video) */}
       <MediaTabs messages={messages} locale={locale} />

@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Get total count
-    const count = await prisma.subscriber.count()
+    const count = await prisma.subscriber.count({ where: {} })
 
     return NextResponse.json({
       success: true,
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const count = await prisma.subscriber.count()
+    const count = await prisma.subscriber.count({ where: {} })
     return NextResponse.json({ success: true, count })
   } catch (error) {
     console.error('Get subscriber count error:', error)

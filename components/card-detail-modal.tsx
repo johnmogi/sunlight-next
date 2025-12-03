@@ -30,12 +30,22 @@ export function CardDetailModal({ card, isOpen, onClose, messages, cards = [], o
   const [comment, setComment] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
-  // Load comments for this card
+  // Load comments for this card from API
   React.useEffect(() => {
-    if (card) {
-      const allComments = JSON.parse(localStorage.getItem('card-comments') || '{}')
-      setComments(allComments[card.id] || [])
+    if (!card) return
+
+    async function loadComments() {
+      try {
+        const response = await fetch(`/api/comments?cardId=${card.id}`)
+        const data = await response.json()
+        setComments(data.comments || [])
+      } catch (error) {
+        console.error('Error loading comments:', error)
+        setComments([])
+      }
     }
+
+    loadComments()
   }, [card])
 
   // Navigation helpers
@@ -72,22 +82,33 @@ export function CardDetailModal({ card, isOpen, onClose, messages, cards = [], o
 
     setIsSubmitting(true)
 
-    const newComment = {
-      id: Date.now().toString(),
-      name: name.trim(),
-      text: comment.trim(),
-      date: new Date().toISOString(),
+    try {
+      // Save to API
+      const response = await fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cardId: card.id,
+          name: name.trim(),
+          text: comment.trim(),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to save comment')
+      }
+
+      const data = await response.json()
+
+      // Add to local state
+      setComments([data.comment, ...comments])
+      setComment("")
+    } catch (error) {
+      console.error('Error saving comment:', error)
+      alert('Failed to save comment. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
-
-    // Save to localStorage
-    const allComments = JSON.parse(localStorage.getItem('card-comments') || '{}')
-    if (!allComments[card.id]) allComments[card.id] = []
-    allComments[card.id].unshift(newComment)
-    localStorage.setItem('card-comments', JSON.stringify(allComments))
-
-    setComments([newComment, ...comments])
-    setComment("")
-    setIsSubmitting(false)
   }
 
   if (!card) return null

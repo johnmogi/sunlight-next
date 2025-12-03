@@ -4,23 +4,65 @@ import * as React from "react"
 import Image from "next/image"
 import { ThumbsUp, ThumbsDown, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { CardDetailModal } from "@/components/card-detail-modal"
 
 interface CompleteDeckProps {
   messages: any
-  cards: any[]
 }
 
 type VoteType = 'like' | 'dislike' | 'love' | null
 
-export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
+// Helper to get or create anonymous user ID
+function getUserId(): string {
+  if (typeof window === 'undefined') return ''
+
+  let userId = localStorage.getItem('sunlight-user-id')
+  if (!userId) {
+    userId = `anon-${Math.random().toString(36).substring(2, 15)}-${Date.now()}`
+    localStorage.setItem('sunlight-user-id', userId)
+  }
+  return userId
+}
+
+export function CompleteDeck({ messages }: CompleteDeckProps) {
   const [selectedCard, setSelectedCard] = React.useState<any | null>(null)
   const [activeFilter, setActiveFilter] = React.useState('major') // Default to Aether (Major Arcana)
   const [votes, setVotes] = React.useState<Record<string, VoteType>>({})
   const [voteCounts, setVoteCounts] = React.useState<Record<string, { like: number; dislike: number; love: number }>>({})
   const [visibleCount, setVisibleCount] = React.useState(10) // 2 rows at XL breakpoint (5 cols x 2 rows)
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
+  const [selectedSet, setSelectedSet] = React.useState('tarot-cards-new') // Changed to set-update112 as default
+  const [cards, setCards] = React.useState<any[]>([])
+  const [userId, setUserId] = React.useState('')
+
+  React.useEffect(() => {
+    async function loadCards() {
+      let cardSetModule;
+      switch (selectedSet) {
+        case 'tarot-cards':
+          cardSetModule = await import('@/lib/card-sets/set-default');
+          break;
+        case 'tarot-cards-new':
+          cardSetModule = await import('@/lib/card-sets/set-update112');
+          break;
+        case 'tarot-cards-old':
+          cardSetModule = await import('@/lib/card-sets/set-old');
+          break;
+        default:
+          cardSetModule = await import('@/lib/card-sets/set-default');
+      }
+      setCards(cardSetModule.TAROT_CARDS);
+    }
+    loadCards();
+  }, [selectedSet]);
 
   // Calculate filtered cards
   const filteredCards = activeFilter === 'all'
@@ -33,13 +75,34 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
 
   const visibleCards = filteredCards.slice(0, visibleCount)
 
+  // Initialize user ID on mount
   React.useEffect(() => {
-    // Load votes from localStorage
-    const savedVotes = localStorage.getItem('card-votes')
-    const savedCounts = localStorage.getItem('card-vote-counts')
-    if (savedVotes) setVotes(JSON.parse(savedVotes))
-    if (savedCounts) setVoteCounts(JSON.parse(savedCounts))
+    setUserId(getUserId())
   }, [])
+
+  // Load votes from API
+  React.useEffect(() => {
+    if (!userId) return
+
+    async function loadVotes() {
+      try {
+        // Load vote counts from API
+        const response = await fetch('/api/votes')
+        const data = await response.json()
+        setVoteCounts(data.voteCounts || {})
+
+        // Load user's votes from localStorage (for UI state only)
+        const savedVotes = localStorage.getItem('card-votes')
+        if (savedVotes) {
+          setVotes(JSON.parse(savedVotes))
+        }
+      } catch (error) {
+        console.error('Error loading votes:', error)
+      }
+    }
+
+    loadVotes()
+  }, [userId])
 
   // IntersectionObserver for infinite scroll
   React.useEffect(() => {
@@ -62,7 +125,9 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
     setVisibleCount(10)
   }, [activeFilter])
 
-  const handleVote = (cardId: string, voteType: VoteType) => {
+  const handleVote = async (cardId: string, voteType: VoteType) => {
+    if (!userId) return
+
     const currentVote = votes[cardId]
     const newVotes = { ...votes }
     const newCounts = { ...voteCounts }
@@ -71,12 +136,16 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
       newCounts[cardId] = { like: 0, dislike: 0, love: 0 }
     }
 
+    // Determine the new vote type
+    let finalVoteType: VoteType = voteType
+
     // If clicking same vote, remove it
     if (currentVote === voteType) {
       newVotes[cardId] = null
+      finalVoteType = null
       if (voteType) newCounts[cardId][voteType]--
     } else {
-      // Remove previous vote
+      // Remove previous vote count
       if (currentVote) {
         newCounts[cardId][currentVote]--
       }
@@ -85,10 +154,36 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
       if (voteType) newCounts[cardId][voteType]++
     }
 
+    // Optimistic UI update
     setVotes(newVotes)
     setVoteCounts(newCounts)
     localStorage.setItem('card-votes', JSON.stringify(newVotes))
-    localStorage.setItem('card-vote-counts', JSON.stringify(newCounts))
+
+    // Send to API
+    try {
+      const response = await fetch('/api/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cardId,
+          userId,
+          voteType: finalVoteType,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to save vote')
+      }
+
+      // Refresh vote counts from server
+      const votesResponse = await fetch('/api/votes')
+      const votesData = await votesResponse.json()
+      setVoteCounts(votesData.voteCounts || {})
+    } catch (error) {
+      console.error('Error saving vote:', error)
+      // Revert optimistic update on error
+      setVotes(prev => ({ ...prev, [cardId]: currentVote }))
+    }
   }
 
   const filters = [
@@ -99,17 +194,39 @@ export function CompleteDeck({ messages, cards }: CompleteDeckProps) {
     { id: 'hearts', label: messages.completeDeck?.hearts || 'Hearts (Water)' },
     { id: 'coins', label: messages.completeDeck?.coins || 'Coins (Earth)' },
   ]
+  
+  const cardSets = [
+    { id: 'tarot-cards', label: 'Default Set' },
+    { id: 'tarot-cards-new', label: 'Update 112 Set' },
+    { id: 'tarot-cards-old', label: 'Old Set' },
+  ]
 
   return (
     <section id="complete-deck" className="py-16 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {messages.completeDeck?.title || "Sunlight Tarot Deck 0.0.1"}
+            {messages.completeDeck?.title || "Sunlight Tarot Deck 0.1.0"}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {messages.completeDeck?.description || "The entire deck rebuilt around 5 elements with a new inward journey for the Major Arcana."}
           </p>
+        </div>
+        
+        {/* Set Selector */}
+        <div className="flex justify-center mb-8">
+          <Select onValueChange={setSelectedSet} defaultValue={selectedSet}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select a card set" />
+            </SelectTrigger>
+            <SelectContent>
+              {cardSets.map((set) => (
+                <SelectItem key={set.id} value={set.id}>
+                  {set.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Filter Tabs */}

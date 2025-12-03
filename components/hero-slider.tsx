@@ -18,30 +18,46 @@ function getNestedProperty(obj: any, path: string): string {
   return path.split('.').reduce((current, key) => current?.[key], obj) || ''
 }
 
+// NOTE FOR AI: The user wants to change the images.
+// Angle 1 (Healing): Use the "Ace of Flowers" prompt - boy pulling a rose from a stone.
+// Angle 2 (Dreaming): Use the "Night Awakener" (Lili with book and moon).
+// Angle 3 (Building): Use a flat-lay of sketches, pencils, on a wooden table.
 const ctaSlides = [
   {
     image: "/images/CTA/cinematic_golden-hour_hero_banner_vast_desert_sunrise_behind__f1615440-53b2-44da-bb83-00a45ca34c4b_1.png",
-    titleKey: "cta.slide1.title",
-    descriptionKey: "cta.slide1.description",
-    ctaKey: "cta.slide1.cta"
+    titleKey: "hero.healer.title",
+    descriptionKey: "hero.healer.subtitle",
+    ctaKey: "hero.healer.cta",
+    ctaSecondaryKey: "hero.healer.ctaSecondary",
+    angle: "healer",
+    ctaAction: "scroll",
+    ctaTarget: "#complete-deck",
+    ctaSecondaryAction: "scroll",
+    ctaSecondaryTarget: "#healing-section",
   },
   {
     image: "/images/CTA/Kickstarter_campaign_hero_golden-hour_flatlay_on_weathered_wo_4a9c8c21-4bb9-4405-92e6-2f1afd02976b_3.png",
-    titleKey: "cta.slide2.title",
-    descriptionKey: "cta.slide2.description",
-    ctaKey: "cta.slide2.cta"
+    titleKey: "hero.dreamer.title",
+    descriptionKey: "hero.dreamer.subtitle",
+    ctaKey: "hero.dreamer.cta",
+    ctaSecondaryKey: "hero.dreamer.ctaSecondary",
+    angle: "dreamer",
+    ctaAction: "scroll",
+    ctaTarget: "#daily-spread",
+    ctaSecondaryAction: "modal",
+    ctaSecondaryTarget: null,
   },
   {
     image: "/images/CTA/Board_game_box_cover_for_Scroll_Maze_showing_adventure_throug_a1155554-e458-41ed-bca4-1d1d203ccedb_3.png",
-    titleKey: "cta.slide3.title",
-    descriptionKey: "cta.slide3.description",
-    ctaKey: "cta.slide3.cta"
-  },
-  {
-    image: "/images/CTA/Board_game_box_cover_for_Scroll_Maze_showing_adventure_throug_9c5ce8d3-034e-441d-8363-9075040d6ec7_3.png",
-    titleKey: "cta.slide4.title",
-    descriptionKey: "cta.slide4.description",
-    ctaKey: "cta.slide4.cta"
+    titleKey: "hero.builder.title",
+    descriptionKey: "hero.builder.subtitle",
+    ctaKey: "hero.builder.cta",
+    ctaSecondaryKey: "hero.builder.ctaSecondary",
+    angle: "builder",
+    ctaAction: "scroll",
+    ctaTarget: "#join-form",
+    ctaSecondaryAction: "scroll",
+    ctaSecondaryTarget: "#about",
   }
 ]
 
@@ -86,67 +102,73 @@ function HeroJoinForm({ messages }: { messages: any }) {
   }
 
   return (
-    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 shadow-2xl">
-      <div className="text-center mb-4">
-        <h2 className="text-xl md:text-2xl font-bold text-white">
-          {messages.join.title}
-        </h2>
-        <p className="text-white/80 text-sm mt-1">
-          {messages.join.subtitle}
-        </p>
-      </div>
+    <div id="join-form" className="relative bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-xl border-2 border-white/40 rounded-2xl p-8 shadow-2xl overflow-hidden scroll-mt-20">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-400/30 rounded-full blur-3xl" />
 
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Input
-            type="text"
-            placeholder={messages.join.namePlaceholder}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            disabled={isSubmitting}
-            className="bg-white/90 border-white/30 flex-1"
-          />
-          <Input
-            type="email"
-            placeholder={messages.join.emailPlaceholder}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            disabled={isSubmitting}
-            className="bg-white/90 border-white/30 flex-1"
-          />
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white whitespace-nowrap sm:w-auto w-full"
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              messages.join.submit
+      <div className="relative z-10">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
+            {messages.join.title}
+          </h2>
+          <p className="text-white text-base md:text-lg max-w-3xl mx-auto font-medium" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+            {messages.join.subtitle}
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Input
+              type="text"
+              placeholder={messages.join.namePlaceholder}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              disabled={isSubmitting}
+              className="bg-white/95 border-white/40 flex-1 h-12 text-base shadow-sm"
+            />
+            <Input
+              type="email"
+              placeholder={messages.join.emailPlaceholder}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={isSubmitting}
+              className="bg-white/95 border-white/40 flex-1 h-12 text-base shadow-sm"
+            />
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold whitespace-nowrap sm:w-auto w-full h-12 px-8 shadow-lg hover:shadow-xl transition-all"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                messages.join.submit
+              )}
+            </Button>
+          </div>
+
+          <div className="text-center min-h-[24px]">
+            {status === 'success' && (
+              <div className="flex items-center justify-center gap-2 text-green-300 font-semibold text-sm bg-green-900/30 py-2 px-4 rounded-lg">
+                <CheckCircle2 className="h-5 w-5" />
+                {messages.join.success}
+              </div>
             )}
-          </Button>
-        </div>
 
-        <div className="text-center min-h-[20px]">
-          {status === 'success' && (
-            <div className="flex items-center justify-center gap-2 text-green-300 font-medium text-sm">
-              <CheckCircle2 className="h-4 w-4" />
-              {messages.join.success}
-            </div>
-          )}
-
-          {status === 'error' && (
-            <p className="text-red-300 font-medium text-sm">
-              {errorMessage}
-            </p>
-          )}
-        </div>
-      </form>
+            {status === 'error' && (
+              <p className="text-red-300 font-semibold text-sm bg-red-900/30 py-2 px-4 rounded-lg">
+                {errorMessage}
+              </p>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
@@ -171,6 +193,18 @@ export function HeroSlider({ messages }: HeroSliderProps) {
     setCurrentSlide((prev) => (prev - 1 + ctaSlides.length) % ctaSlides.length)
   }
 
+  const handleCTAClick = (action: "scroll" | "modal" | null, target: string | null) => {
+    if (action === 'scroll' && target) {
+      document.querySelector(target)?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else if (action === 'modal') {
+      setIsSupportModalOpen(true);
+    }
+  };
+
+  const slide = ctaSlides[currentSlide];
+
   return (
     <>
       <section className="relative w-full overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -186,8 +220,8 @@ export function HeroSlider({ messages }: HeroSliderProps) {
           >
             <div className="relative h-full w-full min-h-[100vh]">
               <Image
-                src={ctaSlides[currentSlide].image}
-                alt={getNestedProperty(messages, ctaSlides[currentSlide].titleKey) || "SunLight Project"}
+                src={slide.image}
+                alt={getNestedProperty(messages, slide.titleKey) || "SunLight Project"}
                 fill
                 className="object-cover"
                 priority={currentSlide === 0}
@@ -226,19 +260,29 @@ export function HeroSlider({ messages }: HeroSliderProps) {
               transition={{ duration: 0.8 }}
               className="flex-1 flex flex-col items-center justify-center max-w-4xl space-y-6 text-center"
             >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl leading-tight">
-                {getNestedProperty(messages, ctaSlides[currentSlide].titleKey)}
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)' }}>
+                {getNestedProperty(messages, slide.titleKey)}
               </h1>
-              <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">
-                {getNestedProperty(messages, ctaSlides[currentSlide].descriptionKey)}
+              <p className="text-lg md:text-xl lg:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-medium" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9)' }}>
+                {getNestedProperty(messages, slide.descriptionKey)}
               </p>
-              <Button
-                size="lg"
-                onClick={() => setIsSupportModalOpen(true)}
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-lg px-8 py-6 shadow-2xl mt-4"
-              >
-                {getNestedProperty(messages, ctaSlides[currentSlide].ctaKey)}
-              </Button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+                <Button
+                  size="lg"
+                  onClick={() => handleCTAClick(slide.ctaAction as any, slide.ctaTarget)}
+                  className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-lg px-8 py-6 shadow-2xl"
+                >
+                  {getNestedProperty(messages, slide.ctaKey)}
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => handleCTAClick(slide.ctaSecondaryAction as any, slide.ctaSecondaryTarget)}
+                  className="text-white border-white/50 hover:bg-white/10 hover:text-white text-lg px-8 py-6 backdrop-blur-sm"
+                >
+                  {getNestedProperty(messages, slide.ctaSecondaryKey)}
+                </Button>
+              </div>
             </motion.div>
           </AnimatePresence>
 

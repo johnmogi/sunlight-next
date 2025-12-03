@@ -28,14 +28,18 @@ export function MediaTabs({ messages, locale }: MediaTabsProps) {
             </p>
           </div>
 
-          <Tabs defaultValue={showPodcast ? "podcast" : "video"} className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto" style={{ gridTemplateColumns: showPodcast ? '1fr 1fr' : '1fr' }}>
+          <Tabs defaultValue={showPodcast ? "podcast" : "suno"} className="w-full">
+            <TabsList className="grid w-full max-w-2xl mx-auto" style={{ gridTemplateColumns: showPodcast ? '1fr 1fr 1fr' : '1fr 1fr' }}>
               {showPodcast && (
                 <TabsTrigger value="podcast" className="gap-2">
                   <Music className="h-4 w-4" />
                   {messages.media?.podcastTab || "Podcast"}
                 </TabsTrigger>
               )}
+              <TabsTrigger value="suno" className="gap-2">
+                <Music className="h-4 w-4" />
+                {messages.media?.sunoTab || "Album"}
+              </TabsTrigger>
               <TabsTrigger value="video" className="gap-2">
                 <Play className="h-4 w-4" />
                 {messages.media?.videoTab || "Video"}
@@ -72,6 +76,33 @@ export function MediaTabs({ messages, locale }: MediaTabsProps) {
                 </p>
               </TabsContent>
             )}
+
+            {/* Suno Album Tab */}
+            <TabsContent value="suno" className="mt-8">
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  {messages.suno?.title || "The SunLight Album"}
+                </h3>
+                <p className="text-muted-foreground">
+                  {messages.suno?.subtitle || "AI-generated music exploring the journey of consciousness"}
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center justify-center py-12 px-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-900 dark:to-slate-800 rounded-lg border-2 border-dashed border-amber-300 dark:border-amber-700">
+                <Music className="h-16 w-16 text-amber-500 mb-4" />
+                <h4 className="text-xl font-semibold mb-2">Coming Soon</h4>
+                <p className="text-muted-foreground text-center max-w-md mb-6">
+                  Our full album is being prepared. Stay tuned for the complete musical journey through the SunLight Tarot.
+                </p>
+                <div className="text-sm text-muted-foreground">
+                  <p>In the meantime, check out our video content below!</p>
+                </div>
+              </div>
+
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                {messages.suno?.caption || "Album coming soon - Exploring the SunLight philosophy through music"}
+              </p>
+            </TabsContent>
 
             {/* Video Tab */}
             <TabsContent value="video" className="mt-8">
