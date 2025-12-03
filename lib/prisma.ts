@@ -1,4 +1,17 @@
-import { PrismaClient } from '@prisma/client/edge'
+import { PrismaClient } from '@prisma/client'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
-export const prisma = new PrismaClient().$extends(withAccelerate())
+const globalForPrisma = globalThis as unknown as {
+  prisma: any
+}
+
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient().$extends(withAccelerate())
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+// Helper to ensure connection is closed in serverless
+export async function disconnectPrisma() {
+  await prisma.$disconnect()
+}
