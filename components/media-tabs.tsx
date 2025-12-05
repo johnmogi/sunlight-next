@@ -119,7 +119,7 @@ export function MediaTabs({ messages, locale }: MediaTabsProps) {
                 {!isYouTubePlaying && (
                   <div
                     className="absolute inset-0 bg-cover bg-center cursor-pointer group"
-                    style={{ backgroundImage: `url(https://img.youtube.com/vi/p9U2U91XfiY/maxresdefault.jpg)` }}
+                    style={{ backgroundImage: `url(https://img.youtube.com/vi/929InPS_r9w/hqdefault.jpg)` }}
                     onClick={() => setIsYouTubePlaying(true)}
                   >
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -134,7 +134,7 @@ export function MediaTabs({ messages, locale }: MediaTabsProps) {
                   <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/p9U2U91XfiY?autoplay=1&start=171"
+                    src="https://www.youtube.com/embed/929InPS_r9w?autoplay=1"
                     title="SunLight Tarot Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
