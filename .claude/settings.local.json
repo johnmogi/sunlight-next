@@ -5,7 +5,10 @@
       "Bash(npx prisma migrate dev:*)",
       "Bash(npx prisma db push:*)",
       "Bash(npx prisma migrate:*)",
-      "Bash(npx tsx:*)"
+      "Bash(npx tsx:*)",
+      "WebSearch",
+      "Bash(node scripts/test-merchize-api.js:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

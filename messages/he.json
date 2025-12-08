@@ -7,9 +7,24 @@
     "collections": "אוספים"
   },
   "hero": {
-    "title": "גלה את האור הפנימי שלך",
-    "subtitle": "חפיסת טארוט מהפכנית המשלבת חכמה עתיקה עם תודעה מודרנית",
-    "cta": "הצטרף למסע"
+    "healer": {
+      "title": "גלה את האור הפנימי שלך",
+      "subtitle": "חפיסת טארוט מהפכנית המשלבת חכמה עתיקה עם תודעה מודרנית",
+      "cta": "הצטרף למסע",
+      "ctaSecondary": "Read the Philosophy"
+    },
+    "dreamer": {
+      "title": "Wake Up Inside the Dream.",
+      "subtitle": "The first tarot deck designed for lucid dreaming. Use the symbols of the day to unlock the awareness of the night.",
+      "cta": "Start the Practice",
+      "ctaSecondary": "Get the Guide"
+    },
+    "builder": {
+      "title": "Build the Deck with Us.",
+      "subtitle": "The Sunlight Tarot is an open-source project. Your voice, your art, and your wisdom belong here.",
+      "cta": "Join the Inner Circle",
+      "ctaSecondary": "View the Roadmap"
+    }
   },
   "join": {
     "title": "עדכנו אותי",
