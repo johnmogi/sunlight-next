@@ -36,7 +36,7 @@ export function Header({ locale, messages }: HeaderProps) {
   }, [scrolled])
 
   const navLinks = [
-    { href: `/${locale}#about`, label: messages.header.about },
+    { href: `/${locale}#philosophy`, label: messages.header.about },
     { href: `/${locale}#gallery`, label: messages.header.gallery },
     { href: `/${locale}#daily-spread`, label: messages.header.daily },
     { href: `/${locale}#complete-deck`, label: messages.header.collections },

@@ -14,15 +14,15 @@
       "ctaSecondary": "Read the Philosophy"
     },
     "dreamer": {
-      "title": "Wake Up Inside the Dream.",
-      "subtitle": "The first tarot deck designed for lucid dreaming. Use the symbols of the day to unlock the awareness of the night.",
+      "title": "Lucid Awakening Inside the Daydream.",
+      "subtitle": "Use the symbols of the day to unlock the awareness of the moment. A practice of presence in a sleeping world.",
       "cta": "Start the Practice",
       "ctaSecondary": "Get the Guide"
     },
     "builder": {
-      "title": "Build the Deck with Us.",
-      "subtitle": "The Sunlight Tarot is an open-source project. Your voice, your art, and your wisdom belong here.",
-      "cta": "Join the Inner Circle",
+      "title": "Shape the Deck.",
+      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "cta": "Start Voting",
       "ctaSecondary": "View the Roadmap"
     }
   },
@@ -102,6 +102,160 @@
     "realization": {
       "title": "Self-Realization through Internal Integration",
       "text": "True realization occurs when one wakes up 'lucid right inside of the dream'. The 'sun lighthouse' acts as a guide, cutting through the fog of the mind and ego to redirect you back to the internal garden—the zero point already existing within. The enemy is gone because 'the hero is me'."
+    }
+  },
+  "aboutContent": {
+    "tabs": {
+      "system": "The System",
+      "suits": "The Suits",
+      "vision": "The Vision",
+      "healing": "Healing Path",
+      "zeroPoint": "Zero Point",
+      "guide": "Daily Guide",
+      "game": "Hidden Garden",
+      "community": "Community"
+    },
+    "system": {
+      "zeroPointTitle": "The Zero Point",
+      "zeroPointDesc": "The Sun is pure consciousness, the Source from which four elemental energies flow. Four angels orbit this central origin, each representing an element emerging from unity.",
+      "aetherTitle": "The Aether Journey",
+      "aetherDesc": "The Major Arcana (0-9) is not a linear path, but a cyclical journey of awakening in the present moment. A continuous spiral of consciousness returning to itself.",
+      "elementsTitle": "The Five Reimagined Elements",
+      "elements": {
+        "aether": {
+          "name": "Aether",
+          "suit": "Central Consciousness, Cyclical Path"
+        },
+        "air": {
+          "name": "Air",
+          "suit": "Wisdom, Clear Thought"
+        },
+        "fire": {
+          "name": "Fire",
+          "suit": "Will, Growth, Action"
+        },
+        "water": {
+          "name": "Water",
+          "suit": "Emotion, Connection, Intuition"
+        },
+        "earth": {
+          "name": "Earth",
+          "suit": "Grounding, Resilience, Durability"
+        }
+      }
+    },
+    "guide": {
+      "title": "The Daily Guide – 'Lily's Guide'",
+      "subtitle": "A Dual Gateway to Spirit and Play",
+      "role": {
+        "title": "Purpose of the Guide",
+        "desc": "To serve as a dual tool: a Rulebook for 'The Hidden Garden' board game, and a deep Interpretive Guide for the Tarot deck.",
+        "concept": "Concept: An essential part of the project, with potential for future development as a standalone book."
+      },
+      "structure": {
+        "title": "Structure & Content",
+        "desc": "Designed as a Flip Book – one side as a Tarot Guide (with positive and empowering interpretations for the 46 cards), and the other side as a Game Oracle (detailing Dialogue Mechanics and Maze Rules)."
+      }
+    },
+    "game": {
+      "title": "'The Hidden Garden': Board Game",
+      "subtitle": "Victory through Connection, Not Conquest",
+      "premise": {
+        "title": " The Premise",
+        "desc": "The world is in a grey 'Daydream'. Players ('Awakeners') embark on a journey through the Card Maze to restore the Lost Garden, transforming 'Blockages' instead of fighting enemies."
+      },
+      "mechanics": {
+        "title": "Core Mechanics: Elemental Dialogue",
+        "desc": "A dance of elements (like emotional Rock-Paper-Scissors) to soothe Blockages: Water heals Fire, Air clarifies Earth. The game takes place on a modular 3x3 grid with archetypal characters."
+      }
+    },
+    "community": {
+      "title": "The Community – Inner Circle",
+      "subtitle": "An Open Source Co-Creation",
+      "participation": {
+        "title": "Shape the Deck",
+        "desc": "The Sunlight Tarot is not just a product, but a living project. We invite you to vote on card designs, suggest meanings, and help us choose the final 46 cards that resonate most."
+      },
+      "openSource": {
+        "title": "Open Source Wisdom",
+        "desc": "We believe wisdom belongs to everyone. The core philosophy, the game mechanics, and the digital assets will be available for the community to explore, expand, and evolve."
+      }
+    },
+    "suits": {
+      "coins": {
+        "title": "Coins - Earth/Matter",
+        "desc": "Path of Manifestation & Abundance. From raw potential to realized wealth through labor and balance."
+      },
+      "roses": {
+        "title": "Roses - Air/Mind",
+        "desc": "Path of Thought & Communication. The mind's journey through clarity, conflict, and wisdom."
+      },
+      "cards": {
+        "title": "Cards - Fire/Will",
+        "desc": "Path of Action & Passion. The will's expression through creative force and transformation."
+      },
+      "aether": {
+        "title": "Aether - Consciousness",
+        "desc": "The Fifth Element that contains all others. Pure awareness manifesting as archetypal journeys."
+      }
+    },
+    "vision": {
+      "lighthouseTitle": "The Rebuilt Lighthouse",
+      "lighthouseDesc": "The Tower of Babylon reimagined as an active lighthouse and vertical paradise. Every crack filled with blooming lavender and climbing roses, inhabitants tending gardens at multiple levels, the bright beacon guiding distant travelers home.",
+      "principlesTitle": "Core Principles",
+      "principles": {
+        "unity": {
+          "title": "Unity Through Diversity",
+          "desc": "Multiple interpretations strengthening one truth. Where the original tower fell through confusion, we reunify through universal symbols."
+        },
+        "rosetta": {
+          "title": "The Sun Rosetta",
+          "desc": "By centering the Sun as our philosophical anchor, we acknowledge that all spiritual systems ultimately point toward enlightenment."
+        },
+        "enneagram": {
+          "title": "Enneagram Integration",
+          "desc": "The ancient ninefold system forms our structural backbone, transforming readings from fortune-telling to self-understanding."
+        },
+        "vertical": {
+          "title": "Vertical Integration",
+          "desc": "Connecting base consciousness to higher awareness. Each card becomes a step in the ascent."
+        }
+      }
+    },
+    "healing": {
+      "title": "A Tarot for Healing, Not Fear",
+      "subtitle": "The Sunlight Tarot transforms traditional imagery to create a psychologically healing 'white deck' rather than a fear-based 'black deck.'",
+      "traditional": {
+        "badge": "Traditional Tarot",
+        "death": {
+          "title": "Death → Fear",
+          "desc": "The reaper, the end, the void. Imagery designed to frighten and control."
+        },
+        "devil": {
+          "title": "Devil → Bondage",
+          "desc": "Chains, suffering, matter as prison. Punishment and limitation."
+        },
+        "tower": {
+          "title": "Tower → Destruction",
+          "desc": "Catastrophe, collapse, divine punishment falling from above."
+        }
+      },
+      "sunlight": {
+        "badge": "Sunlight Tarot",
+        "tree": {
+          "title": "Tree of Life → Transformation",
+          "desc": "Passage through the Kabbalistic Tree. Death as doorway, not destination."
+        },
+        "merkaba": {
+          "title": "Merkaba → Sacred Descent",
+          "desc": "Matter as teacher, geometry of incarnation. Body as temple, not trap."
+        },
+        "lighthouse": {
+          "title": "Lighthouse → Guidance",
+          "desc": "Destruction becoming creation. Ruins as fertile ground, beacon of hope."
+        }
+      },
+      "banner": "This is tarot as therapeutic tool, designed for lucid dreaming and conscious living"
     }
   },
   "cta": {

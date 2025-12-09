@@ -55,7 +55,7 @@ const ctaSlides = [
     ctaSecondaryKey: "hero.builder.ctaSecondary",
     angle: "builder",
     ctaAction: "scroll",
-    ctaTarget: "#join-form",
+    ctaTarget: "#complete-deck",
     ctaSecondaryAction: "scroll",
     ctaSecondaryTarget: "#about",
   }
@@ -296,8 +296,8 @@ export function HeroSlider({ messages }: HeroSliderProps) {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${index === currentSlide
-                      ? "w-10 bg-white shadow-lg"
-                      : "w-2.5 bg-white/40 hover:bg-white/70"
+                    ? "w-10 bg-white shadow-lg"
+                    : "w-2.5 bg-white/40 hover:bg-white/70"
                     }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
