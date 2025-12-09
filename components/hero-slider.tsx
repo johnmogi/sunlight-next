@@ -24,6 +24,18 @@ function getNestedProperty(obj: any, path: string): string {
 // Angle 3 (Building): Use a flat-lay of sketches, pencils, on a wooden table.
 const ctaSlides = [
   {
+    image: "/images/CTA/Board_game_box_cover_for_Scroll_Maze_showing_adventure_throug_a1155554-e458-41ed-bca4-1d1d203ccedb_3.png",
+    titleKey: "hero.builder.title",
+    descriptionKey: "hero.builder.subtitle",
+    ctaKey: "hero.builder.cta",
+    ctaSecondaryKey: "hero.builder.ctaSecondary",
+    angle: "builder",
+    ctaAction: "scroll",
+    ctaTarget: "#complete-deck",
+    ctaSecondaryAction: "scroll",
+    ctaSecondaryTarget: "#about",
+  },
+  {
     image: "/images/CTA/cinematic_golden-hour_hero_banner_vast_desert_sunrise_behind__f1615440-53b2-44da-bb83-00a45ca34c4b_1.png",
     titleKey: "hero.healer.title",
     descriptionKey: "hero.healer.subtitle",
@@ -46,18 +58,6 @@ const ctaSlides = [
     ctaTarget: "#daily-spread",
     ctaSecondaryAction: "modal",
     ctaSecondaryTarget: null,
-  },
-  {
-    image: "/images/CTA/Board_game_box_cover_for_Scroll_Maze_showing_adventure_throug_a1155554-e458-41ed-bca4-1d1d203ccedb_3.png",
-    titleKey: "hero.builder.title",
-    descriptionKey: "hero.builder.subtitle",
-    ctaKey: "hero.builder.cta",
-    ctaSecondaryKey: "hero.builder.ctaSecondary",
-    angle: "builder",
-    ctaAction: "scroll",
-    ctaTarget: "#complete-deck",
-    ctaSecondaryAction: "scroll",
-    ctaSecondaryTarget: "#about",
   }
 ]
 
@@ -180,7 +180,7 @@ export function HeroSlider({ messages }: HeroSliderProps) {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % ctaSlides.length)
-    }, 12000) // Slowed down to 12 seconds
+    }, 18000) // 18 seconds
 
     return () => clearInterval(timer)
   }, [])

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { locales, isRTL, type Locale } from "@/lib/i18n"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LilyChat } from "@/components/lily-chat"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
@@ -69,6 +70,7 @@ export default async function LocaleLayout({
             <Header locale={validLocale} messages={messages} />
             <main className="flex-1">{children}</main>
             <Footer />
+            <LilyChat messages={messages} isRTL={isRTL(validLocale)} />
           </div>
         </ThemeProvider>
         <Analytics />

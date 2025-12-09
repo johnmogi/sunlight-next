@@ -7,9 +7,24 @@
     "collections": "المجموعات"
   },
   "hero": {
-    "title": "اكتشف نورك الداخلي",
-    "subtitle": "مجموعة تاروت ثورية تمزج الحكمة القديمة مع الوعي الحديث",
-    "cta": "انضم إلى الرحلة"
+    "healer": {
+      "title": "Discover Your Inner Light",
+      "subtitle": "A revolutionary tarot deck blending ancient wisdom with modern consciousness",
+      "cta": "Join the Journey",
+      "ctaSecondary": "Read the Philosophy"
+    },
+    "dreamer": {
+      "title": "Lucid Waking within the Daydream",
+      "subtitle": "Use the symbols of the day to unlock the consciousness of the moment. A practice of presence in an old world.",
+      "cta": "Start the Practice",
+      "ctaSecondary": "Get the Guide"
+    },
+    "builder": {
+      "title": "Shape the Deck.",
+      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "cta": "Start Voting",
+      "ctaSecondary": "View the Roadmap"
+    }
   },
   "join": {
     "title": "ابقَ على اطلاع",
@@ -36,7 +51,7 @@
     "caption": "ألبوم يستكشف الوعي والصحوة الروحية"
   },
   "completeDeck": {
-    "title": "مجموعة تاروت ضوء الشمس 0.1.0",
+    "title": "مجموعة تاروت ضوء الشمس 0.2.0",
     "description": "المجموعة الكاملة المعاد بناؤها حول 5 عناصر برحلة داخلية جديدة للأوراق الرئيسية.",
     "all": "الكل",
     "aether": "الأثير (الرئيسية)",
@@ -45,6 +60,20 @@
     "hearts": "القلوب (الماء)",
     "coins": "العملات (الأرض)",
     "majorArcana": "الأوراق الرئيسية"
+  },
+  "aboutContent": {
+    "guide": {
+      "title": "دليل ليلي",
+      "subtitle": "رحلة شخصية نحو النور",
+      "intro": "مرحباً، أنا ليلي. أهلاً بكم في مذكراتي الشخصية. هذا المكان ليس للتنبؤ بالمستقبل، بل لفهم الحاضر.",
+      "reportTitle": "ملاحظة حول البطاقات",
+      "reportIntro": "أدعوكم لترك الخوف عند البوابة والدخول إلى مساحة من الفضول والنمو.",
+      "section1": {
+        "title": "أمنيتي لكم",
+        "desc": "هنا، البطاقات ليست قضاة، بل أصدقاء يهمسون بحقائق نعرفها بالفعل. أتمنى أن تجدوا هنا ليس إجابات للتحكم في المستقبل، بل الشجاعة لاحتضان الحاضر. دعونا ننتقل من أحلام اليقظة إلى العيش بوعي، معاً."
+      },
+      "galleryTitle": "تحيات من ليلي"
+    }
   },
   "about": {
     "title": "فلسفة ضوء الشمس",
@@ -79,8 +108,8 @@
     },
     "slide3": {
       "title": "الرؤية ثلاثية المراحل",
-      "description": "إنشاء مجموعة تاروت ضوء الشمس، ودليل مصور لرحلتك، ولعبة لوحية ScrollMaze - ثلاثة مشاريع مترابطة للاستكشاف الروحي.",
-      "highlight": "مجموعة تاروت • دليل الرحلة • لعبة ScrollMaze",
+      "description": "إنشاء مجموعة تاروت ضوء الشمس، ودليل مصور لرحلتك، ولعبة لوحية The Hidden Garden - ثلاثة مشاريع مترابطة للاستكشاف الروحي.",
+      "highlight": "مجموعة تاروت • دليل الرحلة • لعبة The Hidden Garden",
       "cta": "اعرف المزيد"
     },
     "slide4": {
@@ -142,7 +171,7 @@
   },
   "scrollMaze": {
     "badge": "المرحلة 3",
-    "title": "قريباً: ScrollMaze",
+    "title": "قريباً: The Hidden Garden",
     "subtitle": "حوّل تاروت ضوء الشمس إلى لعبة مغامرات روغلايك",
     "feature1Title": "استكشاف الأبراج المحصنة",
     "feature1Desc": "ضع البطاقات وجهاً لأسفل لإنشاء متاهة متغيرة باستمرار. اقلب البطاقات لكشف الغرف، ارمِ النرد لتحديد اللقاءات.",
@@ -162,5 +191,13 @@
     "noComments": "لا توجد تعليقات بعد. كن الأول!",
     "keywords": "الكلمات المفتاحية",
     "comments": "التعليقات"
+  },
+  "lilyChat": {
+    "greeting": "مرحباً! أنا ليلي. أنا أستكشف العلاقة بين أحلامنا والواقع.",
+    "greetingAction": "انضم إلى الرحلة",
+    "voteMessage": "نحن بحاجة إلى حدسك! ساعدنا في اختيار البطاقات النهائية للمجموعة.",
+    "voteAction": "اذهب إلى المجموعات",
+    "emailMessage": "أود مشاركة المزيد من الاكتشافات معك. هل نبقى على تواصل؟",
+    "emailPlaceholder": "example@email.com"
   }
 }

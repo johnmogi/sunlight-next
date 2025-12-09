@@ -16,6 +16,7 @@ import { CardDetailModal } from "@/components/card-detail-modal"
 
 interface CompleteDeckProps {
   messages: any
+  locale: string
 }
 
 type VoteType = 'like' | 'dislike' | 'love' | null
@@ -39,7 +40,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
   const [voteCounts, setVoteCounts] = React.useState<Record<string, { like: number; dislike: number; love: number }>>({})
   const [visibleCount, setVisibleCount] = React.useState(10) // 2 rows at XL breakpoint (5 cols x 2 rows)
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
-  const [selectedSet, setSelectedSet] = React.useState('tarot-cards-new') // Changed to set-update112 as default
+  const [selectedSet, setSelectedSet] = React.useState('tarot-cards-update129') // Changed to set-update129 as default
   const [cards, setCards] = React.useState<any[]>([])
   const [userId, setUserId] = React.useState('')
 
@@ -56,6 +57,9 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
         case 'tarot-cards-old':
           cardSetModule = await import('@/lib/card-sets/set-old');
           break;
+        case 'tarot-cards-update129':
+          cardSetModule = await import('@/lib/card-sets/set-update129');
+          break;
         default:
           cardSetModule = await import('@/lib/card-sets/set-default');
       }
@@ -64,14 +68,46 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     loadCards();
   }, [selectedSet]);
 
-  // Calculate filtered cards
+  // Localize cards
+  const localizedCards = React.useMemo(() => {
+    return cards.map(card => {
+      let localizedTitle = card.name
+      let localizedDesc = ""
+      let localizedVisual = ""
+
+      // Try to find localization
+      if (card.type === 'major') {
+        const majorKey = card.number.toString()
+        if (messages.cards?.major?.[majorKey]) {
+          localizedTitle = messages.cards.major[majorKey].title
+          localizedDesc = messages.cards.major[majorKey].desc
+        }
+      } else if (card.suit) {
+        const suitKey = card.suit
+        const numKey = card.number.toString()
+        if (messages.cards?.minor?.[suitKey]?.[numKey]) {
+          localizedTitle = messages.cards.minor[suitKey][numKey].title
+          localizedDesc = messages.cards.minor[suitKey][numKey].desc
+        }
+      }
+
+      return {
+        ...card,
+        name: localizedTitle,
+        meaning: localizedDesc || card.meaning,
+        visualDesc: localizedVisual || card.visualDesc // Keep original or update if JSON has it
+      }
+    })
+  }, [cards, messages])
+
+  // Calculate filtered cards from localizedCards
   const filteredCards = activeFilter === 'all'
-    ? cards
-    : cards.filter(card =>
-        activeFilter === 'major'
-          ? card.type === 'major'
-          : card.suit === activeFilter
-      )
+    ? localizedCards
+    : localizedCards.filter(card =>
+      activeFilter === 'major'
+        ? card.type === 'major'
+        : card.suit === activeFilter
+    )
 
   const visibleCards = filteredCards.slice(0, visibleCount)
 
@@ -190,14 +226,15 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     { id: 'all', label: messages.completeDeck?.all || 'All' },
     { id: 'major', label: messages.completeDeck?.aether || 'Aether (Major)' },
     { id: 'roses', label: messages.completeDeck?.roses || 'Roses (Air)' },
-    { id: 'cards', label: messages.completeDeck?.cards || 'Cards (Fire)' },
-    { id: 'hearts', label: messages.completeDeck?.hearts || 'Hearts (Water)' },
-    { id: 'coins', label: messages.completeDeck?.coins || 'Coins (Earth)' },
+    { id: 'leaves', label: messages.completeDeck?.leaves || 'Leaves (Fire)' },
+    { id: 'vessels', label: messages.completeDeck?.vessels || 'Vessels (Water)' },
+    { id: 'crystals', label: messages.completeDeck?.crystals || 'Crystals (Earth)' },
   ]
-  
+
   const cardSets = [
     { id: 'tarot-cards', label: 'Default Set' },
     { id: 'tarot-cards-new', label: 'Update 112 Set' },
+    { id: 'tarot-cards-update129', label: 'Update 129 Set (WIP)' },
     { id: 'tarot-cards-old', label: 'Old Set' },
   ]
 
@@ -206,13 +243,13 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {messages.completeDeck?.title || "Sunlight Tarot Deck 0.1.0"}
+            {messages.completeDeck?.title || "Sunlight Tarot Deck 0.2.0"}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {messages.completeDeck?.description || "The entire deck rebuilt around 5 elements with a new inward journey for the Major Arcana."}
           </p>
         </div>
-        
+
         {/* Set Selector */}
         <div className="flex justify-center mb-8">
           <Select onValueChange={setSelectedSet} defaultValue={selectedSet}>
@@ -264,7 +301,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
                   onClick={() => setSelectedCard(card)}
                 >
                   <Image
-                    src={`/images/cards/${card.image}`}
+                    src={card.image.startsWith('/') ? card.image : `/images/cards/${card.image}`}
                     alt={card.name}
                     fill
                     className="object-cover"
@@ -284,7 +321,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
                   </h3>
                   <p className="text-xs text-muted-foreground">
                     {card.type === 'major' ? messages.completeDeck?.majorArcana || 'Major Arcana' :
-                     card.suit ? `${card.suit.charAt(0).toUpperCase()}${card.suit.slice(1)}` : ''}
+                      card.suit ? `${card.suit.charAt(0).toUpperCase()}${card.suit.slice(1)}` : ''}
                   </p>
 
                   {/* Vote Buttons */}

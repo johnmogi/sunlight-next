@@ -7,8 +7,15 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { type Locale } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
+import { GuideTab } from "./guide-tab"
 
 interface SunlightPhilosophyProps {
   messages: any
@@ -70,8 +77,14 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-6xl mx-auto"
         >
-          <Tabs defaultValue="system" className="w-full">
+          <Tabs defaultValue="guide" className="w-full">
             <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 h-auto gap-2 bg-muted/50 p-2 mb-8">
+              <TabsTrigger
+                value="guide"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white py-3"
+              >
+                {messages.aboutContent?.tabs?.guide || "Daily Guide"}
+              </TabsTrigger>
               <TabsTrigger
                 value="system"
                 className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white py-3"
@@ -101,12 +114,6 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                 className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white py-3"
               >
                 {messages.aboutContent?.tabs?.zeroPoint || "Zero Point"}
-              </TabsTrigger>
-              <TabsTrigger
-                value="guide"
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white py-3"
-              >
-                {messages.aboutContent?.tabs?.guide || "Daily Guide"}
               </TabsTrigger>
               <TabsTrigger
                 value="game"
@@ -197,30 +204,7 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                   </div>
                 </div>
 
-                {/* Five Elements Quick Reference */}
-                <div className="mt-8 pt-8 border-t border-border">
-                  <h4 className="text-xl font-semibold mb-4 text-center">{messages.aboutContent?.system?.elementsTitle || "The Five Elements"}</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                    {[
-                      { elementKey: "aether", symbol: "⊙", color: "from-purple-500 to-pink-500" },
-                      { elementKey: "air", symbol: "△", color: "from-sky-400 to-blue-500" },
-                      { elementKey: "fire", symbol: "▽", color: "from-red-500 to-orange-500" },
-                      { elementKey: "water", symbol: "◇", color: "from-cyan-400 to-blue-600" },
-                      { elementKey: "earth", symbol: "□", color: "from-amber-600 to-yellow-700" }
-                    ].map((item) => (
-                      <div
-                        key={item.elementKey}
-                        className="bg-gradient-to-br from-card to-muted rounded-lg p-4 text-center border border-border hover:border-amber-400 transition-colors"
-                      >
-                        <div className={`text-3xl mb-2 bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
-                          {item.symbol}
-                        </div>
-                        <h5 className="font-bold text-sm">{messages.aboutContent?.system?.elements?.[item.elementKey]?.name}</h5>
-                        <p className="text-xs text-muted-foreground mt-1">{messages.aboutContent?.system?.elements?.[item.elementKey]?.suit}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+
               </Card>
             </TabsContent>
 
@@ -390,33 +374,42 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                   {/* Left: Lighthouse Image & Description */}
                   <div className="space-y-4">
                     <h3 className={cn("text-2xl font-bold", isRTL ? "text-right" : "text-left")}>{messages.aboutContent?.vision?.lighthouseTitle || "The Rebuilt Lighthouse"}</h3>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
-                          <Image
-                            src="/images/about/lighthouse.jpg"
-                            alt="The Rebuilt Lighthouse"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">{messages.aboutContent?.expand || "Expand"}</span>
-                          </div>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
-                        <DialogTitle className="sr-only">{messages.aboutContent?.vision?.lighthouseTitle || "The Rebuilt Lighthouse"}</DialogTitle>
-                        <div className="relative w-full h-[80vh]">
-                          <Image
-                            src="/images/about/lighthouse.jpg"
-                            alt="The Rebuilt Lighthouse"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        "/images/cards/eather/httpss.mj.runCDOUjR1ETtc_5_-_The_Rebuilt_Lighthouse_Concept_T_9b43f5ec-38dd-4e42-9ea9-79081360023b_3.jpg",
+                        "/images/cards/eather/The_Lighthouse_The_Sun_rises_inside_the_rebuilt_Tower_lightho_7492cb0d-bf2e-45e7-ae4f-d9d3689f17f6_0.jpg",
+                        "/images/cards/eather/tilt_shifted_golden_ratio_coloring_book_cover_movie_poster_8__eddfa1be-7085-4785-93b0-10df77aabe25_0.jpg",
+                        "/images/cards/eather/tilt_shited_tarot_card_feltic_frame_of_major_arcane_2_THE_REC_f9aa4b14-be15-4fa7-9759-8a4ed7ef216b_3.jpg"
+                      ].map((src, index) => (
+                        <Dialog key={index}>
+                          <DialogTrigger asChild>
+                            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                              <Image
+                                src={src}
+                                alt={`The Rebuilt Lighthouse Gallery ${index + 1}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 50vw, 25vw"
+                              />
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-xs">{messages.aboutContent?.expand || "Expand"}</span>
+                              </div>
+                            </div>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                            <DialogTitle className="sr-only">{messages.aboutContent?.vision?.lighthouseTitle || "The Rebuilt Lighthouse"}</DialogTitle>
+                            <div className="relative w-full h-[80vh]">
+                              <Image
+                                src={src}
+                                alt={`The Rebuilt Lighthouse Gallery ${index + 1}`}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      ))}
+                    </div>
                     <p className={cn("text-sm text-muted-foreground leading-relaxed", isRTL ? "text-right" : "text-left")}>
                       {messages.aboutContent?.vision?.lighthouseDesc}
                     </p>
@@ -688,74 +681,7 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
             </TabsContent>
 
             {/* Tab 6: Daily Guide */}
-            <TabsContent value="guide" className="mt-0">
-              <Card className="border-2 border-amber-200 dark:border-amber-800 p-6 md:p-8 bg-card/50 backdrop-blur">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  {/* Left: Content */}
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className={cn("text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-2", isRTL ? "text-right" : "text-left")}>
-                        {messages.aboutContent?.guide?.title}
-                      </h3>
-                      <p className={cn("text-lg font-medium text-amber-700 dark:text-amber-400", isRTL ? "text-right" : "text-left")}>
-                        {messages.aboutContent?.guide?.subtitle}
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-lg border border-slate-200 dark:border-slate-800">
-                        <h4 className={cn("font-bold text-slate-800 dark:text-slate-200 mb-2", isRTL ? "text-right" : "text-left")}>
-                          {messages.aboutContent?.guide?.role?.title}
-                        </h4>
-                        <p className={cn("text-sm text-muted-foreground leading-relaxed mb-2", isRTL ? "text-right" : "text-left")}>
-                          {messages.aboutContent?.guide?.role?.desc}
-                        </p>
-                        <p className={cn("text-xs font-semibold text-amber-600 dark:text-amber-500", isRTL ? "text-right" : "text-left")}>
-                          {messages.aboutContent?.guide?.role?.concept}
-                        </p>
-                      </div>
-
-                      <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-lg border border-slate-200 dark:border-slate-800">
-                        <h4 className={cn("font-bold text-slate-800 dark:text-slate-200 mb-2", isRTL ? "text-right" : "text-left")}>
-                          {messages.aboutContent?.guide?.structure?.title}
-                        </h4>
-                        <p className={cn("text-sm text-muted-foreground leading-relaxed", isRTL ? "text-right" : "text-left")}>
-                          {messages.aboutContent?.guide?.structure?.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Image */}
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-[1.02] transition-transform duration-500 cursor-pointer group">
-                        <Image
-                          src="/images/cards/eather/httpss.mj.run5NH0Y7Xq1VA_Lilys_Diary__Guide_for_Lucid_Dreamin_fafd56d6-e901-45f9-86ff-0c513bb0e9fa_0.jpg"
-                          alt="Lily's Guide"
-                          fill
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">{messages.aboutContent?.expand || "Expand"}</span>
-                        </div>
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
-                      <DialogTitle className="sr-only">Lily's Guide</DialogTitle>
-                      <div className="relative w-full h-[80vh]">
-                        <Image
-                          src="/images/cards/eather/httpss.mj.run5NH0Y7Xq1VA_Lilys_Diary__Guide_for_Lucid_Dreamin_fafd56d6-e901-45f9-86ff-0c513bb0e9fa_0.jpg"
-                          alt="Lily's Guide"
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              </Card>
-            </TabsContent>
+            <GuideTab messages={messages} isRTL={isRTL} />
 
             {/* Tab 7: Hidden Garden Game */}
             <TabsContent value="game" className="mt-0">

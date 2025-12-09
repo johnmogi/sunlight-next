@@ -7,9 +7,24 @@
     "collections": "Collections"
   },
   "hero": {
-    "title": "Découvrez Votre Lumière Intérieure",
-    "subtitle": "Un jeu de tarot révolutionnaire alliant sagesse ancienne et conscience moderne",
-    "cta": "Rejoignez le Voyage"
+    "healer": {
+      "title": "Discover Your Inner Light",
+      "subtitle": "A revolutionary tarot deck blending ancient wisdom with modern consciousness",
+      "cta": "Join the Journey",
+      "ctaSecondary": "Read the Philosophy"
+    },
+    "dreamer": {
+      "title": "Lucid Waking within the Daydream",
+      "subtitle": "Use the symbols of the day to unlock the consciousness of the moment. A practice of presence in an old world.",
+      "cta": "Start the Practice",
+      "ctaSecondary": "Get the Guide"
+    },
+    "builder": {
+      "title": "Shape the Deck.",
+      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "cta": "Start Voting",
+      "ctaSecondary": "View the Roadmap"
+    }
   },
   "join": {
     "title": "Restez Informé",
@@ -36,7 +51,7 @@
     "caption": "Un album explorant la conscience et l'éveil spirituel"
   },
   "completeDeck": {
-    "title": "Tarot SunLight Jeu 0.1.0",
+    "title": "Tarot SunLight Jeu 0.2.0",
     "description": "L'ensemble du jeu reconstruit autour de 5 éléments avec un nouveau voyage intérieur pour les Arcanes Majeurs.",
     "all": "Tout",
     "aether": "Éther (Majeur)",
@@ -45,6 +60,20 @@
     "hearts": "Cœurs (Eau)",
     "coins": "Pièces (Terre)",
     "majorArcana": "Arcanes Majeurs"
+  },
+  "aboutContent": {
+    "guide": {
+      "title": "Le Guide de Lily",
+      "subtitle": "Un Voyage Personnel vers la Lumière",
+      "intro": "Bonjour, je suis Lily. Bienvenue dans mon journal personnel. Cet endroit ne sert pas à prédire l'avenir, mais à comprendre le présent.",
+      "reportTitle": "Une Note sur les Cartes",
+      "reportIntro": "Je vous invite à laisser la peur à la porte et à entrer dans un espace de curiosité et de croissance.",
+      "section1": {
+        "title": "Mon Vœu pour Vous",
+        "desc": "Ici, les cartes ne sont pas des juges, mais des amis qui murmurent des vérités que nous connaissons déjà. Puissiez-vous trouver ici non pas des réponses pour contrôler l'avenir, mais le courage d'embrasser le présent. Passons du rêve éveillé à la vie lucide, ensemble."
+      },
+      "galleryTitle": "Salutations de Lily"
+    }
   },
   "about": {
     "title": "La Philosophie SunLight",
@@ -79,8 +108,8 @@
     },
     "slide3": {
       "title": "La Vision en 3 Phases",
-      "description": "Créer le Tarot SunLight, un Journal Guide illustré pour votre voyage, et le jeu de plateau ScrollMaze - trois projets interconnectés pour l'exploration spirituelle.",
-      "highlight": "Jeu de Tarot • Journal Guide • Jeu ScrollMaze",
+      "description": "Créer le Tarot SunLight, un Journal Guide illustré pour votre voyage, et le jeu de plateau The Hidden Garden - trois projets interconnectés pour l'exploration spirituelle.",
+      "highlight": "Jeu de Tarot • Journal Guide • Jeu The Hidden Garden",
       "cta": "En Savoir Plus"
     },
     "slide4": {
@@ -142,7 +171,7 @@
   },
   "scrollMaze": {
     "badge": "Phase 3",
-    "title": "Bientôt : ScrollMaze",
+    "title": "Bientôt : The Hidden Garden",
     "subtitle": "Transformez le Tarot SunLight en un jeu d'aventure roguelike",
     "feature1Title": "Exploration de Donjons",
     "feature1Desc": "Disposez des cartes face cachée pour créer un labyrinthe en constante évolution. Retournez les cartes pour révéler des salles, lancez les dés pour déterminer les rencontres.",
@@ -162,5 +191,13 @@
     "noComments": "Pas encore de commentaires. Soyez le premier !",
     "keywords": "Mots-clés",
     "comments": "Commentaires"
+  },
+  "lilyChat": {
+    "greeting": "Salut ! Je suis Lily. J'explore la connexion entre nos rêves et la réalité.",
+    "greetingAction": "Rejoignez le Voyage",
+    "voteMessage": "Nous avons besoin de votre intuition ! Aidez-nous à choisir les dernières cartes du jeu.",
+    "voteAction": "Aller aux Collections",
+    "emailMessage": "J'aimerais partager plus de découvertes avec vous. Restons-nous en contact ?",
+    "emailPlaceholder": "votre@email.com"
   }
 }

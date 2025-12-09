@@ -51,7 +51,7 @@
     "caption": "An album exploring consciousness and spiritual awakening"
   },
   "completeDeck": {
-    "title": "Sunlight Tarot Deck 0.1.0",
+    "title": "Sunlight Tarot Deck 0.2.0",
     "description": "The entire deck rebuilt around 5 elements with a new inward journey for the Major Arcana.",
     "all": "All",
     "aether": "Aether (Major)",
@@ -142,20 +142,256 @@
           "name": "Earth",
           "suit": "Grounding, Resilience, Durability"
         }
+      },
+      "cards": {
+        "major": {
+          "description": "The Major Arcana - The Aether Journey",
+          "0": {
+            "title": "The Dreamer",
+            "concept": "The Beginning",
+            "desc": "A young figure gazing at the sun, standing at the threshold of a green path."
+          },
+          "2": {
+            "title": "Reflection",
+            "concept": "Connection",
+            "desc": "Two halves of an image, reflecting the dreamer and the awakener."
+          },
+          "3": {
+            "title": "Lucid Dream",
+            "concept": "Feminine Archetype",
+            "desc": "A serene feminine figure resting in a maze of flowers."
+          },
+          "4": {
+            "title": "Reformed Lighthouse",
+            "concept": "Reformed Babel",
+            "desc": "A towering lighthouse emitting soft light, guiding inward."
+          },
+          "6": {
+            "title": "Rising Star",
+            "concept": "Lucifer's Rebellion",
+            "desc": "A radiant figure floating above a material city, refusing enslavement."
+          },
+          "7": {
+            "title": "Tree of Life",
+            "concept": "Heaven on Earth",
+            "desc": "A giant tree with roots in a spiral, embracing humanity."
+          },
+          "9": {
+            "title": "Harmonic Creation",
+            "concept": "Paradoxical Creation",
+            "desc": "The Big Bang in a quiet void, with Mother and Father figures."
+          }
+        },
+        "minor": {
+          "roses": {
+            "title": "Suit of Roses - Air/Thought",
+            "1": {
+              "title": "Ace of Roses",
+              "desc": "A clean start."
+            },
+            "2": {
+              "title": "Two of Roses",
+              "desc": "Doubt and the Doppelganger."
+            },
+            "3": {
+              "title": "Three of Roses",
+              "desc": "Healing."
+            },
+            "4": {
+              "title": "Four of Roses",
+              "desc": "Boundaries."
+            },
+            "5": {
+              "title": "Five of Roses",
+              "desc": "Conflict."
+            },
+            "6": {
+              "title": "Six of Roses",
+              "desc": "The Father."
+            },
+            "7": {
+              "title": "Seven of Roses",
+              "desc": "Inner Journey."
+            },
+            "8": {
+              "title": "Eight of Roses",
+              "desc": "Systemic Understanding."
+            },
+            "9": {
+              "title": "Nine of Roses",
+              "desc": "The Mother."
+            }
+          },
+          "leaves": {
+            "title": "Suit of Leaves - Fire/Will",
+            "1": {
+              "title": "Ace of Leaves",
+              "desc": "Life Force."
+            },
+            "2": {
+              "title": "Two of Leaves",
+              "desc": "Willpower."
+            },
+            "3": {
+              "title": "Three of Leaves",
+              "desc": "Breakthrough."
+            },
+            "4": {
+              "title": "Four of Leaves",
+              "desc": "Stability."
+            },
+            "5": {
+              "title": "Five of Leaves",
+              "desc": "Loss."
+            },
+            "6": {
+              "title": "Six of Leaves",
+              "desc": "The Father."
+            },
+            "7": {
+              "title": "Seven of Leaves",
+              "desc": "The Mission."
+            },
+            "8": {
+              "title": "Eight of Leaves",
+              "desc": "Investment."
+            },
+            "9": {
+              "title": "Nine of Leaves",
+              "desc": "The Mother."
+            }
+          },
+          "vessels": {
+            "title": "Suit of Vessels - Water/Emotion",
+            "1": {
+              "title": "Ace of Vessels",
+              "desc": "Source of Emotion."
+            },
+            "2": {
+              "title": "Two of Vessels",
+              "desc": "Connection."
+            },
+            "3": {
+              "title": "Three of Vessels",
+              "desc": "Community Joy."
+            },
+            "4": {
+              "title": "Four of Vessels",
+              "desc": "Reflection."
+            },
+            "5": {
+              "title": "Five of Vessels",
+              "desc": "Grief."
+            },
+            "6": {
+              "title": "Six of Vessels",
+              "desc": "The Father."
+            },
+            "7": {
+              "title": "Seven of Vessels",
+              "desc": "Illusions."
+            },
+            "8": {
+              "title": "Eight of Vessels",
+              "desc": "Seeking."
+            },
+            "9": {
+              "title": "Nine of Vessels",
+              "desc": "The Mother."
+            }
+          },
+          "crystals": {
+            "title": "Suit of Crystals - Earth/Matter",
+            "1": {
+              "title": "Ace of Crystals",
+              "desc": "Opportunity."
+            },
+            "2": {
+              "title": "Two of Crystals",
+              "desc": "Balance."
+            },
+            "3": {
+              "title": "Three of Crystals",
+              "desc": "Cooperation."
+            },
+            "4": {
+              "title": "Four of Crystals",
+              "desc": "Security."
+            },
+            "5": {
+              "title": "Five of Crystals",
+              "desc": "Scarcity."
+            },
+            "6": {
+              "title": "Six of Crystals",
+              "desc": "The Father."
+            },
+            "7": {
+              "title": "Seven of Crystals",
+              "desc": "Patience."
+            },
+            "8": {
+              "title": "Eight of Crystals",
+              "desc": "Craftsmanship."
+            },
+            "9": {
+              "title": "Nine of Crystals",
+              "desc": "The Mother."
+            }
+          },
+          "diamonds": {
+            "title": "Suit of Diamonds - Spirit",
+            "1": {
+              "title": "Ace of Diamonds",
+              "desc": "Potential."
+            },
+            "2": {
+              "title": "Two of Diamonds",
+              "desc": "Discernment."
+            },
+            "3": {
+              "title": "Three of Diamonds",
+              "desc": "Shared Vision."
+            },
+            "4": {
+              "title": "Four of Diamonds",
+              "desc": "Boundaries."
+            },
+            "5": {
+              "title": "Five of Diamonds",
+              "desc": "Energy Loss."
+            },
+            "6": {
+              "title": "Six of Diamonds",
+              "desc": "The Father."
+            },
+            "7": {
+              "title": "Seven of Diamonds",
+              "desc": "Choosing the Path."
+            },
+            "8": {
+              "title": "Eight of Diamonds",
+              "desc": "Focus."
+            },
+            "9": {
+              "title": "Nine of Diamonds",
+              "desc": "The Mother."
+            }
+          }
+        }
       }
     },
     "guide": {
-      "title": "The Daily Guide – 'Lily's Guide'",
-      "subtitle": "A Dual Gateway to Spirit and Play",
-      "role": {
-        "title": "Purpose of the Guide",
-        "desc": "To serve as a dual tool: a Rulebook for 'The Hidden Garden' board game, and a deep Interpretive Guide for the Tarot deck.",
-        "concept": "Concept: An essential part of the project, with potential for future development as a standalone book."
+      "title": "Lily's Guide",
+      "subtitle": "A Personal Journey into Light",
+      "intro": "Hi, I'm Lily. Welcome to my personal diary. This place is not about predicting the future, but about understanding the present.",
+      "reportTitle": "A Note on the Cards",
+      "reportIntro": "I invite you to leave fear at the gate and enter a space of curiosity and growth.",
+      "section1": {
+        "title": "My Wish for You",
+        "desc": "Here, the cards are not judges, but friends whispering truths we already know. May you find here not answers to control the future, but the courage to embrace the present. Let us shift from daydreaming to lucid living, together."
       },
-      "structure": {
-        "title": "Structure & Content",
-        "desc": "Designed as a Flip Book – one side as a Tarot Guide (with positive and empowering interpretations for the 46 cards), and the other side as a Game Oracle (detailing Dialogue Mechanics and Maze Rules)."
-      }
+      "galleryTitle": "Greetings from Lily"
     },
     "game": {
       "title": "'The Hidden Garden': Board Game",
@@ -273,8 +509,8 @@
     },
     "slide3": {
       "title": "The 3-Phase Vision",
-      "description": "Creating the SunLight Tarot Deck, an illustrated Guide Diary for your journey, and the ScrollMaze board game—three interconnected projects for spiritual exploration.",
-      "highlight": "Tarot Deck • Guide Diary • ScrollMaze Game",
+      "description": "Creating the SunLight Tarot Deck, an illustrated Guide Diary for your journey, and The Hidden Garden board game—three interconnected projects for spiritual exploration.",
+      "highlight": "Tarot Deck • Guide Diary • The Hidden Garden Game",
       "cta": "Learn More"
     },
     "slide4": {
@@ -336,7 +572,7 @@
   },
   "scrollMaze": {
     "badge": "Phase 3",
-    "title": "Coming Soon: ScrollMaze",
+    "title": "Coming Soon: The Hidden Garden",
     "subtitle": "Transform the Sunlight Tarot into a roguelike adventure game",
     "feature1Title": "Dungeon Exploration",
     "feature1Desc": "Lay out cards face-down to create an ever-changing maze. Flip cards to reveal rooms, roll dice to determine encounters.",
@@ -356,5 +592,13 @@
     "noComments": "No comments yet. Be the first!",
     "keywords": "Keywords",
     "comments": "Comments"
+  },
+  "lilyChat": {
+    "greeting": "Hi! I'm Lily. I'm exploring the connection between our dreams and reality.",
+    "greetingAction": "Join the Journey",
+    "voteMessage": "We need your intuition! Help us choose the final cards for the deck.",
+    "voteAction": "Go to Collections",
+    "emailMessage": "I'd love to share more discoveries with you. Shall we stay in touch?",
+    "emailPlaceholder": "your@email.com"
   }
 }

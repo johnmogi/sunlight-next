@@ -33,8 +33,8 @@ export function ScrollMazeBanner({ messages, onLearnMore }: ScrollMazeBannerProp
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/scrollmaze-cover.jpg"
-          alt="ScrollMaze Board Game"
+          src="/images/about/hgsplash.jpg"
+          alt="The Hidden Garden Board Game"
           className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-purple-900/80 to-slate-900/90"></div>

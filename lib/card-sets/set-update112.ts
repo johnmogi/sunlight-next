@@ -1,58 +1,8 @@
 export const TAROT_CARDS = [
   {
-    id: "coins-1",
-    name: "Coins 1",
-    image: "update112/coins/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__091e826b-95b8-410e-b3d8-bc8a4d64d612_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 1,
-    suit: "coins" as const
-  },
-  {
-    id: "coins-2",
-    name: "Coins 2",
-    image: "update112/coins/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__17a6cfff-10ea-4821-8266-0e33578ee5aa_0.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 2,
-    suit: "coins" as const
-  },
-  {
-    id: "coins-3",
-    name: "Coins 3",
-    image: "update112/coins/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__61ff4b0b-b730-4d9a-b8c8-1f0ec65be872_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 3,
-    suit: "coins" as const
-  },
-  {
-    id: "coins-4",
-    name: "Coins 4",
-    image: "update112/coins/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__8f8614d4-e51b-4dd8-a83f-b696d2517398_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 4,
-    suit: "coins" as const
-  },
-  {
-    id: "coins-5",
-    name: "Coins 5",
-    image: "update112/coins/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__93ce3da4-c2de-41d7-8cd0-4ff0ed644c8c_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 5,
-    suit: "coins" as const
-  },
-  {
-    id: "crystals-1",
+    id: "crystals-1_05_3_jpg",
     name: "Crystals 1",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__01c0bf1b-579f-4263-b724-995e892d84c8_3.png",
+    image: "cardcollection/Ace_of_Crystals_-_Earth_Solar_Bread_Bearer_Cheerful_young_angel-_c56335c7-d030-470f-ac3c-6dd5bb42eb05_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -60,9 +10,19 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-2",
+    id: "crystals-1_10_1_jpg",
+    name: "Crystals 1",
+    image: "cardcollection/Ace_of_Crystals_-_The_First_Loaf_tilt-shifted_golden-ratio_color_f09e02a4-7178-4ffe-9eef-6521c6d50810_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-2_4a_0_jpg",
     name: "Crystals 2",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__0a30c6ed-d41d-458f-9ff5-a1af93e1c6d7_3.png",
+    image: "cardcollection/2_of_Crystals_-_Dance_of_Plenty_tilt-shifted_golden-ratio_colori_a167dfa0-deaf-4a9c-aed3-161b624b164a_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -70,9 +30,19 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-3",
+    id: "crystals-2_4a_3_jpg",
+    name: "Crystals 2",
+    image: "cardcollection/2_of_Crystals_-_Dance_of_Plenty_tilt-shifted_golden-ratio_colori_a167dfa0-deaf-4a9c-aed3-161b624b164a_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-3_aa_3_jpg",
     name: "Crystals 3",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__2ff80f2a-857b-4dcf-bb30-2d76f59a8679_0.png",
+    image: "cardcollection/3_of_Crystals_-_Child_of_Crystals_tilt-shifted_golden-ratio_colorin_113a042c-aeeb-440e-bdc3-7d37923a98aa_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -80,9 +50,9 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-4",
+    id: "crystals-4_e1_0_jpg",
     name: "Crystals 4",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__2ff80f2a-857b-4dcf-bb30-2d76f59a8679_1.png",
+    image: "cardcollection/4_of_Crystals_-_Fortress_of_Bread_tilt-shifted_golden-ratio_colo_576191b3-1918-4799-a37a-1676b11594e1_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -90,9 +60,49 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-5",
+    id: "crystals-4_e1_2_jpg",
+    name: "Crystals 4",
+    image: "cardcollection/4_of_Crystals_-_Fortress_of_Bread_tilt-shifted_golden-ratio_colo_576191b3-1918-4799-a37a-1676b11594e1_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-4_e1_3_jpg",
+    name: "Crystals 4",
+    image: "cardcollection/4_of_Crystals_-_Fortress_of_Bread_tilt-shifted_golden-ratio_colo_576191b3-1918-4799-a37a-1676b11594e1_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-4_b1_1_jpg",
+    name: "Crystals 4",
+    image: "cardcollection/4_of_Crystals_-_Fortress_of_Bread_tilt-shifted_golden-ratio_colo_74e2f925-0948-4568-939a-44ff9b2790b1_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-4_b1_2_jpg",
+    name: "Crystals 4",
+    image: "cardcollection/4_of_Crystals_-_Fortress_of_Bread_tilt-shifted_golden-ratio_colo_74e2f925-0948-4568-939a-44ff9b2790b1_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-5_22_1_jpg",
     name: "Crystals 5",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__2ff80f2a-857b-4dcf-bb30-2d76f59a8679_2.png",
+    image: "cardcollection/5_of_Crystals_-_Hunger__Hope_tilt-shifted_golden-ratio_coloring-_20a8fcab-777b-4e6f-bab4-912f71867d22_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -100,9 +110,19 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-6",
+    id: "crystals-5_22_3_jpg",
+    name: "Crystals 5",
+    image: "cardcollection/5_of_Crystals_-_Hunger__Hope_tilt-shifted_golden-ratio_coloring-_20a8fcab-777b-4e6f-bab4-912f71867d22_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "crystals" as const
+  },
+  {
+    id: "crystals-6_33_1_jpg",
     name: "Crystals 6",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__3ef26f61-b0ba-44f7-badf-29e83e373c24_3.png",
+    image: "cardcollection/6_of_Crystals_-_Father_of_Crystals_old_King_tilt-shifted_golden-rat_4fdf3703-c682-45fd-9d83-b1a6fabb9c33_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -110,9 +130,9 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-7",
+    id: "crystals-7_8f_1_jpg",
     name: "Crystals 7",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__5c9ffaa0-796a-4b7e-8089-8328ca6990e3_3.png",
+    image: "cardcollection/7_of_Crystals_-_Patient_Harvest_tilt-shifted_golden-ratio_colori_c1262e43-0762-4d11-a713-dc1ae7888d8f_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -120,19 +140,9 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-8",
-    name: "Crystals 8",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__615a2faf-5fdd-4fb4-bc17-804e4c36fda4_0.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 8,
-    suit: "crystals" as const
-  },
-  {
-    id: "crystals-9",
+    id: "crystals-9_ea_1_jpg",
     name: "Crystals 9",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__615a2faf-5fdd-4fb4-bc17-804e4c36fda4_1.png",
+    image: "cardcollection/9_of_Crystals_-_Mother_of_Crystals_old_Queen_tilt-shifted_golden-ra_729a6f27-ab3c-4010-8732-eac322d7fbea_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -140,79 +150,49 @@ export const TAROT_CARDS = [
     suit: "crystals" as const
   },
   {
-    id: "crystals-10",
-    name: "Crystals 10",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__6bca5f62-f3b4-459e-9686-97d4c5e0dc6b_0.png",
+    id: "crystals-9_ea_2_jpg",
+    name: "Crystals 9",
+    image: "cardcollection/9_of_Crystals_-_Mother_of_Crystals_old_Queen_tilt-shifted_golden-ra_729a6f27-ab3c-4010-8732-eac322d7fbea_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 10,
+    number: 9,
     suit: "crystals" as const
   },
   {
-    id: "crystals-11",
-    name: "Crystals 11",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__8f8be7b1-e733-4e76-886c-bc055ec558bc_3.png",
+    id: "crystals-9_9e_3_jpg",
+    name: "Crystals 9",
+    image: "cardcollection/httpss.mj.runNRUzwYQM0UA_9_of_Crystals_-_Mother_of_Crystals_old_Que_f6004ffc-6cf1-45dc-9e5f-de123703069e_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 11,
+    number: 9,
     suit: "crystals" as const
   },
   {
-    id: "crystals-12",
-    name: "Crystals 12",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__aa57265e-5d87-45da-b16e-8d23a0143d6d_0.png",
+    id: "ether-0_b0_3_jpg",
+    name: "Major 0",
+    image: "cardcollection/0_-_The_Sun_Central_teaching_card_-_the_four_elemental_childr_e2d69094-be8b-4a5e-8c16-498518e62db0_3.jpg",
     meaning: "",
     visualDesc: "",
-    type: "minor" as const,
-    number: 12,
-    suit: "crystals" as const
+    type: "major" as const,
+    number: 0,
+    suit: "ether" as const
   },
   {
-    id: "crystals-13",
-    name: "Crystals 13",
-    image: "update112/crystals/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__d139c972-4482-476b-8f34-dc551cf3c3ec_0.png",
+    id: "ether-0_73_1_jpg",
+    name: "Major 0",
+    image: "cardcollection/0_-_The_Sun_Four_Angels_orbiting_the_Feminine_Sun_Radiant_liv_c77b17b0-ad3f-4853-8838-d343172df373_1.jpg",
     meaning: "",
     visualDesc: "",
-    type: "minor" as const,
-    number: 13,
-    suit: "crystals" as const
+    type: "major" as const,
+    number: 0,
+    suit: "ether" as const
   },
   {
-    id: "crystals-14",
-    name: "Crystals 14",
-    image: "update112/crystals/text_pure_soft_watercolor_anime_double-exposure_tarot_card_no_67a60931-5b59-4ec6-a847-e2974ba7f2f4_0.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 14,
-    suit: "crystals" as const
-  },
-  {
-    id: "crystals-15",
-    name: "Crystals 15",
-    image: "update112/crystals/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_07758e08-4521-46bc-86f9-6c4ea4d55c30_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 15,
-    suit: "crystals" as const
-  },
-  {
-    id: "crystals-16",
-    name: "Crystals 16",
-    image: "update112/crystals/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_43a834ec-da3b-484b-b969-102649a5e83a_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 16,
-    suit: "crystals" as const
-  },
-  {
-    id: "ether-1",
-    name: "Ether 1",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__1fb17c83-5e4c-47a6-ba31-999cc5fcd53a_2.png",
+    id: "ether-1_f7_1_jpg",
+    name: "Major 1",
+    image: "cardcollection/0_-_The_Sun_Serene_feminine_sun-face_with_gentle_closed_eyes__87e004a9-5a06-49e8-9b33-a4dd63f014f7_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -220,9 +200,29 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-2",
-    name: "Ether 2",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__26fb06a7-be75-4abd-a622-c32e78e1d6e7_1.png",
+    id: "ether-1_f7_2_jpg",
+    name: "Major 1",
+    image: "cardcollection/0_-_The_Sun_Serene_feminine_sun-face_with_gentle_closed_eyes__87e004a9-5a06-49e8-9b33-a4dd63f014f7_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 1,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-1_f7_3_jpg",
+    name: "Major 1",
+    image: "cardcollection/0_-_The_Sun_Serene_feminine_sun-face_with_gentle_closed_eyes__87e004a9-5a06-49e8-9b33-a4dd63f014f7_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 1,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-2_c5_0_jpg",
+    name: "Major 2",
+    image: "cardcollection/2_-_The_Night_Awakener_Innocent_Korean_or_Southeast-Asian_gir_3eb48747-c0a0-451f-84f6-f31c98b17fc5_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -230,19 +230,9 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-3",
-    name: "Ether 3",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__2f458807-37e3-4b94-a0aa-fc4c41bea114_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 3,
-    suit: "ether" as const
-  },
-  {
-    id: "ether-4",
-    name: "Ether 4",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__2f458807-37e3-4b94-a0aa-fc4c41bea114_3.png",
+    id: "ether-4_a1_0_jpg",
+    name: "Major 4",
+    image: "cardcollection/4_-_The_Material_Phoenix_Joyful_Central-Asian_MongolianKazakh_de9c0bdb-95f7-40fb-9a05-c7f5c4ebaea1_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -250,9 +240,29 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-5",
-    name: "Ether 5",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__989abb22-72ca-4030-b872-2a228e988de9_0.png",
+    id: "ether-4_a1_2_jpg",
+    name: "Major 4",
+    image: "cardcollection/4_-_The_Material_Phoenix_Joyful_Central-Asian_MongolianKazakh_de9c0bdb-95f7-40fb-9a05-c7f5c4ebaea1_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 4,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-4_16_1_jpg",
+    name: "Major 4",
+    image: "cardcollection/4_-_The_Reborn_Phoenix_Liberation_from_the_ashes_of_the_ego_t_335df3ca-6fe4-473d-bdcb-67ed7fb50216_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 4,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-5_14_3_jpg",
+    name: "Major 5",
+    image: "cardcollection/5_-_The_Rebuilt_Lighthouse_Concept_The_ancient_lighthouse-tem_5f0e4088-ce27-491a-9d6b-04c42689e914_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -260,9 +270,29 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-6",
-    name: "Ether 6",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__989abb22-72ca-4030-b872-2a228e988de9_3.png",
+    id: "ether-5_17_0_jpg",
+    name: "Major 5",
+    image: "cardcollection/5_-_The_Tree_of_Life_The_restored_axis_mundi_tilt-shifted_gol_54b03617-54d6-4da5-851a-5ddfb088ef17_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 5,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-5_17_2_jpg",
+    name: "Major 5",
+    image: "cardcollection/5_-_The_Tree_of_Life_The_restored_axis_mundi_tilt-shifted_gol_54b03617-54d6-4da5-851a-5ddfb088ef17_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 5,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-6_fb_3_jpg",
+    name: "Major 6",
+    image: "cardcollection/6_-_Lovers_Judgment_Young_Filipina_girl_and_Vietnamese_boy_fa_669f16d8-8338-4858-ba12-f348caeebafb_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -270,19 +300,29 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-7",
-    name: "Ether 7",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_no_ink__a1847340-607c-42fa-92d1-ba34b9675814_3.png",
+    id: "ether-6_d2_0_jpg",
+    name: "Major 6",
+    image: "cardcollection/6_-_The_Lovers_Union_Concept_Two_travelers_male_and_female_si_e8411cf2-2a1c-4f14-9fdc-45d2ee0003d2_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
-    number: 7,
+    number: 6,
     suit: "ether" as const
   },
   {
-    id: "ether-8",
-    name: "Ether 8",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__01c0bf1b-579f-4263-b724-995e892d84c8_0.png",
+    id: "ether-6_ae_0_jpg",
+    name: "Major 6",
+    image: "cardcollection/6_-_The_Lovers_Union_Divine_marriage_under_the_Tree_of_Life_t_f3ab6225-3691-4a73-b7ab-30df4ccafeae_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 6,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-8_e2_1_jpg",
+    name: "Major 8",
+    image: "cardcollection/8_-_The_Merkaba_Chariot__Wheel_Translucent_rose-petal_Merkaba_86c7df33-4905-440e-9ac4-0963da700ce2_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -290,9 +330,29 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-9",
-    name: "Ether 9",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__01c0bf1b-579f-4263-b724-995e892d84c8_1.png",
+    id: "ether-8_e2_3_jpg",
+    name: "Major 8",
+    image: "cardcollection/8_-_The_Merkaba_Chariot__Wheel_Translucent_rose-petal_Merkaba_86c7df33-4905-440e-9ac4-0963da700ce2_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 8,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-8_2d_2_jpg",
+    name: "Major 8",
+    image: "cardcollection/8_-_The_Merkaba_Wheel_The_spinning_star-vehicle_of_ascension__d84cab08-5c63-432d-b304-9985a3b3eb2d_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "major" as const,
+    number: 8,
+    suit: "ether" as const
+  },
+  {
+    id: "ether-9_7a_0_jpg",
+    name: "Major 9",
+    image: "cardcollection/9_-_Feminine_Creation_Universe__World_Full-circle_silhouette__39113436-9add-45a9-838b-7a8073d2bd7a_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
@@ -300,69 +360,19 @@ export const TAROT_CARDS = [
     suit: "ether" as const
   },
   {
-    id: "ether-10",
-    name: "Ether 10",
-    image: "update112/ether/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__0a30c6ed-d41d-458f-9ff5-a1af93e1c6d7_0.png",
+    id: "ether-9_ce_1_jpg",
+    name: "Major 9",
+    image: "cardcollection/9_-_The_Feminine_Creation_The_cosmic_womb_from_which_everythi_62a00330-245c-4cf0-89c6-75b9171cf2ce_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "major" as const,
-    number: 10,
+    number: 9,
     suit: "ether" as const
   },
   {
-    id: "ether-11",
-    name: "Ether 11",
-    image: "update112/ether/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_f2cc2943-df03-4c3c-baab-f74d0881899f_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 11,
-    suit: "ether" as const
-  },
-  {
-    id: "ether-12",
-    name: "Ether 12",
-    image: "update112/ether/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_f2cc2943-df03-4c3c-baab-f74d0881899f_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 12,
-    suit: "ether" as const
-  },
-  {
-    id: "ether-13",
-    name: "Ether 13",
-    image: "update112/ether/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_f7676623-06da-4673-b4a8-e12203e8317a_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 13,
-    suit: "ether" as const
-  },
-  {
-    id: "ether-14",
-    name: "Ether 14",
-    image: "update112/ether/watercolor_anime_movie_poster_no_ink_outlines_double-exposure_c0a559c1-7ab1-4353-b337-6cb87c6661df_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 14,
-    suit: "ether" as const
-  },
-  {
-    id: "ether-15",
-    name: "Ether 15",
-    image: "update112/ether/watercolor_anime_movie_poster_no_ink_outlines_double-exposure_f24a9ba9-6356-42c0-8122-3a248c43d297_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "major" as const,
-    number: 15,
-    suit: "ether" as const
-  },
-  {
-    id: "leaves-1",
+    id: "leaves-1_ae_0_jpg",
     name: "Leaves 1",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__01f4d5cf-4647-42ae-8776-95115edbf55f_1.png",
+    image: "cardcollection/Ace_of_Cards_-_The_First_Mirror_tilt-shifted_golden-ratio_col_9d7b4a75-dddd-43c2-b5f2-e699286c2cae_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -370,9 +380,39 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-2",
+    id: "leaves-1_ae_2_jpg",
+    name: "Leaves 1",
+    image: "cardcollection/Ace_of_Cards_-_The_First_Mirror_tilt-shifted_golden-ratio_col_9d7b4a75-dddd-43c2-b5f2-e699286c2cae_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-1_ae_3_jpg",
+    name: "Leaves 1",
+    image: "cardcollection/Ace_of_Cards_-_The_First_Mirror_tilt-shifted_golden-ratio_col_9d7b4a75-dddd-43c2-b5f2-e699286c2cae_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-1_4d_3_jpg",
+    name: "Leaves 1",
+    image: "cardcollection/Ace_of_Cards_-_The_Mirror_Tablet_Proud_Maya-Inca_youth_13-15__ef9eeacb-7e89-4740-83a2-862d6af3a64d_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-2_06_1_jpg",
     name: "Leaves 2",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__028be81c-9586-4045-b922-b3bf8927df3d_0.png",
+    image: "cardcollection/2_of_Cards_-_Sacred_Alliance_Two_mirrored_figures_Amazonian_g_b8921a7d-a84a-460d-8f5a-9eafa22f0906_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -380,9 +420,29 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-3",
+    id: "leaves-2_ba_0_jpg",
+    name: "Leaves 2",
+    image: "cardcollection/2_of_Cards_-_The_Two_Reflections_tilt-shifted_golden-ratio_co_52df8c57-6f9b-41b1-9f3f-d9a1acada7ba_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-2_ba_3_jpg",
+    name: "Leaves 2",
+    image: "cardcollection/2_of_Cards_-_The_Two_Reflections_tilt-shifted_golden-ratio_co_52df8c57-6f9b-41b1-9f3f-d9a1acada7ba_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-3_7c_3_jpg",
     name: "Leaves 3",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__1244b947-de51-4c50-83fd-becc5ddcfdb7_0.png",
+    image: "cardcollection/3_of_Cards_-_Child_of_Cards_KnightPage_merged_Joyful_mixed_Ma_d1ddb1ea-4be3-422c-ae20-4f752dc19e7c_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -390,9 +450,19 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-4",
+    id: "leaves-3_47_1_jpg",
+    name: "Leaves 3",
+    image: "cardcollection/3_of_Cards_-_Child_of_Cards_tilt-shifted_golden-ratio_colorin_91606b8e-bc10-4977-a115-c219ae1f7f47_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 3,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-4_d0_2_jpg",
     name: "Leaves 4",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__1da4a09b-bf51-4d63-8cae-57afc6008947_2.png",
+    image: "cardcollection/4_of_Cards_-_Celebration_of_Arrival_Four_Inuit_and_Amazonian__48f7cbd8-d6b3-4de2-a105-0ac2b36e92d0_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -400,9 +470,39 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-5",
+    id: "leaves-4_d6_0_jpg",
+    name: "Leaves 4",
+    image: "cardcollection/4_of_Cards_-_Fortress_of_Mirrors_tilt-shifted_golden-ratio_co_b74c66e9-da80-41c0-a723-a6960bff49d6_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-4_d6_1_jpg",
+    name: "Leaves 4",
+    image: "cardcollection/4_of_Cards_-_Fortress_of_Mirrors_tilt-shifted_golden-ratio_co_b74c66e9-da80-41c0-a723-a6960bff49d6_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-4_d6_3_jpg",
+    name: "Leaves 4",
+    image: "cardcollection/4_of_Cards_-_Fortress_of_Mirrors_tilt-shifted_golden-ratio_co_b74c66e9-da80-41c0-a723-a6960bff49d6_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-5_73_0_jpg",
     name: "Leaves 5",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__3008507a-90a3-45f1-96c2-16c612055ad7_0.png",
+    image: "cardcollection/5_of_Cards_-_Shattered_Vision_tilt-shifted_golden-ratio_color_8cf37b0e-13f8-4fd1-b407-489aed21c773_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -410,9 +510,29 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-6",
+    id: "leaves-5_b7_0_jpg",
+    name: "Leaves 5",
+    image: "cardcollection/5_of_Cards_-_Struggle_for_Vision_Five_Indigenous_warriors_Azt_a87ff7d1-015b-47da-9d20-508c7581f9b7_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-5_b7_3_jpg",
+    name: "Leaves 5",
+    image: "cardcollection/5_of_Cards_-_Struggle_for_Vision_Five_Indigenous_warriors_Azt_a87ff7d1-015b-47da-9d20-508c7581f9b7_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-6_e4_2_jpg",
     name: "Leaves 6",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__5c7ea179-eb6e-4b96-8c86-ab2936a4f705_2.png",
+    image: "cardcollection/6_of_Cards_-_Father_of_Cards_old_King_tilt-shifted_golden-rat_0f007859-b870-45a6-ac09-b7b0ae2804e4_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -420,9 +540,39 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-7",
+    id: "leaves-6_e4_3_jpg",
+    name: "Leaves 6",
+    image: "cardcollection/6_of_Cards_-_Father_of_Cards_old_King_tilt-shifted_golden-rat_0f007859-b870-45a6-ac09-b7b0ae2804e4_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-6_5f_0_jpg",
+    name: "Leaves 6",
+    image: "cardcollection/6_of_Cards_-_Father_of_Cards_old_King_Wise_elder_Inca-Maya_fe_ca95e8f9-eaa2-4e32-b5a4-787ceaca785f_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-6_5f_1_jpg",
+    name: "Leaves 6",
+    image: "cardcollection/6_of_Cards_-_Father_of_Cards_old_King_Wise_elder_Inca-Maya_fe_ca95e8f9-eaa2-4e32-b5a4-787ceaca785f_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-7_fd_1_jpg",
     name: "Leaves 7",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__71881bd6-fbb7-42f9-bf16-7b66fd69747b_0.png",
+    image: "cardcollection/7_of_Cards_-_Illusions_of_Truth_tilt-shifted_golden-ratio_col_962ebfb2-48d7-4a45-abec-f3055af6effd_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -430,9 +580,19 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-8",
+    id: "leaves-7_fd_3_jpg",
+    name: "Leaves 7",
+    image: "cardcollection/7_of_Cards_-_Illusions_of_Truth_tilt-shifted_golden-ratio_col_962ebfb2-48d7-4a45-abec-f3055af6effd_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 7,
+    suit: "leaves" as const
+  },
+  {
+    id: "leaves-8_52_0_jpg",
     name: "Leaves 8",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__71881bd6-fbb7-42f9-bf16-7b66fd69747b_2.png",
+    image: "cardcollection/8_of_Cards_-_Swift_Awakening_tilt-shifted_golden-ratio_colori_29f79f15-d385-4d05-a510-555cc2e44552_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -440,9 +600,9 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-9",
+    id: "leaves-9_ca_2_jpg",
     name: "Leaves 9",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__961ce128-6bbc-4eae-8ba6-f04bdd236ce3_0.png",
+    image: "cardcollection/9_of_Cards_-_Mother_of_Cards_old_Queen_Serene_mixed_Aztec-Que_13068260-3d57-4ae6-9d41-c56f2e4edaca_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -450,69 +610,39 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-10",
-    name: "Leaves 10",
-    image: "update112/leaves/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__a6f9a535-4c8c-4453-a3ac-477baa10e723_3.png",
+    id: "leaves-9_ca_3_jpg",
+    name: "Leaves 9",
+    image: "cardcollection/9_of_Cards_-_Mother_of_Cards_old_Queen_Serene_mixed_Aztec-Que_13068260-3d57-4ae6-9d41-c56f2e4edaca_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 10,
+    number: 9,
     suit: "leaves" as const
   },
   {
-    id: "leaves-11",
-    name: "Leaves 11",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_4388af90-ed80-4c95-bd5a-8fdea97a59e8_3.png",
+    id: "leaves-9_40_0_jpg",
+    name: "Leaves 9",
+    image: "cardcollection/9_of_Cards_-_Mother_of_Cards_old_Queen_tilt-shifted_golden-ra_6266a529-da2b-42bb-85a9-e9b551d90240_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 11,
+    number: 9,
     suit: "leaves" as const
   },
   {
-    id: "leaves-12",
-    name: "Leaves 12",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_5cd63978-f6fa-4497-83a3-5d45a919dacb_2.png",
+    id: "leaves-9_40_3_jpg",
+    name: "Leaves 9",
+    image: "cardcollection/9_of_Cards_-_Mother_of_Cards_old_Queen_tilt-shifted_golden-ra_6266a529-da2b-42bb-85a9-e9b551d90240_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 12,
+    number: 9,
     suit: "leaves" as const
   },
   {
-    id: "leaves-13",
-    name: "Leaves 13",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_602f7ffa-a107-4336-81e3-e8caaecf866f_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 13,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-14",
-    name: "Leaves 14",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_681236fa-c388-4522-ae44-74641ec2601a_0.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 14,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-15",
-    name: "Leaves 15",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_681236fa-c388-4522-ae44-74641ec2601a_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 15,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-16",
+    id: "leaves-16_3f_2_jpg",
     name: "Leaves 16",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_d1411da6-b766-4805-a1c7-18abead79d1b_1.png",
+    image: "cardcollection/Page_16_-_LAST_PAGE_BEFORE_YOU_START_READING_CARDS_big_messy__2d13f884-2e17-49cd-ae9b-a3d3dce2a63f_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -520,79 +650,19 @@ export const TAROT_CARDS = [
     suit: "leaves" as const
   },
   {
-    id: "leaves-17",
-    name: "Leaves 17",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_d1411da6-b766-4805-a1c7-18abead79d1b_3.png",
+    id: "roses-0_37_1_jpg",
+    name: "Roses 0",
+    image: "cardcollection/Page_10-11_-_THE_ROSES_SUIT_GOT_WEIRD_in_the_best_way_doodles_8bfcc499-0bcb-4997-af8d-3c4ff2b58837_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 17,
-    suit: "leaves" as const
+    number: 0,
+    suit: "roses" as const
   },
   {
-    id: "leaves-18",
-    name: "Leaves 18",
-    image: "update112/leaves/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_d364648d-2aef-409a-996f-8352d5db1da5_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 18,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-19",
-    name: "Leaves 19",
-    image: "update112/leaves/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_a9fee35b-fd80-40f0-bf92-eedd374021d7_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 19,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-20",
-    name: "Leaves 20",
-    image: "update112/leaves/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_cd2f3b44-c3d9-4fbf-8d28-3da83fc6aae7_1.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 20,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-21",
-    name: "Leaves 21",
-    image: "update112/leaves/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_d3d87455-34d7-4a21-9ff4-a853c0c2a9f3_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 21,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-22",
-    name: "Leaves 22",
-    image: "update112/leaves/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_f72e1298-a2b8-43c8-a709-bcf1ba3ca478_2.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 22,
-    suit: "leaves" as const
-  },
-  {
-    id: "leaves-23",
-    name: "Leaves 23",
-    image: "update112/leaves/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_f72e1298-a2b8-43c8-a709-bcf1ba3ca478_3.png",
-    meaning: "",
-    visualDesc: "",
-    type: "minor" as const,
-    number: 23,
-    suit: "leaves" as const
-  },
-  {
-    id: "roses-1",
+    id: "roses-1_03_2_jpg",
     name: "Roses 1",
-    image: "update112/roses/pure_soft_watercolor_anime_double-exposure_tarot_card_ornate__7922b3d1-8afb-4245-b9d3-c04ffd863e00_1.png",
+    image: "cardcollection/3_of_Roses_-_Heart_Blooming_After_Rain_Graceful_Atlantean-Vik_f086b759-3937-4eda-9194-25cb1cd8c303_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -600,9 +670,99 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-2",
+    id: "roses-1_43_0_jpg",
+    name: "Roses 1",
+    image: "cardcollection/7_of_Roses_-_Discernment_of_Desire_South-Asian_youth_in_simpl_186f219c-f5f3-47d7-ace6-e06ba458ca43_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_fc_1_jpg",
+    name: "Roses 1",
+    image: "cardcollection/Ace_of_Roses_-_The_Excalibur_Rose_Young_Egyptian-gypsy_boy_br_91ad05ce-a40d-45ce-bf66-b54c08b298fc_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_1c_0_jpg",
+    name: "Roses 1",
+    image: "cardcollection/Ace_of_Roses_-_The_Excalibur_Rose_Young_Egyptian-gypsy_boy_br_c8683878-8403-43ab-a07e-880fa26f8e1c_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_5d_0_jpg",
+    name: "Roses 1",
+    image: "cardcollection/Ace_of_Roses_-_The_First_Cut_tilt-shifted_golden-ratio_colori_0188016c-de8d-4b6d-9051-e1ee1eab0a5d_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_5d_2_jpg",
+    name: "Roses 1",
+    image: "cardcollection/Ace_of_Roses_-_The_First_Cut_tilt-shifted_golden-ratio_colori_0188016c-de8d-4b6d-9051-e1ee1eab0a5d_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_a7_3_jpg",
+    name: "Roses 1",
+    image: "cardcollection/httpss.mj.runMTXXyWIdl_I_Ace_of_Roses_Concept_The_tribal_init_d4e982d4-1ffa-45cb-9c4a-9167d5e82ca7_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_a1_3_jpg",
+    name: "Roses 1",
+    image: "cardcollection/httpss.mj.runR4Xyeq_w7i4_sunlight_tarot_ace_of_roses_detailed_fef59d1e-5ceb-412d-a79e-eb77d1c883a1_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_9b_1_jpg",
+    name: "Roses 1",
+    image: "cardcollection/httpss.mj.runY6D-Mhcx_Mo_ACE_OF_ROSES_sunlight_tarot_ace_of_r_83b5853a-951d-4573-a955-ff7d66c3bb9b_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-1_61_1_jpg",
+    name: "Roses 1",
+    image: "cardcollection/sunlight_tarot_ace_of_roses_single_crimson_rose_blooming_from_04d60f95-859f-4caa-8ced-fa3c17bf7e61_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-2_d4_1_jpg",
     name: "Roses 2",
-    image: "update112/roses/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_4096f80b-0fc8-430e-b55a-d4e1175ea0d9_2.png",
+    image: "cardcollection/2_of_Roses_-_Split_Personality_Circus_tilt-shifted_golden-rat_664646dd-627b-4e1a-8660-93575a166dd4_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -610,9 +770,19 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-3",
+    id: "roses-2_d4_2_jpg",
+    name: "Roses 2",
+    image: "cardcollection/2_of_Roses_-_Split_Personality_Circus_tilt-shifted_golden-rat_664646dd-627b-4e1a-8660-93575a166dd4_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-3_35_3_jpg",
     name: "Roses 3",
-    image: "update112/roses/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_683a128e-8bc6-4303-91e5-1e4547668090_1.png",
+    image: "cardcollection/3_of_Roses_-_Healed_Heartbreak_tilt-shifted_golden-ratio_colo_aca6d51a-ebdb-491b-8da7-db6338787c35_3.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -620,9 +790,9 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-4",
+    id: "roses-4_a2_2_jpg",
     name: "Roses 4",
-    image: "update112/roses/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_6ab4195b-3aa2-4e5c-95ea-69dff7f1bceb_1.png",
+    image: "cardcollection/4_of_Roses_-_Frozen_Garden_tilt-shifted_golden-ratio_coloring_6556a4de-eec1-4311-b573-725fdfa0eaa2_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -630,9 +800,29 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-5",
+    id: "roses-4_a2_3_jpg",
+    name: "Roses 4",
+    image: "cardcollection/4_of_Roses_-_Frozen_Garden_tilt-shifted_golden-ratio_coloring_6556a4de-eec1-4311-b573-725fdfa0eaa2_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-4_fb_2_jpg",
+    name: "Roses 4",
+    image: "cardcollection/4_of_Roses_-_Quiet_Contentment_East-Asian_child_in_simple_han_6d17fc4e-104d-49d1-bfea-c8ab4e60ccfb_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-5_45_0_jpg",
     name: "Roses 5",
-    image: "update112/roses/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_d8ba4dec-409f-4836-935c-8580aa5391ef_1.png",
+    image: "cardcollection/5_of_Roses_-_Gentle_Release_Two_Pan-American_figures_walking__73f98021-ab0a-4a81-9672-92f22b822245_0.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -640,9 +830,39 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-6",
+    id: "roses-5_0f_0_jpg",
+    name: "Roses 5",
+    image: "cardcollection/5_of_Roses_-_The_Wall_of_Ice_tilt-shifted_golden-ratio_colori_2d6129c4-bc33-4b24-ae57-7073b4c4c80f_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-5_0f_2_jpg",
+    name: "Roses 5",
+    image: "cardcollection/5_of_Roses_-_The_Wall_of_Ice_tilt-shifted_golden-ratio_colori_2d6129c4-bc33-4b24-ae57-7073b4c4c80f_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-5_a8_3_jpg",
+    name: "Roses 5",
+    image: "cardcollection/5_of_Roses_Concept_The_tribes_greatest_warrior_stands_trapped_2ab9aa79-49c5-47de-aca5-acabf512fba8_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-6_62_1_jpg",
     name: "Roses 6",
-    image: "update112/roses/pure_soft_watercolor_painting_double_exposure_tarot_card_no_i_e5acc818-d563-406a-8485-a5997a3692d9_3.png",
+    image: "cardcollection/6_of_Roses_-_Father_of_Roses_old_King_position_Wise_Egyptian-_1e51b117-0023-4789-bc4a-a65851c27d62_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -650,9 +870,19 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-7",
+    id: "roses-6_dd_1_jpg",
+    name: "Roses 6",
+    image: "cardcollection/6_of_Roses_-_Father_of_Roses_old_King_tilt-shifted_golden-rat_6a70df34-f512-4a69-87c4-3ae7431ab1dd_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "roses" as const
+  },
+  {
+    id: "roses-7_b7_1_jpg",
     name: "Roses 7",
-    image: "update112/roses/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_d4da452c-12db-4fdc-a413-2ae106f23295_1.png",
+    image: "cardcollection/7_of_Roses_-_The_Mirage_Choice_tilt-shifted_golden-ratio_colo_54792aa2-af72-4af6-a342-71cce0e667b7_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
@@ -660,24 +890,154 @@ export const TAROT_CARDS = [
     suit: "roses" as const
   },
   {
-    id: "roses-8",
-    name: "Roses 8",
-    image: "update112/roses/text_pure_soft_watercolor_anime_double-exposure_tarot_card_or_d4da452c-12db-4fdc-a413-2ae106f23295_3.png",
+    id: "roses-7_b7_2_jpg",
+    name: "Roses 7",
+    image: "cardcollection/7_of_Roses_-_The_Mirage_Choice_tilt-shifted_golden-ratio_colo_54792aa2-af72-4af6-a342-71cce0e667b7_2.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
-    number: 8,
+    number: 7,
     suit: "roses" as const
   },
   {
-    id: "roses-9",
+    id: "roses-9_30_1_jpg",
     name: "Roses 9",
-    image: "update112/roses/text_watercolor_anime_art_double_exposure._A_sharp_distinct_o_d1e69fa1-3366-4e4d-b135-84d31f0f0935_1.png",
+    image: "cardcollection/9_of_Roses_-_Mother_of_Roses_old_Queen_position_Compassionate_b0649ec3-ef0c-44bb-8ba1-be9f91d75430_1.jpg",
     meaning: "",
     visualDesc: "",
     type: "minor" as const,
     number: 9,
     suit: "roses" as const
+  },
+  {
+    id: "vessels-1_c3_1_jpg",
+    name: "Vessels 1",
+    image: "cardcollection/Ace_of_Vessels_-_The_First_Heart_tilt-shifted_golden-ratio_col_a58c75ea-7ee8-4248-91ce-e44eb623c3c3_1.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-1_cf_3_jpg",
+    name: "Vessels 1",
+    image: "cardcollection/Ace_of_Vessels_Blonde_Atlantean-Viking_girl_9-11_pale_skin_lon_ea0e9f73-0b88-40e0-9670-1b0ccb7f45cf_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 1,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-2_1c_3_jpg",
+    name: "Vessels 2",
+    image: "cardcollection/2_of_Vessels_-_Eternal_Bond_Young_Roman-Viking_couple_standing_409007fe-39ef-4c1e-9bff-8af681d81c1c_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-2_b2_0_jpg",
+    name: "Vessels 2",
+    image: "cardcollection/2_of_Vessels_-_Soul_Mirror_Union_tilt-shifted_golden-ratio_col_6d537584-eb0a-4ecb-8ba9-6c63bd6e04b2_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 2,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-3_7e_0_jpg",
+    name: "Vessels 3",
+    image: "cardcollection/3_of_Vessels_-_Child_of_Vessels_tilt-shifted_golden-ratio_color_756b9f1d-3442-4bee-b222-1d491c89847e_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 3,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-4_74_2_jpg",
+    name: "Vessels 4",
+    image: "cardcollection/4_of_Vessels_-_Mourning_Feast_tilt-shifted_golden-ratio_colori_7d6a1be4-402a-44a7-9422-98dccb16f674_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 4,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-5_20_0_jpg",
+    name: "Vessels 5",
+    image: "cardcollection/5_of_Vessels_-_Grief_Released_tilt-shifted_golden-ratio_colori_7cececc8-59d0-441e-bbbf-2600a05ed020_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 5,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-6_01_3_jpg",
+    name: "Vessels 6",
+    image: "cardcollection/6_of_Vessels_-_Father_of_Vessels_Kind_bearded_Viking-Roman_elde_70a58712-db59-4d90-a10f-88060307fd01_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-6_15_2_jpg",
+    name: "Vessels 6",
+    image: "cardcollection/6_of_Vessels_-_Father_of_Vessels_old_King_tilt-shifted_golden-r_39c5c7e3-6537-44fb-b765-664c760e0115_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 6,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-7_48_0_jpg",
+    name: "Vessels 7",
+    image: "cardcollection/7_of_Vessels_-_Illusions_of_Loss_tilt-shifted_golden-ratio_col_36fe0140-a360-46f8-a797-a917fa08c148_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 7,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-9_3e_2_jpg",
+    name: "Vessels 9",
+    image: "cardcollection/9_of_Vessels_-_Mother_of_Vessels_old_Queen_tilt-shifted_golden-_65c42191-1a50-4093-869d-106ef5135e3e_2.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 9,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-9_3e_3_jpg",
+    name: "Vessels 9",
+    image: "cardcollection/9_of_Vessels_-_Mother_of_Vessels_old_Queen_tilt-shifted_golden-_65c42191-1a50-4093-869d-106ef5135e3e_3.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 9,
+    suit: "vessels" as const
+  },
+  {
+    id: "vessels-9_d3_0_jpg",
+    name: "Vessels 9",
+    image: "cardcollection/9_of_Vessels_-_Mother_of_Vessels_Radiant_Atlantean-Roman_woman__01e5c5c4-92af-4864-912a-e14ba3caefd3_0.jpg",
+    meaning: "",
+    visualDesc: "",
+    type: "minor" as const,
+    number: 9,
+    suit: "vessels" as const
   },
 ]
 

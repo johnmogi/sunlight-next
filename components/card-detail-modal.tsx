@@ -131,7 +131,7 @@ export function CardDetailModal({ card, isOpen, onClose, messages, cards = [], o
             <div className="flex-shrink-0 flex items-start justify-center lg:w-[60%] relative">
               <div className="relative w-full bg-gradient-to-br from-muted/50 to-muted rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '2/3', maxHeight: '85vh' }}>
                 <Image
-                  src={`/images/cards/${card.image}`}
+                  src={card.image.startsWith('/') ? card.image : `/images/cards/${card.image}`}
                   alt={card.name}
                   fill
                   className="object-contain"

@@ -7,9 +7,24 @@
     "collections": "Colecciones"
   },
   "hero": {
-    "title": "Descubre Tu Luz Interior",
-    "subtitle": "Una baraja de tarot revolucionaria que fusiona sabiduría antigua con conciencia moderna",
-    "cta": "Únete al Viaje"
+    "healer": {
+      "title": "Descubre Tu Luz Interior",
+      "subtitle": "Una baraja de tarot revolucionaria que fusiona sabiduría antigua con conciencia moderna",
+      "cta": "Únete al Viaje",
+      "ctaSecondary": "Lee la Filosofía"
+    },
+    "dreamer": {
+      "title": "Despertar Lúcido en el Ensueño",
+      "subtitle": "Usa los símbolos del día para desbloquear la conciencia del momento. Una práctica de presencia en un mundo antiguo.",
+      "cta": "Comienza la Práctica",
+      "ctaSecondary": "Obtén la Guía"
+    },
+    "builder": {
+      "title": "Forma la Baraja.",
+      "subtitle": "Necesitamos tu voz. Vota por diseños de cartas, comenta sobre significados y ayúdanos a elegir las 46 cartas finales del Tarot SunLight.",
+      "cta": "Comienza a Votar",
+      "ctaSecondary": "Ver la Hoja de Ruta"
+    }
   },
   "join": {
     "title": "Mantente Informado",
@@ -36,7 +51,7 @@
     "caption": "Un álbum que explora la conciencia y el despertar espiritual"
   },
   "completeDeck": {
-    "title": "Baraja Tarot SunLight 0.1.0",
+    "title": "Mazo de Tarot SunLight 0.2.0",
     "description": "La baraja completa reconstruida alrededor de 5 elementos con un nuevo viaje interior para los Arcanos Mayores.",
     "all": "Todo",
     "aether": "Éter (Mayor)",
@@ -46,9 +61,353 @@
     "coins": "Monedas (Tierra)",
     "majorArcana": "Arcanos Mayores"
   },
+  "cards": {
+    "major": {
+      "0": {
+        "title": "El Soñador",
+        "desc": "Una figura joven mirando al sol, de pie en el umbral de un camino verde."
+      },
+      "2": {
+        "title": "Reflexión",
+        "desc": "Dos mitades de una imagen, reflejando al soñador y al despertador."
+      },
+      "3": {
+        "title": "Sueño Lúcido",
+        "desc": "Una figura femenina serena descansando en un laberinto de flores."
+      },
+      "4": {
+        "title": "Faro Reformado",
+        "desc": "Un faro imponente emitiendo luz suave, guiando hacia el interior."
+      },
+      "6": {
+        "title": "Estrella Naciente",
+        "desc": "Una figura radiante flotando sobre una ciudad material, rechazando la esclavitud."
+      },
+      "7": {
+        "title": "Árbol de la Vida",
+        "desc": "Un árbol gigante con raíces en espiral, abrazando a la humanidad."
+      },
+      "9": {
+        "title": "Creación Armónica",
+        "desc": "El Big Bang en un vacío silencioso, con figuras de Madre y Padre."
+      }
+    },
+    "minor": {
+      "roses": {
+        "1": {
+          "title": "As de Rosas",
+          "desc": "Un comienzo limpio."
+        },
+        "2": {
+          "title": "Dos de Rosas",
+          "desc": "Duda y el Doble."
+        },
+        "3": {
+          "title": "Tres de Rosas",
+          "desc": "Sanación."
+        },
+        "4": {
+          "title": "Cuatro de Rosas",
+          "desc": "Límites."
+        },
+        "5": {
+          "title": "Cinco de Rosas",
+          "desc": "Conflicto."
+        },
+        "6": {
+          "title": "Seis de Rosas",
+          "desc": "El Padre."
+        },
+        "7": {
+          "title": "Siete de Rosas",
+          "desc": "Viaje Interior."
+        },
+        "8": {
+          "title": "Ocho de Rosas",
+          "desc": "Comprensión Sistémica."
+        },
+        "9": {
+          "title": "Nueve de Rosas",
+          "desc": "La Madre."
+        }
+      },
+      "leaves": {
+        "1": {
+          "title": "As de Hojas",
+          "desc": "Fuerza Vital."
+        },
+        "2": {
+          "title": "Dos de Hojas",
+          "desc": "Fuerza de Voluntad."
+        },
+        "3": {
+          "title": "Tres de Hojas",
+          "desc": "Avance."
+        },
+        "4": {
+          "title": "Cuatro de Hojas",
+          "desc": "Estabilidad."
+        },
+        "5": {
+          "title": "Cinco de Hojas",
+          "desc": "Pérdida."
+        },
+        "6": {
+          "title": "Seis de Hojas",
+          "desc": "El Padre."
+        },
+        "7": {
+          "title": "Siete de Hojas",
+          "desc": "La Misión."
+        },
+        "8": {
+          "title": "Ocho de Hojas",
+          "desc": "Inversión."
+        },
+        "9": {
+          "title": "Nueve de Hojas",
+          "desc": "La Madre."
+        }
+      },
+      "vessels": {
+        "1": {
+          "title": "As de Vasijas",
+          "desc": "Fuente de Emoción."
+        },
+        "2": {
+          "title": "Dos de Vasijas",
+          "desc": "Conexión."
+        },
+        "3": {
+          "title": "Tres de Vasijas",
+          "desc": "Alegría Comunitaria."
+        },
+        "4": {
+          "title": "Cuatro de Vasijas",
+          "desc": "Reflexión."
+        },
+        "5": {
+          "title": "Cinco de Vasijas",
+          "desc": "Duelo."
+        },
+        "6": {
+          "title": "Seis de Vasijas",
+          "desc": "El Padre."
+        },
+        "7": {
+          "title": "Siete de Vasijas",
+          "desc": "Ilusiones."
+        },
+        "8": {
+          "title": "Ocho de Vasijas",
+          "desc": "Búsqueda."
+        },
+        "9": {
+          "title": "Nueve de Vasijas",
+          "desc": "La Madre."
+        }
+      },
+      "crystals": {
+        "1": {
+          "title": "As de Cristales",
+          "desc": "Oportunidad."
+        },
+        "2": {
+          "title": "Dos de Cristales",
+          "desc": "Equilibrio."
+        },
+        "3": {
+          "title": "Tres de Cristales",
+          "desc": "Cooperación."
+        },
+        "4": {
+          "title": "Cuatro de Cristales",
+          "desc": "Seguridad."
+        },
+        "5": {
+          "title": "Cinco de Cristales",
+          "desc": "Escasez."
+        },
+        "6": {
+          "title": "Seis de Cristales",
+          "desc": "El Padre."
+        },
+        "7": {
+          "title": "Siete de Cristales",
+          "desc": "Paciencia."
+        },
+        "8": {
+          "title": "Ocho de Cristales",
+          "desc": "Artesanía."
+        },
+        "9": {
+          "title": "Nueve de Cristales",
+          "desc": "La Madre."
+        }
+      },
+      "diamonds": {
+        "1": {
+          "title": "As de Diamantes",
+          "desc": "Potencial."
+        },
+        "2": {
+          "title": "Dos de Diamantes",
+          "desc": "Discernimiento."
+        },
+        "3": {
+          "title": "Tres de Diamantes",
+          "desc": "Visión Compartida."
+        },
+        "4": {
+          "title": "Cuatro de Diamantes",
+          "desc": "Límites."
+        },
+        "5": {
+          "title": "Cinco de Diamantes",
+          "desc": "Pérdida de Energía."
+        },
+        "6": {
+          "title": "Seis de Diamantes",
+          "desc": "El Padre."
+        },
+        "7": {
+          "title": "Siete de Diamantes",
+          "desc": "Elegir el Camino."
+        },
+        "8": {
+          "title": "Ocho de Diamantes",
+          "desc": "Enfoque."
+        },
+        "9": {
+          "title": "Nueve de Diamantes",
+          "desc": "La Madre."
+        }
+      }
+    }
+  },
   "about": {
     "title": "La Filosofía SunLight",
     "description": "Un sistema de tarot reinventado basado en la sabiduría antigua y la comprensión moderna"
+  },
+  "aboutContent": {
+    "expand": "Expandir",
+    "tabs": {
+      "system": "El Sistema",
+      "suits": "Los Palos",
+      "vision": "La Visión",
+      "healing": "Camino de Sanación",
+      "zeroPoint": "Punto Cero",
+      "guide": "Guía Diaria",
+      "game": "The Hidden Garden",
+      "community": "Comunidad",
+      "zeroPointTitle": "Creación del Punto Cero"
+    },
+    "system": {
+      "zeroPointTitle": "El Punto Cero",
+      "zeroPointDesc": "El origen de toda creación, donde el potencial infinito se encuentra con la manifestación.",
+      "aetherTitle": "El Viaje del Éter",
+      "aetherDesc": "Un ciclo de transformación a través de los elementos, guiando al buscador hacia la iluminación."
+    },
+    "suits": {
+      "coins": {
+        "title": "Palo de Monedas",
+        "desc": "Representando el elemento Tierra: manifestación, recursos y el mundo físico."
+      },
+      "roses": {
+        "title": "Palo de Rosas",
+        "desc": "Representando el elemento Aire: intelecto, comunicación y claridad mental."
+      },
+      "cards": {
+        "title": "Palo de Cartas",
+        "desc": "Representando el elemento Fuego: pasión, acción y fuerza de voluntad."
+      },
+      "hearts": {
+        "title": "Palo de Corazones",
+        "desc": "Representando el elemento Agua: emociones, intuición y el subconsciente."
+      },
+      "aether": {
+        "title": "El Quinto Elemento",
+        "desc": "Éter, el espíritu que une y trasciende los cuatro elementos físicos."
+      }
+    },
+    "vision": {
+      "lighthouseTitle": "El Faro Reconstruido",
+      "lighthouseDesc": "Un símbolo de guía y esperanza, reconstruido para iluminar el camino del buscador moderno.",
+      "principlesTitle": "Principios Fundamentales",
+      "principles": {
+        "unity": {
+          "title": "Unidad",
+          "desc": "Todas las cosas están interconectadas en la gran red de la existencia."
+        },
+        "rosetta": {
+          "title": "La Piedra Roseta",
+          "desc": "Descifrando el lenguaje del universo a través del simbolismo y la sincronicidad."
+        },
+        "enneagram": {
+          "title": "El Eneagrama",
+          "desc": "Integrando la sabiduría de la personalidad con el viaje del alma."
+        },
+        "vertical": {
+          "title": "Alineación Vertical",
+          "desc": "Conectando lo mundano con lo divino a través de la experiencia directa."
+        }
+      }
+    },
+    "healing": {
+      "title": "Un Tarot para la Sanación, No el Miedo",
+      "subtitle": "Reemplazando viejos paradigmas de fatalidad con empoderamiento y crecimiento.",
+      "banner": "Sanación a través de la Comprensión",
+      "traditional": {
+        "badge": "Tarot Tradicional",
+        "death": {
+          "title": "La Muerte",
+          "desc": "A menudo temida como un final físico o fatalidad."
+        },
+        "devil": {
+          "title": "El Diablo",
+          "desc": "Visto como maldad externa o tentación pecaminosa."
+        },
+        "tower": {
+          "title": "La Torre",
+          "desc": "Destrucción repentina y caos incontrolable."
+        }
+      },
+      "sunlight": {
+        "badge": "Tarot SunLight",
+        "tree": {
+          "title": "El Árbol (Renacimiento)",
+          "desc": "Transformación natural y el ciclo de la vida."
+        },
+        "merkaba": {
+          "title": "El Merkaba",
+          "desc": "Integración de sombras y luz interior."
+        },
+        "lighthouse": {
+          "title": "El Faro",
+          "desc": "Revelación y el derrumbe de viejas estructuras para la verdad."
+        }
+      }
+    },
+    "guide": {
+      "title": "La Guía de Lily",
+      "subtitle": "Un Viaje Personal hacia la Luz",
+      "intro": "Hola, soy Lily. Bienvenidos a mi diario personal. Este lugar no trata de predecir el futuro, sino de comprender el presente.",
+      "reportTitle": "Una Nota sobre las Cartas",
+      "reportIntro": "Te invito a dejar el miedo en la puerta y entrar en un espacio de curiosidad y crecimiento.",
+      "section1": {
+        "title": "Mi Deseo para Ti",
+        "desc": "Aquí, las cartas no son jueces, sino amigas que susurran verdades que ya conocemos. Que encuentres aquí no respuestas para controlar el futuro, sino el coraje para abrazar el presente. Pasemos de soñar despiertos a vivir lúcidamente, juntos."
+      },
+      "galleryTitle": "Saludos de Lily"
+    },
+    "game": {
+      "title": "The Hidden Garden",
+      "subtitle": "Donde el Tarot cobra vida",
+      "premise": {
+        "title": "La Premisa",
+        "desc": "Un juego de aventuras que explora los arquetipos del tarot en un mundo dinámico."
+      }
+    }
   },
   "aboutTabs": {
     "babylon": "Torre de Babel",
@@ -79,8 +438,8 @@
     },
     "slide3": {
       "title": "La Visión de 3 Fases",
-      "description": "Crear la Baraja de Tarot SunLight, un Diario Guía ilustrado para tu viaje, y el juego de mesa ScrollMaze - tres proyectos interconectados para la exploración espiritual.",
-      "highlight": "Baraja de Tarot • Diario Guía • Juego ScrollMaze",
+      "description": "Crear la Baraja de Tarot SunLight, un Diario Guía ilustrado para tu viaje, y el juego de mesa The Hidden Garden - tres proyectos interconectados para la exploración espiritual.",
+      "highlight": "Baraja de Tarot • Diario Guía • Juego The Hidden Garden",
       "cta": "Aprende Más"
     },
     "slide4": {
@@ -142,7 +501,7 @@
   },
   "scrollMaze": {
     "badge": "Fase 3",
-    "title": "Próximamente: ScrollMaze",
+    "title": "Próximamente: The Hidden Garden",
     "subtitle": "Transforma el Tarot SunLight en un juego de aventuras roguelike",
     "feature1Title": "Exploración de Mazmorras",
     "feature1Desc": "Coloca cartas boca abajo para crear un laberinto en constante cambio. Voltea cartas para revelar habitaciones, tira dados para determinar encuentros.",
@@ -162,5 +521,28 @@
     "noComments": "Aún no hay comentarios. ¡Sé el primero!",
     "keywords": "Palabras Clave",
     "comments": "Comentarios"
+  },
+  "zeroPoint": {
+    "subtitle": "Amor Interior y Autorrealización",
+    "source": {
+      "title": "La Fuente",
+      "text": "El origen de toda conciencia, donde comienza el viaje."
+    },
+    "innerSun": {
+      "title": "Sol Interior",
+      "text": "El reactor de energía espiritual dentro de cada ser."
+    },
+    "realization": {
+      "title": "Realización",
+      "text": "El momento de despertar a la verdadera naturaleza del ser."
+    }
+  },
+  "lilyChat": {
+    "greeting": "¡Hola! Soy Lily. Estoy explorando la conexión entre nuestros sueños y la realidad.",
+    "greetingAction": "Únete al Viaje",
+    "voteMessage": "¡Necesitamos tu intuición! Ayúdanos a elegir las cartas finales para la baraja.",
+    "voteAction": "Ir a Colecciones",
+    "emailMessage": "Me encantaría compartir más descubrimientos contigo. ¿Nos mantenemos en contacto?",
+    "emailPlaceholder": "tu@email.com"
   }
 }

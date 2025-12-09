@@ -43,7 +43,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       <SunlightPhilosophy messages={messages} locale={locale} />
 
       {/* Complete Deck with Voting */}
-      <CompleteDeck messages={messages} />
+      <CompleteDeck messages={messages} locale={locale} />
 
       {/* ScrollMaze Banner */}
       <ScrollMazeBanner messages={messages} />
