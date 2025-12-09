@@ -78,14 +78,31 @@
     "rosetta": "Sun Rosetta",
     "transformations": "Transformations",
     "enneagram": "Enneagram",
-    "fifth": "Aether Element"
+    "fifth": "Aether Element",
+    "zeroPoint": "Zero Point"
   },
   "tabContent": {
     "babylonTitle": "The Rebuilt Lighthouse",
     "rosettaTitle": "The Sun Rosetta Stone",
     "transformationsTitle": "Card Transformations",
     "enneagramTitle": "The Enneagram Integration",
-    "fifthTitle": "The Aether Element"
+    "fifthTitle": "The Aether Element",
+    "zeroPointTitle": "Zero Point Creation"
+  },
+  "zeroPoint": {
+    "subtitle": "Inner Love & Self-Realization",
+    "source": {
+      "title": "The Zero Point as the Source of Creation",
+      "text": "The zero point is defined as the origin of existence, the 'womb of the night' from which the rhythm of life is born and the spirit wakes. It is not a distant location but the 'innermost center of all our hearts', located where silence begins. In terms of creation, this point represents a 'silent big bang in the center of the chest', marking the genesis of the spirit and the universe itself. It involves 'giving birth to the universe' while simultaneously 'giving birth to myself'."
+    },
+    "innerSun": {
+      "title": "The Inner Sun and the Reactor of Love",
+      "text": "The inner sun redefines the traditional view of power. It is not the physical star in the sky but the 'core in your chest', functioning as the reactor of love. This internal mechanism burns away fear and mass, allowing you to 'climb the slope' toward hope. By staring at the 'center of the inner sun', dualities merge into one, unlocking the gate to spiritual freedom."
+    },
+    "realization": {
+      "title": "Self-Realization through Internal Integration",
+      "text": "True realization occurs when one wakes up 'lucid right inside of the dream'. The 'sun lighthouse' acts as a guide, cutting through the fog of the mind and ego to redirect you back to the internal garden—the zero point already existing within. The enemy is gone because 'the hero is me'."
+    }
   },
   "cta": {
     "slide1": {

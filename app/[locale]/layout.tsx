@@ -57,6 +57,7 @@ export default async function LocaleLayout({
     <html lang={validLocale} dir={direction} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"

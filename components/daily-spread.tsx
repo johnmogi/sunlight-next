@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Sparkles, Sun, Moon, ChevronLeft, ChevronRight, X, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
@@ -59,6 +59,14 @@ const cardTips = [
 
 export function DailySpread({ messages }: DailySpreadProps) {
   const hasMounted = useHasMounted()
+  const sectionRef = React.useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
+
   const [reflectionCard, setReflectionCard] = React.useState<DrawnCard | null>(null)
   const [activationCard, setActivationCard] = React.useState<DrawnCard | null>(null)
   const [isChoosingActivation, setIsChoosingActivation] = React.useState(false)
@@ -116,8 +124,22 @@ export function DailySpread({ messages }: DailySpreadProps) {
   }
 
   return (
-    <section id="daily-spread" className="py-20 bg-gradient-to-b from-white to-amber-50/30 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-4">
+    <section id="daily-spread" ref={sectionRef} className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 z-0 opacity-35 dark:opacity-25 will-change-transform"
+      >
+        <Image
+          src="/images/CTA/same_as_2_but_add_subtle_floating_petals_and_gentle_sunrise_r_c4c022dd-210e-49f1-9fdd-95c6097bd155_2.png"
+          alt="Daily Spread Background"
+          fill
+          className="object-cover scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/50 to-amber-50/80 dark:from-slate-900/90 dark:via-slate-900/50 dark:to-slate-900/90" />
+      </motion.div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -183,11 +205,10 @@ export function DailySpread({ messages }: DailySpreadProps) {
                 <button
                   key={index}
                   onClick={() => setCurrentTipIndex(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === currentTipIndex
-                      ? "w-8 h-2 bg-amber-600 dark:bg-amber-400"
-                      : "w-2 h-2 bg-amber-300 dark:bg-slate-500 hover:bg-amber-400 dark:hover:bg-slate-400"
-                  }`}
+                  className={`transition-all duration-300 rounded-full ${index === currentTipIndex
+                    ? "w-8 h-2 bg-amber-600 dark:bg-amber-400"
+                    : "w-2 h-2 bg-amber-300 dark:bg-slate-500 hover:bg-amber-400 dark:hover:bg-slate-400"
+                    }`}
                   aria-label={`Go to tip ${index + 1}`}
                 />
               ))}
@@ -325,97 +346,97 @@ export function DailySpread({ messages }: DailySpreadProps) {
 
         {/* Card Selection Modal - Only render on client */}
         {hasMounted && (
-        <Dialog open={isChoosingActivation} onOpenChange={setIsChoosingActivation}>
-          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-center">
-                {messages.daily.modalTitle}
-              </DialogTitle>
-            </DialogHeader>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mt-6">
-              {cards.map((card) => (
-                <motion.div
-                  key={card.id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
-                  onClick={() => chooseActivationCard(card)}
-                >
-                  <div className="relative aspect-[3/4]">
-                    <Image
-                      src={card.image.startsWith('/') ? card.image : `/images/cards/${card.image}`}
-                      alt={card.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-2 bg-white dark:bg-slate-800">
-                    <p className="text-xs font-medium text-center truncate">
-                      {card.name}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </DialogContent>
-        </Dialog>
+          <Dialog open={isChoosingActivation} onOpenChange={setIsChoosingActivation}>
+            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-center">
+                  {messages.daily.modalTitle}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mt-6">
+                {cards.map((card) => (
+                  <motion.div
+                    key={card.id}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                    onClick={() => chooseActivationCard(card)}
+                  >
+                    <div className="relative aspect-[3/4]">
+                      <Image
+                        src={card.image.startsWith('/') ? card.image : `/images/cards/${card.image}`}
+                        alt={card.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-2 bg-white dark:bg-slate-800">
+                      <p className="text-xs font-medium text-center truncate">
+                        {card.name}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </DialogContent>
+          </Dialog>
         )}
 
         {/* Card Detail Modal - Only render on client */}
         {hasMounted && (
-        <Dialog open={!!selectedCardForDetail} onOpenChange={() => setSelectedCardForDetail(null)}>
-          <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="sr-only">
-                {selectedCardForDetail?.name || 'Card Details'}
-              </DialogTitle>
-            </DialogHeader>
-            {selectedCardForDetail && (
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Card Image */}
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
-                  <Image
-                    src={selectedCardForDetail.image}
-                    alt={selectedCardForDetail.name}
-                    fill
-                    className="object-cover"
-                  />
+          <Dialog open={!!selectedCardForDetail} onOpenChange={() => setSelectedCardForDetail(null)}>
+            <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="sr-only">
+                  {selectedCardForDetail?.name || 'Card Details'}
+                </DialogTitle>
+              </DialogHeader>
+              {selectedCardForDetail && (
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Card Image */}
+                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
+                    <Image
+                      src={selectedCardForDetail.image}
+                      alt={selectedCardForDetail.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* Card Info */}
+                  <div className="space-y-6">
+                    <div>
+                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                        {selectedCardForDetail.name}
+                      </h2>
+                      <p className="text-lg text-amber-600 dark:text-amber-400 font-semibold">
+                        {selectedCardForDetail.type}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                        <Lightbulb className="w-5 h-5 text-amber-500" />
+                        {messages.cardDetail?.meaning || 'Meaning'}
+                      </h3>
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {selectedCardForDetail.meaning}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                        {messages.cardDetail?.keywords || 'Keywords'}
+                      </h3>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        {selectedCardForDetail.reading}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Card Info */}
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                      {selectedCardForDetail.name}
-                    </h2>
-                    <p className="text-lg text-amber-600 dark:text-amber-400 font-semibold">
-                      {selectedCardForDetail.type}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-amber-500" />
-                      {messages.cardDetail?.meaning || 'Meaning'}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      {selectedCardForDetail.meaning}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                      {messages.cardDetail?.keywords || 'Keywords'}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300">
-                      {selectedCardForDetail.reading}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </DialogContent>
-        </Dialog>
+              )}
+            </DialogContent>
+          </Dialog>
         )}
       </div>
     </section>

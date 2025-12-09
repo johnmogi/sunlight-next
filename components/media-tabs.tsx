@@ -1,6 +1,9 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Music, Play } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -11,13 +14,34 @@ interface MediaTabsProps {
 
 export function MediaTabs({ messages, locale }: MediaTabsProps) {
   const [isYouTubePlaying, setIsYouTubePlaying] = React.useState(false)
+  const sectionRef = React.useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
 
   // Only show Hebrew podcast in Hebrew locale
   const showPodcast = locale === 'he'
 
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="relative py-16 overflow-hidden">
+      {/* Background Image */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 z-0 opacity-35 dark:opacity-25 will-change-transform"
+      >
+        <Image
+          src="/images/CTA/Kickstarter_campaign_hero_golden-hour_flatlay_on_weathered_wo_4a9c8c21-4bb9-4405-92e6-2f1afd02976b_3.png"
+          alt="Media Background"
+          fill
+          className="object-cover scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      </motion.div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

@@ -1,10 +1,12 @@
 "use client"
 
+
 import * as React from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { type Locale } from "@/lib/i18n"
 
 interface SunlightPhilosophyProps {
@@ -13,10 +15,33 @@ interface SunlightPhilosophyProps {
 }
 
 export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps) {
+  const sectionRef = React.useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
+
   return (
-    <section id="philosophy" className="relative py-20 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section
+      ref={sectionRef}
+      id="philosophy"
+      className="relative py-20 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden"
+    >
       {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-transparent dark:from-amber-900/10" />
+      {/* Background Image */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 z-0 opacity-40 dark:opacity-30 will-change-transform"
+      >
+        <Image
+          src="/images/CTA/cinematic_golden-hour_hero_banner_vast_desert_sunrise_behind__f1615440-53b2-44da-bb83-00a45ca34c4b_1.png"
+          alt="Philosophy Background"
+          fill
+          className="object-cover scale-110"
+        />
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-[1px]" />
+      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -69,6 +94,12 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
               >
                 Healing Path
               </TabsTrigger>
+              <TabsTrigger
+                value="zeroPoint"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white py-3"
+              >
+                {messages.aboutTabs?.zeroPoint || "Zero Point"}
+              </TabsTrigger>
             </TabsList>
 
             {/* Tab 1: The System */}
@@ -78,15 +109,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                   {/* Left: Sun Card Concept */}
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold mb-4">The Zero Point</h3>
-                    <div className="relative aspect-[3/2] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/suncardconcept.jpg"
-                        alt="The Sun - Zero Point"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[3/2] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/suncardconcept.jpg"
+                            alt="The Sun - Zero Point"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">The Sun - Zero Point</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/suncardconcept.jpg"
+                            alt="The Sun - Zero Point"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       The Sun is pure consciousness, the origin from which four elemental energies descend. Four angels orbit this central source, each representing one element emerging from unity.
                     </p>
@@ -95,15 +144,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                   {/* Right: Major Arcana Cycle */}
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold mb-4">The Aether Journey</h3>
-                    <div className="relative aspect-[3/2] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/etherinfo.jpg"
-                        alt="Major Arcana Cycle"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[3/2] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/etherinfo.jpg"
+                            alt="Major Arcana Cycle"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Major Arcana Cycle</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/etherinfo.jpg"
+                            alt="Major Arcana Cycle"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       The Major Arcana (0-9) forms a cyclical journey of present-moment awakening. Not a linear path, but a continuous spiral of consciousness returning to itself.
                     </p>
@@ -125,7 +192,7 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                         key={item.element}
                         className="bg-gradient-to-br from-card to-muted rounded-lg p-4 text-center border border-border hover:border-amber-400 transition-colors"
                       >
-                        <div className={`text-3xl mb-2 bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+                        <div className={`text - 3xl mb - 2 bg - gradient - to - r ${item.color} bg - clip - text text - transparent`}>
                           {item.symbol}
                         </div>
                         <h5 className="font-bold text-sm">{item.element}</h5>
@@ -147,15 +214,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                       <span className="text-2xl">□</span>
                       <h3 className="text-xl font-bold">Coins - Earth/Matter</h3>
                     </div>
-                    <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/coins.jpg"
-                        alt="Suit of Coins"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/coins.jpg"
+                            alt="Suit of Coins"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Suit of Coins</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/coins.jpg"
+                            alt="Suit of Coins"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-xs text-muted-foreground">
                       Path of Manifestation & Abundance. From raw potential to realized wealth through labor and balance.
                     </p>
@@ -167,15 +252,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                       <span className="text-2xl">△</span>
                       <h3 className="text-xl font-bold">Roses - Air/Mind</h3>
                     </div>
-                    <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/roses.jpg"
-                        alt="Suit of Roses"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/roses.jpg"
+                            alt="Suit of Roses"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Suit of Roses</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/roses.jpg"
+                            alt="Suit of Roses"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-xs text-muted-foreground">
                       Path of Thought & Communication. The mind's journey through clarity, conflict, and wisdom.
                     </p>
@@ -187,15 +290,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                       <span className="text-2xl">▽</span>
                       <h3 className="text-xl font-bold">Cards - Fire/Will</h3>
                     </div>
-                    <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/srystals.jpg"
-                        alt="Suit of Cards (Crystals)"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/srystals.jpg"
+                            alt="Suit of Cards (Crystals)"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Suit of Cards (Crystals)</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/srystals.jpg"
+                            alt="Suit of Cards (Crystals)"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-xs text-muted-foreground">
                       Path of Action & Passion. The will's expression through creative force and transformation.
                     </p>
@@ -207,15 +328,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                       <span className="text-2xl">⊙</span>
                       <h3 className="text-xl font-bold">Aether - Consciousness</h3>
                     </div>
-                    <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/selected/ether-3.jpg"
-                        alt="Aether Element"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/selected/ether-3.jpg"
+                            alt="Aether Element"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Aether Element</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/selected/ether-3.jpg"
+                            alt="Aether Element"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-xs text-muted-foreground">
                       The Fifth Element that contains all others. Pure awareness manifesting as archetypal journeys.
                     </p>
@@ -231,15 +370,33 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                   {/* Left: Lighthouse Image & Description */}
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold">The Rebuilt Lighthouse</h3>
-                    <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700">
-                      <Image
-                        src="/images/about/lighthouse.jpg"
-                        alt="The Rebuilt Lighthouse"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-lg border border-amber-200 dark:border-amber-700 cursor-pointer group">
+                          <Image
+                            src="/images/about/lighthouse.jpg"
+                            alt="The Rebuilt Lighthouse"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">The Rebuilt Lighthouse</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/about/lighthouse.jpg"
+                            alt="The Rebuilt Lighthouse"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       The Tower of Babylon reimagined as an active lighthouse and vertical paradise. Every crack filled with blooming lavender and climbing roses, inhabitants tending gardens at multiple levels, the bright beacon guiding distant travelers home.
                     </p>
@@ -373,6 +530,138 @@ export function SunlightPhilosophy({ messages, locale }: SunlightPhilosophyProps
                       This is tarot as therapeutic tool, designed for lucid dreaming and conscious living
                     </p>
                   </div>
+                </div>
+              </Card>
+            </TabsContent>
+
+            {/* Tab 5: Zero Point */}
+            <TabsContent value="zeroPoint" className="mt-0">
+              <Card className="border-2 border-amber-200 dark:border-amber-800 overflow-hidden bg-card/80 backdrop-blur">
+                <div className="relative p-8 md:p-12 space-y-12">
+                  {/* Header Section */}
+                  <div className="text-center max-w-3xl mx-auto space-y-4">
+                    <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">
+                      Zero Point Creation
+                    </h3>
+                    <p className="text-xl text-muted-foreground font-medium">
+                      Inner Love & Self-Realization
+                    </p>
+                  </div>
+
+                  {/* Section 1: Source */}
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 md:order-1 space-y-4">
+                      <h4 className="text-2xl font-semibold text-amber-700 dark:text-amber-400">
+                        The Zero Point
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        The zero point is the origin of existence, the unmanifested potential from which all creation springs. It is the silent, still center within every being, the pure consciousness that observes and experiences.
+                      </p>
+                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="order-1 md:order-2 relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform hover:scale-[1.02] transition-transform duration-500 cursor-pointer group">
+                          <Image
+                            src="/images/unnamed.png"
+                            alt="Zero Point Source"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Zero Point Source</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/unnamed.png"
+                            alt="Zero Point Source"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+
+                  {/* Section 2: Inner Sun */}
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform hover:scale-[1.02] transition-transform duration-500 cursor-pointer group">
+                          <Image
+                            src="/images/unnamed (1).png"
+                            alt="Inner Sun Reactor"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Inner Sun Reactor</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/unnamed (1).png"
+                            alt="Inner Sun Reactor"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                    <div className="space-y-4">
+                      <h4 className="text-2xl font-semibold text-amber-700 dark:text-amber-400">
+                        The Inner Sun
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        The inner sun is the reactor of love, the source of infinite energy and warmth within the heart. It is the divine spark, the true self, radiating unconditional love and wisdom.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Section 3: Realization */}
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 md:order-1 space-y-4">
+                      <h4 className="text-2xl font-semibold text-amber-700 dark:text-amber-400">
+                        Self-Realization
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        True realization occurs when one wakes up to the inner sun, recognizing the zero point as their true nature. This awakening brings profound peace, clarity, and the ability to manifest one's highest potential.
+                      </p>
+                    </div>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="order-1 md:order-2 relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform hover:scale-[1.02] transition-transform duration-500 cursor-pointer group">
+                          <Image
+                            src="/images/mj.png"
+                            alt="Self Realization"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white px-3 py-1 rounded-full text-sm">Expand</span>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-none shadow-none">
+                        <DialogTitle className="sr-only">Self Realization</DialogTitle>
+                        <div className="relative w-full h-[80vh]">
+                          <Image
+                            src="/images/mj.png"
+                            alt="Self Realization"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+
                 </div>
               </Card>
             </TabsContent>

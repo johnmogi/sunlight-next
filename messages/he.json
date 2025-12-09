@@ -14,16 +14,16 @@
       "ctaSecondary": "Read the Philosophy"
     },
     "dreamer": {
-      "title": "Wake Up Inside the Dream.",
-      "subtitle": "The first tarot deck designed for lucid dreaming. Use the symbols of the day to unlock the awareness of the night.",
-      "cta": "Start the Practice",
-      "ctaSecondary": "Get the Guide"
+      "title": "התעורר בתוך החלום",
+      "subtitle": "חפיסת הטארוט הראשונה שעוצבה לחלימה צלולה. השתמש בסמלי היום כדי לפתוח את תודעת הלילה.",
+      "cta": "התחל בתרגול",
+      "ctaSecondary": "קבל את המדריך"
     },
     "builder": {
-      "title": "Build the Deck with Us.",
-      "subtitle": "The Sunlight Tarot is an open-source project. Your voice, your art, and your wisdom belong here.",
-      "cta": "Join the Inner Circle",
-      "ctaSecondary": "View the Roadmap"
+      "title": "בנה את החפיסה איתנו",
+      "subtitle": "טארוט אור השמש הוא פרויקט קוד פתוח. הקול שלך, האמנות שלך והחכמה שלך שייכים לכאן.",
+      "cta": "הצטרף למעגל הפנימי",
+      "ctaSecondary": "צפה במפת הדרכים"
     }
   },
   "join": {
@@ -70,14 +70,32 @@
     "rosetta": "רוזטה השמש",
     "transformations": "טרנספורמציות",
     "enneagram": "אניאגרם",
-    "fifth": "יסוד האתר"
+    "fifth": "יסוד האתר",
+    "zeroPoint": "נקודת האפס"
   },
   "tabContent": {
     "babylonTitle": "המגדלור המשוקם",
     "rosettaTitle": "אבן הרוזטה של השמש",
     "transformationsTitle": "טרנספורמציות של קלפים",
     "enneagramTitle": "שילוב האניאגרם",
-    "fifthTitle": "יסוד האתר"
+    "fifthTitle": "יסוד האתר",
+    "communityTitle": "העתיד של אור השמש",
+    "zeroPointTitle": "יצירה מנקודת האפס"
+  },
+  "zeroPoint": {
+    "subtitle": "אהבה פנימית והגשמה עצמית",
+    "source": {
+      "title": "The Zero Point as the Source of Creation",
+      "text": "The zero point is defined as the origin of existence, the 'womb of the night' from which the rhythm of life is born and the spirit wakes. It is not a distant location but the 'innermost center of all our hearts', located where silence begins. In terms of creation, this point represents a 'silent big bang in the center of the chest', marking the genesis of the spirit and the universe itself. It involves 'giving birth to the universe' while simultaneously 'giving birth to myself'."
+    },
+    "innerSun": {
+      "title": "The Inner Sun and the Reactor of Love",
+      "text": "The inner sun redefines the traditional view of power. It is not the physical star in the sky but the 'core in your chest', functioning as the reactor of love. This internal mechanism burns away fear and mass, allowing you to 'climb the slope' toward hope. By staring at the 'center of the inner sun', dualities merge into one, unlocking the gate to spiritual freedom."
+    },
+    "realization": {
+      "title": "Self-Realization through Internal Integration",
+      "text": "True realization occurs when one wakes up 'lucid right inside of the dream'. The 'sun lighthouse' acts as a guide, cutting through the fog of the mind and ego to redirect you back to the internal garden—the zero point already existing within. The enemy is gone because 'the hero is me'."
+    }
   },
   "cta": {
     "slide1": {
@@ -177,5 +195,9 @@
     "noComments": "אין הערות עדיין. היו הראשונים!",
     "keywords": "מילות מפתח",
     "comments": "הערות"
+  },
+  "community": {
+    "description": "אנחנו בונים יותר מאשר חפיסת קלפים; אנחנו בונים שבט של חולמים ויוצרים. הצטרפו אלינו לעצב את עתיד הפרויקט הזה.",
+    "join": "הצטרף ל-Discord שלנו"
   }
 }
