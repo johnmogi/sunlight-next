@@ -3,8 +3,9 @@
     "projectName": "Proyecto SunLight",
     "about": "Acerca de",
     "gallery": "Galería",
-    "daily": "Lectura Diaria",
-    "collections": "Colecciones"
+    "daily": "Tirada Diaria",
+    "collections": "Colecciones",
+    "studio": "Estudio"
   },
   "hero": {
     "healer": {
@@ -14,14 +15,14 @@
       "ctaSecondary": "Lee la Filosofía"
     },
     "dreamer": {
-      "title": "Despertar Lúcido en el Ensueño",
-      "subtitle": "Usa los símbolos del día para desbloquear la conciencia del momento. Una práctica de presencia en un mundo antiguo.",
+      "title": "Más Conciencia en la Vida Diaria.",
+      "subtitle": "Convierte los ensueños en acción consciente y trae conciencia a tu vida de vigilia.",
       "cta": "Comienza la Práctica",
       "ctaSecondary": "Obtén la Guía"
     },
     "builder": {
-      "title": "Forma la Baraja.",
-      "subtitle": "Necesitamos tu voz. Vota por diseños de cartas, comenta sobre significados y ayúdanos a elegir las 46 cartas finales del Tarot SunLight.",
+      "title": "¿Qué es el Tarot SunLight?",
+      "subtitle": "Tu voz importa. Ayúdanos a co-crear el Tarot SunLight votando en los diseños de las cartas.",
       "cta": "Comienza a Votar",
       "ctaSecondary": "Ver la Hoja de Ruta"
     }
@@ -522,6 +523,23 @@
     "keywords": "Palabras Clave",
     "comments": "Comentarios"
   },
+  "studio": {
+    "hero": {
+      "title": "El Laboratorio de Sabiduría",
+      "subtitle": "Entra detrás del telón. Explora planos, bocetos y los sueños inacabados de Sunlight."
+    },
+    "roadmap": {
+      "title": "La Hoja de Ruta",
+      "subtitle": "Dónde estamos, dónde hemos estado y hacia dónde nos guía la luz."
+    },
+    "tabs": {
+      "title": "El Laboratorio Creativo"
+    },
+    "lab": {
+      "title": "Obras Inacabadas",
+      "subtitle": "Bocetos, modelos de arcilla e ideas rechazadas. El caos crudo antes del orden."
+    }
+  },
   "zeroPoint": {
     "subtitle": "Amor Interior y Autorrealización",
     "source": {
@@ -538,11 +556,28 @@
     }
   },
   "lilyChat": {
-    "greeting": "¡Hola! Soy Lily. Estoy explorando la conexión entre nuestros sueños y la realidad.",
-    "greetingAction": "Únete al Viaje",
-    "voteMessage": "¡Necesitamos tu intuición! Ayúdanos a elegir las cartas finales para la baraja.",
-    "voteAction": "Ir a Colecciones",
-    "emailMessage": "Me encantaría compartir más descubrimientos contigo. ¿Nos mantenemos en contacto?",
-    "emailPlaceholder": "tu@email.com"
+    "tutorialIntro": "¡Mira estos diseños! Estamos construyendo algo especial juntos.",
+    "tutorialLike": "¿Ves una carta que te encanta? ¡Toca el corazón para votar por ella!",
+    "tutorialComment": "¿Tienes una idea? Deja un comentario para ayudarnos a refinar el significado.",
+    "tryItLink": "Pruébalo ahora",
+    "celebrateLike": "¡Buen trabajo! Tu intuición ayuda a dar forma a la baraja.",
+    "firstVoteCelebration": "¡Sí! ¡Necesitamos más calificaciones! ¡Intenta comentar también!",
+    "promptComment": "¿Quizás dejar un comentario sobre por qué la elegiste?",
+    "celebrateComment": "¡Fantástico! Me encanta escuchar tus pensamientos.",
+    "commentGuideMessage": "¡Aún no has comentado! Nos encantaría escuchar tu voz.",
+    "offlineMessage": "Lily está soñando despierta ahora... Deja tu contacto para soporte.",
+    "offlinePlaceholder": "Correo o Teléfono",
+    "sendContact": "Enviar al Equipo",
+    "votePrompt1": "¡Tu voz importa! Ayúdanos a elegir la baraja final.",
+    "votePrompt2": "¿Ves una carta que te gusta? ¡Haz clic en el corazón!",
+    "dailySpreadPromo": "¿Listos para sabiduría interior? Echemos un vistazo al momento.",
+    "spreadGuide1": "Saca una Carta de Reflexión para ver qué requiere contemplación hoy.",
+    "spreadGuide2": "¡Luego elige una Carta de Activación para actuar!",
+    "strongExitTitle": "¡Espera! ¡No te vayas aún!",
+    "strongExitMsg": "El viaje apenas comienza. Únete a nuestra lista para acceso anticipado y recompensas.",
+    "exitMessage": "¡Espera! No te pierdas el lanzamiento.",
+    "exitSub": "Deja tu correo para recibir notificaciones.",
+    "emailPlaceholder": "email@example.com",
+    "greeting": "¡Hola! Soy Lily. Estoy explorando la conexión entre nuestros sueños y la realidad."
   }
 }

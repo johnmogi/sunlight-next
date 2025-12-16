@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { CardDetailModal } from "@/components/card-detail-modal"
+import { CardCommentSection } from "@/components/card-comment-section"
 
 interface CompleteDeckProps {
   messages: any
@@ -43,6 +44,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
   const [selectedSet, setSelectedSet] = React.useState('tarot-cards-update129') // Changed to set-update129 as default
   const [cards, setCards] = React.useState<any[]>([])
   const [userId, setUserId] = React.useState('')
+  const [expandedComments, setExpandedComments] = React.useState<Record<string, boolean>>({})
 
   React.useEffect(() => {
     async function loadCards() {
@@ -194,6 +196,13 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     setVotes(newVotes)
     setVoteCounts(newCounts)
     localStorage.setItem('card-votes', JSON.stringify(newVotes))
+
+    // Trigger Lily Celebration if it's a positive vote
+    if (voteType === 'like' || voteType === 'love') {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('sunlight-card-liked'))
+      }
+    }
 
     // Send to API
     try {
@@ -365,6 +374,20 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
                       {totalVotes > 0 && `${totalVotes}`}
                     </span>
                   </div>
+
+                  {/* Comment Section - NEW */}
+                  <CardCommentSection
+                    cardId={card.id}
+                    cardName={card.name}
+                    isExpanded={expandedComments[card.id] || false}
+                    onToggle={() => {
+                      setExpandedComments(prev => ({
+                        ...prev,
+                        [card.id]: !prev[card.id]
+                      }))
+                    }}
+                    messages={messages}
+                  />
                 </div>
               </div>
             )

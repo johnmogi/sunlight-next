@@ -1,10 +1,11 @@
 {
   "header": {
-    "projectName": "مشروع ضوء الشمس",
-    "about": "عن المشروع",
+    "projectName": " مشروع ضوء الشمس",
+    "about": "عنا",
     "gallery": "المعرض",
-    "daily": "البطاقة اليومية",
-    "collections": "المجموعات"
+    "daily": "انتشار اليومية",
+    "collections": "المجموعات",
+    "studio": "ستوديو"
   },
   "hero": {
     "healer": {
@@ -14,14 +15,14 @@
       "ctaSecondary": "Read the Philosophy"
     },
     "dreamer": {
-      "title": "Lucid Waking within the Daydream",
-      "subtitle": "Use the symbols of the day to unlock the consciousness of the moment. A practice of presence in an old world.",
+      "title": "وعي أكبر في الحياة اليومية.",
+      "subtitle": "حوّل أحلام اليقظة إلى عمل واعٍ واجلب الوعي لحياتك اليقظة.",
       "cta": "Start the Practice",
       "ctaSecondary": "Get the Guide"
     },
     "builder": {
-      "title": "Shape the Deck.",
-      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "title": "ما هو تاروت ضوء الشمس؟",
+      "subtitle": "صوتك يهم. ساعدنا في المشاركة في إنشاء تاروت ضوء الشمس من خلال التصويت على تصميمات البطاقات.",
       "cta": "Start Voting",
       "ctaSecondary": "View the Roadmap"
     }
@@ -131,6 +132,23 @@
       "description": "لعبة استراتيجية مبتكرة مبنية على نظام المجموعة الجديد، تتيح للاعبين تجربة حكمة التاروت من خلال اللعب التفاعلي والاستكشاف."
     }
   },
+  "studio": {
+    "hero": {
+      "title": "مختبر الحكمة",
+      "subtitle": "ادخل خلف الستار. استكشف المخططات والرسومات وأحلام ضوء الشمس غير المكتملة."
+    },
+    "roadmap": {
+      "title": "خارطة الطريق",
+      "subtitle": "أين نحن، وأين كنا، وإلى أين يقودنا الضوء بعد ذلك."
+    },
+    "tabs": {
+      "title": "المختبر الإبداعي"
+    },
+    "lab": {
+      "title": "أعمال غير مكتملة",
+      "subtitle": "رسومات ونماذج طينية وأفكار مرفوضة. الفوضى الخام قبل النظام."
+    }
+  },
   "daily": {
     "title": "بطاقتك اليومية",
     "description": "اسحب البطاقات للتأمل والتفعيل - تواصل مع حكمتك الداخلية",
@@ -193,11 +211,28 @@
     "comments": "التعليقات"
   },
   "lilyChat": {
-    "greeting": "مرحباً! أنا ليلي. أنا أستكشف العلاقة بين أحلامنا والواقع.",
-    "greetingAction": "انضم إلى الرحلة",
-    "voteMessage": "نحن بحاجة إلى حدسك! ساعدنا في اختيار البطاقات النهائية للمجموعة.",
-    "voteAction": "اذهب إلى المجموعات",
-    "emailMessage": "أود مشاركة المزيد من الاكتشافات معك. هل نبقى على تواصل؟",
-    "emailPlaceholder": "example@email.com"
+    "tutorialIntro": "انظر إلى هذه التصاميم! نحن نبني شيئاً مميزاً معاً.",
+    "tutorialLike": "هل رأيت بطاقة أعجبتك؟ اضغط على القلب للتصويت لها!",
+    "tutorialComment": "هل لديك فكرة؟ اترك تعليقاً لمساعدتنا في تحسين المعنى.",
+    "tryItLink": "جربه الآن",
+    "celebrateLike": "عمل رائع! حدسك يساعد في تشكيل المجموعة.",
+    "firstVoteCelebration": "مرحى! نحتاج المزيد من التقييمات! يرجى المحاولة للتعليق أيضاً!",
+    "promptComment": "ربما تترك تعليقاً حول سبب اختيارك لها؟",
+    "celebrateComment": "رائع! أحب سماع أفكارك.",
+    "commentGuideMessage": "لم تعلق بعد! نود سماع صوتك.",
+    "offlineMessage": "ليلي تحلم في اليقظة الآن... اترك معلومات الاتصال للدعم.",
+    "offlinePlaceholder": "البريد الإلكتروني أو الهاتف",
+    "sendContact": "إرسال إلى الفريق",
+    "votePrompt1": "صوتك مهم! ساعدنا في اختيار المجموعة النهائية.",
+    "votePrompt2": "هل ترى بطاقة تعجبك؟ اضغط على القلب!",
+    "dailySpreadPromo": "هل أنت مستعد للحكمة الداخلية؟ دعنا نلقي نظرة على هذه اللحظة.",
+    "spreadGuide1": "اسحب بطاقة تأمل لترى ما يحتاج إلى تفكير اليوم.",
+    "spreadGuide2": "ثم اختر بطاقة تفعيل لاتخاذ إجراء!",
+    "strongExitTitle": "انتظر! لا تغادر بعد!",
+    "strongExitMsg": "الرحلة بدأت للتو. انضم لقائمتنا للوصول المبكر والمكافآت.",
+    "exitMessage": "انتظر! لا تفوت الإطلاق.",
+    "exitSub": "اترك بريدك الإلكتروني للحصول على إشعارات.",
+    "emailPlaceholder": "email@example.com",
+    "greeting": "مرحباً! أنا ليلي. أنا أستكشف العلاقة بين أحلامنا والواقع."
   }
 }

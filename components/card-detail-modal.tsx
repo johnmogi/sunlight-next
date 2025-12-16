@@ -103,6 +103,11 @@ export function CardDetailModal({ card, isOpen, onClose, messages, cards = [], o
       // Add to local state
       setComments([data.comment, ...comments])
       setComment("")
+
+      // Trigger Lily Celebration
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('sunlight-comment-added'))
+      }
     } catch (error) {
       console.error('Error saving comment:', error)
       alert('Failed to save comment. Please try again.')
@@ -166,7 +171,7 @@ export function CardDetailModal({ card, isOpen, onClose, messages, cards = [], o
             </div>
 
             {/* Card Info & Comments - Takes up 40% on desktop */}
-            <div className="flex-1 space-y-4 lg:overflow-y-auto" style={{ maxHeight: '85vh' }}>
+            <div className="flex-1 space-y-4">
               <div className="bg-muted/30 rounded-lg p-4 md:p-6">
                 <h3 className="font-semibold text-lg md:text-xl mb-3">
                   {messages.cardDetail?.meaning || 'Meaning'}

@@ -178,12 +178,21 @@ export function HeroSlider({ messages }: HeroSliderProps) {
   const [isSupportModalOpen, setIsSupportModalOpen] = React.useState(false)
 
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % ctaSlides.length)
-    }, 18000) // 18 seconds
+    let timer: NodeJS.Timeout
 
-    return () => clearInterval(timer)
-  }, [])
+    const startTimer = () => {
+      // First slide (index 0) gets 30s, others get 24s
+      const duration = currentSlide === 0 ? 30000 : 24000
+
+      timer = setTimeout(() => {
+        nextSlide()
+      }, duration)
+    }
+
+    startTimer()
+
+    return () => clearTimeout(timer)
+  }, [currentSlide])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % ctaSlides.length)

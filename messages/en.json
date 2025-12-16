@@ -4,7 +4,8 @@
     "about": "About",
     "gallery": "Gallery",
     "daily": "Daily Spread",
-    "collections": "Collections"
+    "collections": "Collections",
+    "studio": "Studio"
   },
   "hero": {
     "healer": {
@@ -14,14 +15,14 @@
       "ctaSecondary": "Read the Philosophy"
     },
     "dreamer": {
-      "title": "Lucid Awakening Inside the Daydream.",
-      "subtitle": "Use the symbols of the day to unlock the awareness of the moment. A practice of presence in a sleeping world.",
+      "title": "More Consciousness in Daily Life.",
+      "subtitle": "Turn daydreams into conscious action and bring awareness to your waking life.",
       "cta": "Start the Practice",
       "ctaSecondary": "Get the Guide"
     },
     "builder": {
-      "title": "Shape the Deck.",
-      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "title": "What is Sunlight Tarot?",
+      "subtitle": "Your voice matters. Help us co-create the Sunlight Tarot by voting on card designs.",
       "cta": "Start Voting",
       "ctaSecondary": "View the Roadmap"
     }
@@ -88,6 +89,23 @@
     "enneagramTitle": "The Enneagram Integration",
     "fifthTitle": "The Aether Element",
     "zeroPointTitle": "Zero Point Creation"
+  },
+  "studio": {
+    "hero": {
+      "title": "The Wisdom Lab",
+      "subtitle": "Step behind the curtain. Explore blueprints, sketches, and the unfinished dreams of Sunlight."
+    },
+    "roadmap": {
+      "title": "The Roadmap",
+      "subtitle": "Where we are, where we've been, and where the light is guiding us next."
+    },
+    "tabs": {
+      "title": "The Creative Lab"
+    },
+    "lab": {
+      "title": "Unfinished Works",
+      "subtitle": "Sketches, clay models, and rejected ideas. The raw chaos before the order."
+    }
   },
   "zeroPoint": {
     "subtitle": "Inner Love & Self-Realization",
@@ -594,11 +612,28 @@
     "comments": "Comments"
   },
   "lilyChat": {
-    "greeting": "Hi! I'm Lily. I'm exploring the connection between our dreams and reality.",
-    "greetingAction": "Join the Journey",
-    "voteMessage": "We need your intuition! Help us choose the final cards for the deck.",
-    "voteAction": "Go to Collections",
-    "emailMessage": "I'd love to share more discoveries with you. Shall we stay in touch?",
-    "emailPlaceholder": "your@email.com"
+    "tutorialIntro": "Look at these designs! We're building something special together.",
+    "tutorialLike": "See a card you love? Tap the heart to vote for it!",
+    "tutorialComment": "Have a thought? Leave a comment to help us refine the meaning.",
+    "tryItLink": "Try it now",
+    "celebrateLike": "Great job! Your intuition is helping shape the deck.",
+    "firstVoteCelebration": "Yay! We need more ratings! Please try to comment too!",
+    "promptComment": "Maybe leave a comment on why you chose it?",
+    "celebrateComment": "Fantastic! I love hearing your thoughts.",
+    "commentGuideMessage": "You haven't commented yet! We'd love to hear your voice.",
+    "offlineMessage": "Lily is daydreaming right now... Leave your contact info for support.",
+    "offlinePlaceholder": "Email or Phone",
+    "sendContact": "Send to Team",
+    "votePrompt1": "Your voice matters! Help us choose the final deck.",
+    "votePrompt2": "See a card you love? Click the heart to vote!",
+    "dailySpreadPromo": "Ready for some inner wisdom? Let's peek into the moment.",
+    "spreadGuide1": "Draw a Reflection Card to see what requires contemplation today.",
+    "spreadGuide2": "Then choose an Activation Card to take action!",
+    "strongExitTitle": "Wait! Don't leave yet!",
+    "strongExitMsg": "The journey is just beginning. Join our list for early access and rewards.",
+    "exitMessage": "Wait! Don't miss out on the launch.",
+    "exitSub": "Leave your email to get notified.",
+    "emailPlaceholder": "email@example.com",
+    "greeting": "Hi! I'm Lily. I'm exploring the connection between our dreams and reality."
   }
 }

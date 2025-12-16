@@ -3,8 +3,9 @@
     "projectName": "Projet SunLight",
     "about": "À propos",
     "gallery": "Galerie",
-    "daily": "Tirage Quotidien",
-    "collections": "Collections"
+    "daily": "Tirage du Jour",
+    "collections": "Collections",
+    "studio": "Studio"
   },
   "hero": {
     "healer": {
@@ -14,14 +15,14 @@
       "ctaSecondary": "Read the Philosophy"
     },
     "dreamer": {
-      "title": "Lucid Waking within the Daydream",
-      "subtitle": "Use the symbols of the day to unlock the consciousness of the moment. A practice of presence in an old world.",
+      "title": "Plus de Conscience dans la Vie Quotidienne.",
+      "subtitle": "Transformez les rêveries en action consciente et amenez la conscience à votre vie éveillée.",
       "cta": "Start the Practice",
       "ctaSecondary": "Get the Guide"
     },
     "builder": {
-      "title": "Shape the Deck.",
-      "subtitle": "We need your voice. Vote on card designs, comment on meanings, and help us choose the final 46 cards of the Sunlight Tarot.",
+      "title": "Qu'est-ce que le Tarot SunLight ?",
+      "subtitle": "Votre voix compte. Aidez-nous à co-créer le Tarot SunLight en votant pour les designs des cartes.",
       "cta": "Start Voting",
       "ctaSecondary": "View the Roadmap"
     }
@@ -131,6 +132,23 @@
       "description": "Un jeu de stratégie innovant construit sur le nouveau système de jeu, permettant aux joueurs de découvrir la sagesse du tarot à travers un jeu interactif et une exploration."
     }
   },
+  "studio": {
+    "hero": {
+      "title": "Le Laboratoire de Sagesse",
+      "subtitle": "Passez derrière le rideau. Explorez les plans, les croquis et les rêves inachevés de Sunlight."
+    },
+    "roadmap": {
+      "title": "La Feuille de Route",
+      "subtitle": "Où nous sommes, où nous avons été et où la lumière nous guide ensuite."
+    },
+    "tabs": {
+      "title": "Le Laboratoire Créatif"
+    },
+    "lab": {
+      "title": "Œuvres Inachevées",
+      "subtitle": "Croquis, modèles en argile et idées rejetées. Le chaos brut avant l'ordre."
+    }
+  },
   "daily": {
     "title": "Votre Tirage Quotidien",
     "description": "Tirez des cartes pour la réflexion et l'activation - connectez-vous à votre sagesse intérieure",
@@ -193,11 +211,28 @@
     "comments": "Commentaires"
   },
   "lilyChat": {
-    "greeting": "Salut ! Je suis Lily. J'explore la connexion entre nos rêves et la réalité.",
-    "greetingAction": "Rejoignez le Voyage",
-    "voteMessage": "Nous avons besoin de votre intuition ! Aidez-nous à choisir les dernières cartes du jeu.",
-    "voteAction": "Aller aux Collections",
-    "emailMessage": "J'aimerais partager plus de découvertes avec vous. Restons-nous en contact ?",
-    "emailPlaceholder": "votre@email.com"
+    "tutorialIntro": "Regardez ces designs ! Nous construisons quelque chose de spécial ensemble.",
+    "tutorialLike": "Vous voyez une carte que vous aimez ? Appuyez sur le cœur pour voter pour elle !",
+    "tutorialComment": "Vous avez une idée ? Laissez un commentaire pour nous aider à affiner le sens.",
+    "tryItLink": "Essayez maintenant",
+    "celebrateLike": "Bon travail ! Votre intuition aide à façonner le jeu.",
+    "firstVoteCelebration": "Yay ! Nous avons besoin de plus de notes ! Essayez de commenter aussi !",
+    "promptComment": "Peut-être laisser un commentaire sur pourquoi vous l'avez choisi ?",
+    "celebrateComment": "Fantastique ! J'adore entendre vos pensées.",
+    "commentGuideMessage": "Vous n'avez pas encore commenté ! Nous aimerions entendre votre voix.",
+    "offlineMessage": "Lily rêvasse en ce moment... Laissez vos coordonnées pour le support.",
+    "offlinePlaceholder": "Email ou Téléphone",
+    "sendContact": "Envoyer à l'Équipe",
+    "votePrompt1": "Votre voix compte ! Aidez-nous à choisir le jeu final.",
+    "votePrompt2": "Vous voyez une carte que vous aimez ? Cliquez sur le cœur !",
+    "dailySpreadPromo": "Prêt pour la sagesse intérieure ? Jetons un coup d'œil au moment présent.",
+    "spreadGuide1": "Tirez une Carte de Réflexion pour voir ce qui nécessite contemplation.",
+    "spreadGuide2": "Ensuite, choisissez une Carte d'Activation pour agir !",
+    "strongExitTitle": "Attendez ! Ne partez pas encore !",
+    "strongExitMsg": "Le voyage ne fait que commencer. Rejoignez notre liste pour un accès anticipé et des récompenses.",
+    "exitMessage": "Attendez ! Ne manquez pas le lancement.",
+    "exitSub": "Laissez votre email pour être notifié.",
+    "emailPlaceholder": "email@example.com",
+    "greeting": "Salut ! Je suis Lily. J'explore la connexion entre nos rêves et la réalité."
   }
 }
