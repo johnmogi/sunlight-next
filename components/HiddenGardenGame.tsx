@@ -4,12 +4,12 @@ import * as React from "react"
 import { Dice5, Swords, BookOpen, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface ScrollMazeBannerProps {
+interface HiddenGardenGameProps {
   messages: any
   onLearnMore?: () => void
 }
 
-export function ScrollMazeBanner({ messages, onLearnMore }: ScrollMazeBannerProps) {
+export function HiddenGardenGame({ messages, onLearnMore }: HiddenGardenGameProps) {
   const features = [
     {
       icon: Dice5,
@@ -39,6 +39,7 @@ export function ScrollMazeBanner({ messages, onLearnMore }: ScrollMazeBannerProp
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-purple-900/80 to-slate-900/90"></div>
       </div>
+
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">

@@ -6,7 +6,7 @@ import { SunlightPhilosophy } from "@/components/sunlight-philosophy"
 import { MediaTabs } from "@/components/media-tabs"
 import { CompleteDeck } from "@/components/complete-deck"
 import { DailySpread } from "@/components/daily-spread"
-import { ScrollMazeBanner } from "@/components/scrollmaze-banner"
+import { HiddenGardenGame } from "@/components/HiddenGardenGame"
 import { type Locale } from "@/lib/i18n"
 
 // This will be replaced with server-side messages in production
@@ -46,7 +46,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       <CompleteDeck messages={messages} locale={locale} />
 
       {/* ScrollMaze Banner */}
-      <ScrollMazeBanner messages={messages} />
+      <HiddenGardenGame messages={messages} />
 
       {/* Daily Spread */}
       <DailySpread messages={messages} />

@@ -27,9 +27,7 @@ export function CardLab({ messages, locale }: CardLabProps) {
     ]
 
     const sketches = [
-        "/images/artwork/artwork/A_finely_detailed_pencil_sketch_tarot_card_titled_0_-_The_Foo_3b9910ae-6622-4d7d-8d8d-d9cb8131db37_3.jpg",
-        "/images/artwork/artwork/Ace_of_Roses_-_The_Excalibur_Rose_Young_Egyptian-gypsy_boy_br_91ad05ce-a40d-45ce-bf66-b54c08b298fc_1.jpg",
-        "/images/artwork/artwork/pencil_blueprint_tarot_card_radiant_sun_with_four_angels_arou_2f92dfa5-dcdb-44ed-8213-71d2ad8f88fe_2.jpg"
+
     ]
 
     // Normalize data for the gallery

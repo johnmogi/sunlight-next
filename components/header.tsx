@@ -19,9 +19,17 @@ interface HeaderProps {
   messages: any
 }
 
+import { usePathname } from "next/navigation"
+
 export function Header({ locale, messages }: HeaderProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
+  const pathname = usePathname()
+
+  // Hide global header on Twin System page which has its own header
+  if (pathname?.includes('/twin-system')) {
+    return null
+  }
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +53,7 @@ export function Header({ locale, messages }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full border-b border-white/10 bg-background/20 backdrop-blur-md supports-[backdrop-filter]:bg-background/20 transition-all duration-300 ${scrolled ? "h-16 bg-background/40" : "h-20"
+      className={`fixed top-0 z-50 w-full border-b border-white/10 bg-background/20 backdrop-blur-md transition-all duration-300 ${scrolled ? "h-16 bg-background/40" : "h-20"
         }`}
     >
       <div

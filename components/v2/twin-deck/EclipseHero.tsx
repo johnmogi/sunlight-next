@@ -8,6 +8,8 @@
 import React, { useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
+import { SunlightBlurBackground } from './SunlightBlurBackground'
+import { MoonlightBlurBackground } from './MoonlightBlurBackground'
 
 export function EclipseHero() {
     const [revealPosition, setRevealPosition] = useState(50) // Start at 50% reveal
@@ -53,19 +55,13 @@ export function EclipseHero() {
             onMouseDown={handleMouseDown}
         >
             {/* SUNLIGHT HERO (Right/Background) - Full Hero with Image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-300 via-yellow-400 to-orange-500">
+            <div className="absolute inset-0">
                 {/* Background Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage: 'url(/images/about/hggamplay1.jpg)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}
-                />
+                {/* Background Element - Blurry Sunlight */}
+                <SunlightBlurBackground />
 
                 {/* Stronger dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-amber-900/60 via-orange-800/50 to-yellow-900/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-amber-400/10 via-orange-300/10 to-yellow-500/10" />
 
                 {/* Sun Rays Pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -134,18 +130,11 @@ export function EclipseHero() {
             {/* MOONLIGHT HERO (Left/Foreground) - Clipped Reveal with Image */}
             <div
                 className="absolute inset-0 overflow-hidden"
-                style={{ clipPath: `inset(0 ${100 - revealPosition}% 0 0)` }}
             >
-                <div className="absolute inset-0 bg-gradient-to-bl from-indigo-900 via-purple-800 to-slate-900">
-                    {/* Background Image */}
-                    <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{
-                            backgroundImage: 'url(/images/about/gardencard1.jpg)',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                        }}
-                    />
+                <div className="absolute inset-0">
+                    {/* Background Element - Purplish Dark */}
+                    {/* Background Element - Blurry Moonlight */}
+                    <MoonlightBlurBackground />
 
                     {/* Stronger dark overlay for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/70 via-purple-900/60 to-slate-900/70" />

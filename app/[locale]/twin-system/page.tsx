@@ -6,12 +6,12 @@
 'use client'
 
 import * as React from 'react'
-import { EclipseHero } from '@/components/v2/twin-deck/EclipseHero'
+import { DualVideoSwiper } from '@/components/v2/twin-deck/DualVideoSwiper'
 import { MajorArcanaGallery } from '@/components/v2/twin-deck/MajorArcanaGallery'
 import { TwinSystemHeader } from '@/components/v2/twin-deck/TwinSystemHeader'
 import { TwinAboutSection } from '@/components/v2/twin-deck/TwinAboutSection'
 import { CompleteDeck } from '@/components/complete-deck'
-import { ScrollMazeBanner } from '@/components/scrollmaze-banner'
+import { HiddenGardenGame } from '@/components/HiddenGardenGame'
 import { type Locale } from '@/lib/i18n'
 
 // Import i18n messages
@@ -40,10 +40,10 @@ export default function TwinSystemPage({ params }: { params: Promise<{ locale: s
     return (
         <main className="min-h-screen pt-0">
             {/* Navigation Header */}
-            <TwinSystemHeader />
+            <TwinSystemHeader locale={locale} />
 
             {/* Full Hero Swipe - Above the fold */}
-            <EclipseHero />
+            <DualVideoSwiper />
 
             {/* About Section - Dual Path Philosophy */}
             <TwinAboutSection />
@@ -57,7 +57,7 @@ export default function TwinSystemPage({ params }: { params: Promise<{ locale: s
             </section>
 
             {/* Hidden Garden Game Section */}
-            <ScrollMazeBanner messages={messages} />
+            <HiddenGardenGame messages={messages} />
         </main>
     )
 }
