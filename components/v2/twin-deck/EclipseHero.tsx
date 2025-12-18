@@ -11,9 +11,11 @@ import { Sun, Moon } from 'lucide-react'
 
 export function EclipseHero() {
     const [revealPosition, setRevealPosition] = useState(50) // Start at 50% reveal
+    const [isDragging, setIsDragging] = useState(false) // Track if user is actively dragging
     const controls = useAnimation()
 
     const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
+        setIsDragging(true)
         const section = e.currentTarget
         const rect = section.getBoundingClientRect()
 
@@ -24,6 +26,7 @@ export function EclipseHero() {
         }
 
         const handleMouseUp = () => {
+            setIsDragging(false)
             document.removeEventListener('mousemove', handleMouseMove)
             document.removeEventListener('mouseup', handleMouseUp)
         }
@@ -45,7 +48,8 @@ export function EclipseHero() {
 
     return (
         <section
-            className="relative w-full h-screen overflow-hidden cursor-ew-resize select-none"
+            className="relative w-full h-screen -mt-16 overflow-hidden select-none"
+            style={{ cursor: isDragging ? 'ew-resize' : 'default' }}
             onMouseDown={handleMouseDown}
         >
             {/* SUNLIGHT HERO (Right/Background) - Full Hero with Image */}
@@ -85,11 +89,11 @@ export function EclipseHero() {
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="text-5xl md:text-7xl font-bold text-center drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl"
+                        className="w-full text-4xl sm:text-5xl md:text-7xl font-bold text-center drop-shadow-2xl mb-6 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl max-w-4xl"
                         style={{
-                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(254, 243, 199, 0.8) 100%)',
-                            backdropFilter: 'blur(10px)',
-                            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(254, 243, 199, 0.85) 100%)',
+                            backdropFilter: 'blur(12px)',
+                            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
                             color: '#1f2937' // Dark gray text
                         }}
                     >
@@ -100,7 +104,7 @@ export function EclipseHero() {
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.7 }}
-                        className="text-xl md:text-3xl text-center max-w-3xl drop-shadow-lg font-light px-6 py-3 rounded-xl"
+                        className="w-full text-xl md:text-3xl text-center max-w-3xl drop-shadow-lg font-light px-6 py-3 rounded-xl"
                         style={{
                             background: 'rgba(254, 249, 195, 0.75)',
                             backdropFilter: 'blur(8px)',
@@ -115,7 +119,7 @@ export function EclipseHero() {
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.9 }}
-                        className="text-lg md:text-xl text-center max-w-2xl mt-6 px-6 py-3 rounded-lg"
+                        className="w-full text-lg md:text-xl text-center max-w-2xl mt-6 px-6 py-3 rounded-lg"
                         style={{
                             background: 'rgba(254, 252, 232, 0.7)',
                             backdropFilter: 'blur(6px)',
@@ -175,11 +179,11 @@ export function EclipseHero() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.5 }}
-                            className="text-5xl md:text-7xl font-bold text-center text-white drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl"
+                            className="w-full text-4xl sm:text-5xl md:text-7xl font-bold text-center text-white drop-shadow-2xl mb-6 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl max-w-4xl"
                             style={{
-                                background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.6) 0%, rgba(99, 102, 241, 0.5) 100%)',
-                                backdropFilter: 'blur(10px)',
-                                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.5)'
+                                background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.75) 0%, rgba(99, 102, 241, 0.65) 100%)',
+                                backdropFilter: 'blur(12px)',
+                                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.6)'
                             }}
                         >
                             The Moonlight Path
@@ -189,7 +193,7 @@ export function EclipseHero() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.7 }}
-                            className="text-xl md:text-3xl text-center text-white max-w-3xl drop-shadow-lg font-light px-6 py-3 rounded-xl"
+                            className="w-full text-xl md:text-3xl text-center text-white max-w-3xl drop-shadow-lg font-light px-6 py-3 rounded-xl"
                             style={{
                                 background: 'rgba(88, 28, 135, 0.6)',
                                 backdropFilter: 'blur(8px)',
@@ -203,7 +207,7 @@ export function EclipseHero() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.9 }}
-                            className="text-lg md:text-xl text-center text-white max-w-2xl mt-6 px-6 py-3 rounded-lg"
+                            className="w-full text-lg md:text-xl text-center text-white max-w-2xl mt-6 px-6 py-3 rounded-lg"
                             style={{
                                 background: 'rgba(55, 48, 163, 0.5)',
                                 backdropFilter: 'blur(6px)'
@@ -217,7 +221,7 @@ export function EclipseHero() {
 
             {/* Center Divider Line with Handle */}
             <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-50 pointer-events-none"
+                className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-40 pointer-events-none"
                 style={{ left: `${revealPosition}%` }}
             >
                 {/* Drag Handle */}

@@ -1,10 +1,10 @@
 /**
- * Card Detail Modal - Full screen card view with ratings and comments
+ * Card Detail Modal - Full screen card view with SWIPEABLE ratings and comments
  */
 
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Moon, Sun } from 'lucide-react'
 import Image from 'next/image'
@@ -18,7 +18,8 @@ interface CardDetailModalProps {
         id: string
         name: string
         number: number
-        image: string
+        moonlightImage: string
+        sunlightImage: string
         meaning: string
         type: string
     }
@@ -33,6 +34,9 @@ export function CardDetailModal({
     deckType = 'sunlight',
     messages
 }: CardDetailModalProps) {
+    const [revealPosition, setRevealPosition] = useState(50) // Start at 50% (showing both)
+    const containerRef = useRef<HTMLDivElement>(null)
+
     // Handle ESC key to close
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
@@ -53,7 +57,28 @@ export function CardDetailModal({
         }
     }, [isOpen, onClose])
 
-    const isDarkMode = deckType === 'moonlight'
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (!containerRef.current) return
+
+        const handleMove = (moveEvent: MouseEvent) => {
+            if (!containerRef.current) return
+            const rect = containerRef.current.getBoundingClientRect()
+            const x = moveEvent.clientX - rect.left
+            const percentage = (x / rect.width) * 100
+            setRevealPosition(Math.max(0, Math.min(100, percentage)))
+        }
+
+        const handleUp = () => {
+            document.removeEventListener('mousemove', handleMove)
+            document.removeEventListener('mouseup', handleUp)
+        }
+
+        document.addEventListener('mousemove', handleMove)
+        document.addEventListener('mouseup', handleUp)
+    }
+
+    const currentDeckType = revealPosition > 50 ? 'moonlight' : 'sunlight'
+    const isDarkMode = currentDeckType === 'moonlight'
 
     return (
         <AnimatePresence>
@@ -88,9 +113,13 @@ export function CardDetailModal({
                             {/* Scrollable Content - Two Column Layout */}
                             <div className="overflow-y-auto max-h-[90vh] overscroll-contain">
                                 <div className="grid md:grid-cols-2 gap-0">
-                                    {/* Left Column - Card Image (Full Height on Desktop) */}
-                                    <div className="relative bg-gradient-to-br from-slate-900 to-purple-900 md:sticky md:top-0 md:h-[90vh]">
-                                        {/* Deck Type Badge */}
+                                    {/* Left Column - SWIPEABLE Card Image */}
+                                    <div
+                                        ref={containerRef}
+                                        onMouseDown={handleMouseDown}
+                                        className="relative bg-gradient-to-br from-slate-900 to-purple-900 md:sticky md:top-0 md:h-[90vh] select-none"
+                                    >
+                                        {/* Deck Type Badge - Dynamic */}
                                         <div className="absolute top-4 left-4 z-10 flex items-center gap-2 px-4 py-2 rounded-lg backdrop-blur-sm bg-black/50">
                                             {isDarkMode ? (
                                                 <Moon className="w-5 h-5 text-purple-200" />
@@ -107,17 +136,55 @@ export function CardDetailModal({
                                             <span className="text-white font-bold text-lg">{card.number}</span>
                                         </div>
 
-                                        {/* Card Image Container - Centered and Properly Sized */}
+                                        {/* Card Image Container - SWIPEABLE */}
                                         <div className="flex items-center justify-center p-8 h-full min-h-[60vh] md:min-h-[90vh]">
                                             <div className="relative w-full max-w-md aspect-[2/3]">
+                                                {/* Sunlight Image (Background) */}
                                                 <Image
-                                                    src={`/images/cards/${card.image}`}
-                                                    alt={card.name}
+                                                    src={card.sunlightImage.startsWith('/') ? card.sunlightImage : `/images/cards/${card.sunlightImage}`}
+                                                    alt={`${card.name} - Sunlight`}
                                                     fill
                                                     className="object-contain rounded-xl shadow-2xl"
                                                     priority
                                                 />
+
+                                                {/* Moonlight Image (Foreground - Clipped) */}
+                                                <div
+                                                    className="absolute inset-0 overflow-hidden"
+                                                    style={{ clipPath: `inset(0 ${100 - revealPosition}% 0 0)` }}
+                                                >
+                                                    <Image
+                                                        src={card.moonlightImage.startsWith('/') ? card.moonlightImage : `/images/cards/${card.moonlightImage}`}
+                                                        alt={`${card.name} - Moonlight`}
+                                                        fill
+                                                        className="object-contain rounded-xl shadow-2xl"
+                                                        priority
+                                                    />
+                                                </div>
+
+                                                {/* Divider Line with Handle */}
+                                                <div
+                                                    className="absolute top-0 bottom-0 w-1 bg-white shadow-lg z-10 pointer-events-none"
+                                                    style={{ left: `${revealPosition}%` }}
+                                                >
+                                                    {/* Drag Handle */}
+                                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-gray-200">
+                                                        <div className="flex items-center gap-0.5">
+                                                            <svg className="w-3 h-3 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                                                <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" />
+                                                            </svg>
+                                                            <svg className="w-3 h-3 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                                                <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
+
+                                        {/* Drag Hint */}
+                                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium">
+                                            ← Drag to reveal →
                                         </div>
                                     </div>
 

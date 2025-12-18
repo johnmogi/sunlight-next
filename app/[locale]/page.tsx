@@ -35,7 +35,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
   const messages = messagesMap[locale] || enMessages
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       {/* Hero - Visual Impact Above the Fold */}
       <HeroSlider messages={messages} />
 

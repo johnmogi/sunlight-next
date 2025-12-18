@@ -104,7 +104,7 @@ export function CardCommentSection({
 
             {/* Expanded Comment Section */}
             {isExpanded && (
-                <div className="mt-3 space-y-3 border-t border-gray-300 dark:border-gray-600 pt-3 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2">
+                <div className="mt-3 space-y-3 border-2 border-purple-300 dark:border-purple-700 pt-3 bg-purple-50/80 dark:bg-purple-900/30 p-4 rounded-xl shadow-md backdrop-blur-sm">
                     {/* Comment Form */}
                     <form onSubmit={handleSubmit} className="space-y-2">
                         <Input

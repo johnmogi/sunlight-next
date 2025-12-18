@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { ThumbsUp, ThumbsDown, Heart } from "lucide-react"
+import { Heart, ThumbsUp, Star, Frown, Flame, ThumbsDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -20,7 +20,7 @@ interface CompleteDeckProps {
   locale: string
 }
 
-type VoteType = 'like' | 'dislike' | 'love' | null
+type ReactionType = 'love' | 'like' | 'wow' | 'sad' | 'fire' | null
 
 // Helper to get or create anonymous user ID
 function getUserId(): string {
@@ -37,8 +37,8 @@ function getUserId(): string {
 export function CompleteDeck({ messages }: CompleteDeckProps) {
   const [selectedCard, setSelectedCard] = React.useState<any | null>(null)
   const [activeFilter, setActiveFilter] = React.useState('major') // Default to Aether (Major Arcana)
-  const [votes, setVotes] = React.useState<Record<string, VoteType>>({})
-  const [voteCounts, setVoteCounts] = React.useState<Record<string, { like: number; dislike: number; love: number }>>({})
+  const [votes, setVotes] = React.useState<Record<string, ReactionType>>({})
+  const [voteCounts, setVoteCounts] = React.useState<Record<string, { like: number; wow: number; love: number; sad: number; fire: number }>>({})
   const [visibleCount, setVisibleCount] = React.useState(10) // 2 rows at XL breakpoint (5 cols x 2 rows)
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
   const [selectedSet, setSelectedSet] = React.useState('tarot-cards-update129') // Changed to set-update129 as default
@@ -163,7 +163,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     setVisibleCount(10)
   }, [activeFilter])
 
-  const handleVote = async (cardId: string, voteType: VoteType) => {
+  const handleVote = async (cardId: string, reactionType: ReactionType) => {
     if (!userId) return
 
     const currentVote = votes[cardId]
@@ -171,25 +171,25 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     const newCounts = { ...voteCounts }
 
     if (!newCounts[cardId]) {
-      newCounts[cardId] = { like: 0, dislike: 0, love: 0 }
+      newCounts[cardId] = { like: 0, wow: 0, love: 0, sad: 0, fire: 0 }
     }
 
-    // Determine the new vote type
-    let finalVoteType: VoteType = voteType
+    // Determine the new reaction type
+    let finalReactionType: ReactionType = reactionType
 
-    // If clicking same vote, remove it
-    if (currentVote === voteType) {
+    // If clicking same reaction, remove it
+    if (currentVote === reactionType) {
       newVotes[cardId] = null
-      finalVoteType = null
-      if (voteType) newCounts[cardId][voteType]--
+      finalReactionType = null
+      if (reactionType) newCounts[cardId][reactionType]--
     } else {
-      // Remove previous vote count
+      // Remove previous reaction count
       if (currentVote) {
         newCounts[cardId][currentVote]--
       }
-      // Add new vote
-      newVotes[cardId] = voteType
-      if (voteType) newCounts[cardId][voteType]++
+      // Add new reaction
+      newVotes[cardId] = reactionType
+      if (reactionType) newCounts[cardId][reactionType]++
     }
 
     // Optimistic UI update
@@ -197,8 +197,8 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
     setVoteCounts(newCounts)
     localStorage.setItem('card-votes', JSON.stringify(newVotes))
 
-    // Trigger Lily Celebration if it's a positive vote
-    if (voteType === 'like' || voteType === 'love') {
+    // Trigger Lily Celebration for positive reactions
+    if (reactionType === 'like' || reactionType === 'love' || reactionType === 'wow' || reactionType === 'fire') {
       if (typeof window !== 'undefined') {
         window.dispatchEvent(new CustomEvent('sunlight-card-liked'))
       }
@@ -212,7 +212,7 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
         body: JSON.stringify({
           cardId,
           userId,
-          voteType: finalVoteType,
+          voteType: finalReactionType,
         }),
       })
 
@@ -296,8 +296,8 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {visibleCards.map((card) => {
             const cardVote = votes[card.id]
-            const counts = voteCounts[card.id] || { like: 0, dislike: 0, love: 0 }
-            const totalVotes = counts.like + counts.dislike + counts.love
+            const counts = voteCounts[card.id] || { like: 0, wow: 0, love: 0, sad: 0, fire: 0 }
+            const totalVotes = counts.like + counts.wow + counts.love + counts.sad + counts.fire
 
             return (
               <div
@@ -333,42 +333,88 @@ export function CompleteDeck({ messages }: CompleteDeckProps) {
                       card.suit ? `${card.suit.charAt(0).toUpperCase()}${card.suit.slice(1)}` : ''}
                   </p>
 
-                  {/* Vote Buttons */}
+                  {/* Reaction Buttons - 5 Emoji System */}
                   <div className="flex items-center justify-between pt-2 border-t">
-                    <div className="flex gap-1">
-                      <Button
-                        size="sm"
-                        variant="ghost"
+                    <div className="flex gap-1 flex-wrap">
+                      {/* Love */}
+                      <button
                         className={cn(
-                          "h-8 px-2",
-                          cardVote === 'love' && "text-red-500 bg-red-50 dark:bg-red-950/20"
+                          "relative flex items-center gap-1 rounded-full p-2",
+                          "transition-colors",
+                          "hover:bg-pink-100 dark:hover:bg-pink-900/30",
+                          cardVote === 'love' && "bg-pink-50 dark:bg-pink-950/20 ring-2 ring-pink-500/50"
                         )}
                         onClick={() => handleVote(card.id, 'love')}
+                        title="love"
                       >
-                        <Heart className={cn("h-4 w-4", cardVote === 'love' && "fill-current")} />
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
+                        <span className="text-pink-500">
+                          <Heart className="w-4 h-4" />
+                        </span>
+                      </button>
+
+                      {/* Like */}
+                      <button
                         className={cn(
-                          "h-8 px-2",
-                          cardVote === 'like' && "text-green-500 bg-green-50 dark:bg-green-950/20"
+                          "relative flex items-center gap-1 rounded-full p-2",
+                          "transition-colors",
+                          "hover:bg-blue-100 dark:hover:bg-blue-900/30",
+                          cardVote === 'like' && "bg-blue-50 dark:bg-blue-950/20 ring-2 ring-blue-500/50"
                         )}
                         onClick={() => handleVote(card.id, 'like')}
+                        title="like"
                       >
-                        <ThumbsUp className={cn("h-4 w-4", cardVote === 'like' && "fill-current")} />
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
+                        <span className="text-blue-500">
+                          <ThumbsUp className="w-4 h-4" />
+                        </span>
+                      </button>
+
+                      {/* Wow */}
+                      <button
                         className={cn(
-                          "h-8 px-2",
-                          cardVote === 'dislike' && "text-red-500 bg-red-50 dark:bg-red-950/20"
+                          "relative flex items-center gap-1 rounded-full p-2",
+                          "transition-colors",
+                          "hover:bg-yellow-100 dark:hover:bg-yellow-900/30",
+                          cardVote === 'wow' && "bg-yellow-50 dark:bg-yellow-950/20 ring-2 ring-yellow-500/50"
                         )}
-                        onClick={() => handleVote(card.id, 'dislike')}
+                        onClick={() => handleVote(card.id, 'wow')}
+                        title="wow"
                       >
-                        <ThumbsDown className={cn("h-4 w-4", cardVote === 'dislike' && "fill-current")} />
-                      </Button>
+                        <span className="text-yellow-500">
+                          <Star className="w-4 h-4" />
+                        </span>
+                      </button>
+
+                      {/* Sad */}
+                      <button
+                        className={cn(
+                          "relative flex items-center gap-1 rounded-full p-2",
+                          "transition-colors",
+                          "hover:bg-gray-100 dark:hover:bg-gray-900/30",
+                          cardVote === 'sad' && "bg-gray-50 dark:bg-gray-950/20 ring-2 ring-gray-500/50"
+                        )}
+                        onClick={() => handleVote(card.id, 'sad')}
+                        title="sad"
+                      >
+                        <span className="text-gray-500">
+                          <Frown className="w-4 h-4" />
+                        </span>
+                      </button>
+
+                      {/* Fire */}
+                      <button
+                        className={cn(
+                          "relative flex items-center gap-1 rounded-full p-2",
+                          "transition-colors",
+                          "hover:bg-orange-100 dark:hover:bg-orange-900/30",
+                          cardVote === 'fire' && "bg-orange-50 dark:bg-orange-950/20 ring-2 ring-orange-500/50"
+                        )}
+                        onClick={() => handleVote(card.id, 'fire')}
+                        title="fire"
+                      >
+                        <span className="text-orange-500">
+                          <Flame className="w-4 h-4" />
+                        </span>
+                      </button>
                     </div>
                     <span className="text-xs text-muted-foreground">
                       {totalVotes > 0 && `${totalVotes}`}

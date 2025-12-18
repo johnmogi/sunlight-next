@@ -90,7 +90,7 @@ export function SwipeableCard({
             {/* Swipeable Card Image Container */}
             <div
                 ref={containerRef}
-                className="relative aspect-[2/3] cursor-ew-resize select-none overflow-hidden"
+                className="relative aspect-[2/3] select-none overflow-hidden"
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
                 onClick={handleCardClickInternal}
@@ -98,14 +98,12 @@ export function SwipeableCard({
                 {/* Sunlight Image (Background) */}
                 <div className="absolute inset-0">
                     <Image
-                        src={sunlightImage}
+                        src={sunlightImage.startsWith('/') ? sunlightImage : `/images/cards/${sunlightImage}`}
                         alt={`${cardName} - Sunlight`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    {/* Sunlight Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20" />
                 </div>
 
                 {/* Moonlight Image (Foreground - Clipped) */}
@@ -114,14 +112,12 @@ export function SwipeableCard({
                     style={{ clipPath: `inset(0 ${100 - revealPosition}% 0 0)` }}
                 >
                     <Image
-                        src={moonlightImage}
+                        src={moonlightImage.startsWith('/') ? moonlightImage : `/images/cards/${moonlightImage}`}
                         alt={`${cardName} - Moonlight`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    {/* Moonlight Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-bl from-indigo-500/20 to-purple-500/20" />
                 </div>
 
                 {/* Divider Line */}
@@ -145,8 +141,8 @@ export function SwipeableCard({
                 {/* Deck Type Badge */}
                 <div className="absolute top-2 right-2 z-10">
                     <div className={`flex items-center gap-1 px-2 py-1 rounded-md backdrop-blur-sm ${isDarkMode
-                            ? 'bg-indigo-900/90'
-                            : 'bg-amber-500/90'
+                        ? 'bg-indigo-900/90'
+                        : 'bg-amber-500/90'
                         }`}>
                         {isDarkMode ? (
                             <Moon className="w-3 h-3 text-purple-200" />

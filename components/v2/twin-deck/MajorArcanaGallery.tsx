@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { TAROT_CARDS } from '@/lib/card-sets/set-default'
+import { DUAL_PATH_CARDS } from '@/lib/card-sets/set-dual-path'
 import { CardRatingPicker } from './CardRatingPicker'
 import { CardDetailModal } from './CardDetailModal'
 import { CardCommentSection } from '@/components/card-comment-section'
@@ -14,7 +14,7 @@ import { SwipeableCard } from './SwipeableCard'
 
 export function MajorArcanaGallery() {
     // Filter for major arcana only (type === 'major')
-    const majorArcana = TAROT_CARDS.filter(card => card.type === 'major')
+    const majorArcana = DUAL_PATH_CARDS.filter(card => card.type === 'major')
 
     // Modal state
     const [selectedCard, setSelectedCard] = useState<typeof majorArcana[0] | null>(null)
@@ -92,8 +92,8 @@ export function MajorArcanaGallery() {
                                         cardNumber={card.number}
                                         cardName={card.name}
                                         cardMeaning={card.meaning}
-                                        moonlightImage={`/images/cards/${card.image}`}
-                                        sunlightImage={`/images/cards/${card.image}`}
+                                        moonlightImage={card.moonlightImage}
+                                        sunlightImage={card.sunlightImage}
                                         onCardClick={() => handleCardClick(card)}
                                     />
 
