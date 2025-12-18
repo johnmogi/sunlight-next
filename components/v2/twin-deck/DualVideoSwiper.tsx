@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Sun, Moon } from 'lucide-react'
+import { Sun, Circle } from 'lucide-react'
 
 export function DualVideoSwiper() {
     const [position, setPosition] = useState(50) // Percentage from left
@@ -47,7 +47,7 @@ export function DualVideoSwiper() {
             {/* MOONLIGHT VIDEO - Full Background (Left reveals this) */}
             <div className="absolute inset-0">
                 <iframe
-                    className="absolute top-1/2 left-[40%] w-[180%] h-[180%] -translate-x-1/2 -translate-y-1/2 object-cover"
+                    className="absolute top-1/2 left-[48%] w-[180%] h-[180%] -translate-x-1/2 -translate-y-1/2 object-cover"
                     src="https://www.youtube.com/embed/dVYl5ImNjow?autoplay=1&mute=1&controls=0&loop=1&playlist=dVYl5ImNjow&start=259&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1"
                     allow="autoplay; encrypted-media"
                     style={{
@@ -59,18 +59,49 @@ export function DualVideoSwiper() {
 
                 {/* Moonlight Overlay */}
                 {/* Moonlight Overlay - Softer Purplish darker hue + Mesh/Star Pattern */}
-                <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/30 via-purple-900/25 to-slate-900/30 pointer-events-none mix-blend-multiply" />
-                <div className="absolute inset-0 opacity-25 pointer-events-none mix-blend-screen"
+                {/* Animated Gradient Layer */}
+                <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/30 via-purple-900/25 to-slate-900/30 pointer-events-none mix-blend-multiply"
+                    style={{ animation: 'hueShift 10s infinite alternate' }} />
+
+                {/* Mesh Animation Styles */}
+                <style jsx global>{`
+                    @keyframes meshDrift {
+                        0% { background-position: 0 0; transform: rotate(0deg); }
+                        100% { background-position: 60px 60px; transform: rotate(0deg); }
+                    }
+                    @keyframes meshRotate {
+                        0% { transform: scale(1.5) rotate(0deg); }
+                        100% { transform: scale(1.5) rotate(360deg); }
+                    }
+                    @keyframes blink {
+                        0%, 100% { opacity: 0.2; }
+                        50% { opacity: 0.4; }
+                    }
+                    @keyframes hueShift {
+                        0% { filter: hue-rotate(0deg); }
+                        100% { filter: hue-rotate(30deg); }
+                    }
+                `}</style>
+
+                <div className="absolute inset-0 pointer-events-none mix-blend-screen"
                     style={{
-                        backgroundImage: `radial-gradient(white 1.5px, transparent 1.5px), radial-gradient(white 1.5px, transparent 1.5px)`,
-                        backgroundSize: '40px 40px',
-                        backgroundPosition: '0 0, 20px 20px'
+                        opacity: 0.5,
+                        backgroundImage: `radial-gradient(white 1px, transparent 2px), radial-gradient(rgba(255,255,255,0.8) 1px, transparent 2px)`,
+                        backgroundSize: '30px 30px',
+                        backgroundPosition: '0 0, 15px 15px',
+                        animation: 'blink 4s ease-in-out infinite'
                     }}
                 />
 
                 {/* Moonlight Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <Moon className="w-24 h-24 md:w-32 md:h-32 text-white drop-shadow-2xl mb-8" />
+                    {/* Custom Crescent inside Full Moon Icon - "Crescent inside Full Moon" */}
+                    <div className="w-24 h-24 md:w-32 md:h-32 mb-8 drop-shadow-2xl text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" stroke="currentColor" fill="rgba(255,255,255,0.2)" />
+                        </svg>
+                    </div>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl"
                         style={{
                             background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(99, 102, 241, 0.35))',
@@ -91,7 +122,7 @@ export function DualVideoSwiper() {
                 style={{ clipPath: `inset(0 0 0 ${position}%)` }}
             >
                 <iframe
-                    className="absolute top-[-15%] left-1/2 w-[150%] h-[150%] -translate-x-1/2 object-cover"
+                    className="absolute top-[-25%] left-1/2 w-[150%] h-[150%] -translate-x-1/2 object-cover"
                     src="https://www.youtube.com/embed/1VMI7nffU-Q?autoplay=1&mute=1&controls=0&loop=1&playlist=1VMI7nffU-Q&start=22607&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&modestbranding=1"
                     allow="autoplay; encrypted-media"
                     style={{
@@ -103,11 +134,16 @@ export function DualVideoSwiper() {
 
                 {/* Sunlight Overlay - Subtle dimming + Floral/Organic css pattern */}
                 <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-                <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-soft-light"
+                {/* Animated Gradient Layer */}
+                <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-amber-500/10 to-yellow-600/10 pointer-events-none mix-blend-color"
+                    style={{ animation: 'hueShift 15s infinite alternate' }} />
+
+                <div className="absolute inset-0 opacity-50 pointer-events-none mix-blend-screen"
                     style={{
-                        backgroundImage: `radial-gradient(circle at center, white 2px, transparent 2.5px), radial-gradient(circle at center, white 2px, transparent 2.5px)`,
-                        backgroundSize: '40px 40px',
-                        backgroundPosition: '0 0, 20px 20px'
+                        backgroundImage: `radial-gradient(rgba(255, 200, 100, 0.8) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 200, 100, 0.6) 1.5px, transparent 1.5px)`,
+                        backgroundSize: '30px 30px',
+                        backgroundPosition: '0 0, 15px 15px',
+                        animation: 'blink 4s ease-in-out infinite'
                     }}
                 />
 
