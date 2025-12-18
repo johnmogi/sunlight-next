@@ -101,7 +101,8 @@ export function SwipeableCard({
                         src={sunlightImage.startsWith('/') ? sunlightImage : `/images/cards/${sunlightImage}`}
                         alt={`${cardName} - Sunlight`}
                         fill
-                        className="object-cover"
+                        className="object-cover pointer-events-none"
+                        draggable={false}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
@@ -115,7 +116,8 @@ export function SwipeableCard({
                         src={moonlightImage.startsWith('/') ? moonlightImage : `/images/cards/${moonlightImage}`}
                         alt={`${cardName} - Moonlight`}
                         fill
-                        className="object-cover"
+                        className="object-cover pointer-events-none"
+                        draggable={false}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>

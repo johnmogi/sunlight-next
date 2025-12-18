@@ -43,13 +43,13 @@ export default function TwinSystemPage({ params }: { params: Promise<{ locale: s
             <TwinSystemHeader locale={locale} />
 
             {/* Full Hero Swipe - Above the fold */}
-            <DualVideoSwiper />
+            <DualVideoSwiper locale={locale} />
 
             {/* About Section - Dual Path Philosophy */}
-            <TwinAboutSection />
+            <TwinAboutSection locale={locale} />
 
             {/* Major Arcana Gallery */}
-            <MajorArcanaGallery />
+            <MajorArcanaGallery locale={locale} />
 
             {/* Sunlight Deck Collection */}
             <section id="sunlight-collection" className="py-16 bg-white dark:bg-gray-900">

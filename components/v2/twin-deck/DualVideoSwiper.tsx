@@ -3,9 +3,55 @@
 import React, { useState } from 'react'
 import { Sun, Circle } from 'lucide-react'
 
-export function DualVideoSwiper() {
+// Translations for the Hero Section
+const HERO_TRANSLATIONS = {
+    en: {
+        moon_title: "The Moonlight Path",
+        moon_desc: "Receptive • Reflective • The Question • The Wound",
+        sun_title: "The Sunlight Path",
+        sun_desc: "Active • Projective • The Answer • The Cure",
+        drag_hint: "← Drag to reveal the dual path →"
+    },
+    es: {
+        moon_title: "El Camino de Luz de Luna",
+        moon_desc: "Receptivo • Reflexivo • La Pregunta • La Herida",
+        sun_title: "El Camino de Luz Solar",
+        sun_desc: "Activo • Proyectivo • La Respuesta • La Cura",
+        drag_hint: "← Arrastra para revelar el camino dual →"
+    },
+    fr: {
+        moon_title: "Le Chemin du Clair de Lune",
+        moon_desc: "Réceptif • Réfléchi • La Question • La Blessure",
+        sun_title: "Le Chemin de la Lumière du Soleil",
+        sun_desc: "Actif • Projectif • La Réponse • Le Remède",
+        drag_hint: "← Glissez pour révéler le double chemin →"
+    },
+    he: {
+        moon_title: "נתיב אור הירח",
+        moon_desc: "קבלה • השתקפות • השאלה • הפצע",
+        sun_title: "נתיב אור השמש",
+        sun_desc: "פעולה • הקרנה • התשובה • התרופה",
+        drag_hint: "← גרור כדי לחשוף את הנתיב הכפול →"
+    },
+    ar: {
+        moon_title: "مسار ضوء القمر",
+        moon_desc: "متقبل • تأملي • السؤال • الجرح",
+        sun_title: "مسار ضوء الشمس",
+        sun_desc: "نشط • إسقاطي • الجواب • العلاج",
+        drag_hint: "← اسحب للكشف عن المسار المزدوج →"
+    }
+}
+
+interface DualVideoSwiperProps {
+    locale?: string
+}
+
+export function DualVideoSwiper({ locale = 'en' }: DualVideoSwiperProps) {
     const [position, setPosition] = useState(50) // Percentage from left
     const [isDragging, setIsDragging] = useState(false)
+
+    // Translation hook
+    const t = HERO_TRANSLATIONS[locale as keyof typeof HERO_TRANSLATIONS] || HERO_TRANSLATIONS.en
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true)
@@ -41,7 +87,7 @@ export function DualVideoSwiper() {
     return (
         <section
             id="video-swiper-container"
-            className="relative w-full h-screen -mt-16 overflow-hidden select-none bg-black"
+            className="relative w-full h-[100dvh] -mt-16 overflow-hidden select-none bg-black"
             style={{ cursor: isDragging ? 'ew-resize' : 'default' }}
         >
             {/* MOONLIGHT VIDEO - Full Background (Left reveals this) */}
@@ -81,11 +127,20 @@ export function DualVideoSwiper() {
                         0% { filter: hue-rotate(0deg); }
                         100% { filter: hue-rotate(30deg); }
                     }
+                    @keyframes loadFade {
+                        0% { opacity: 1; }
+                        50% { opacity: 1; }
+                        100% { opacity: 0; }
+                    }
                 `}</style>
+
+                {/* Loading Overlay (Masks spinner) */}
+                <div className="absolute inset-0 bg-[#0f0c29] z-20 pointer-events-none"
+                    style={{ animation: 'loadFade 2.5s ease-out forwards' }} />
 
                 <div className="absolute inset-0 pointer-events-none mix-blend-screen"
                     style={{
-                        opacity: 0.5,
+                        opacity: 0.05, // Drastically reduced for subtle effect
                         backgroundImage: `radial-gradient(white 1px, transparent 2px), radial-gradient(rgba(255,255,255,0.8) 1px, transparent 2px)`,
                         backgroundSize: '30px 30px',
                         backgroundPosition: '0 0, 15px 15px',
@@ -102,17 +157,23 @@ export function DualVideoSwiper() {
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" stroke="currentColor" fill="rgba(255,255,255,0.2)" />
                         </svg>
                     </div>
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl"
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl text-center"
                         style={{
                             background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(99, 102, 241, 0.35))',
                             backdropFilter: 'blur(8px)'
                         }}>
-                        The Moonlight Path
+                        {t.moon_title}
                     </h1>
-                    <p className="text-xl md:text-3xl text-white max-w-3xl text-center px-6 py-3 rounded-xl"
+                    <p className="text-xl md:text-3xl text-white max-w-3xl text-center px-6 py-3 rounded-xl mb-8"
                         style={{ background: 'rgba(88, 28, 135, 0.6)', backdropFilter: 'blur(8px)' }}>
-                        Receptive • Reflective • The Question • The Wound
+                        {t.moon_desc}
                     </p>
+
+                    {/* Restored Moonlight CTA */}
+                    <button className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-semibold transition-all backdrop-blur-md flex items-center gap-2 group pointer-events-auto">
+                        <span>Explore Moonlight</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
                 </div>
             </div>
 
@@ -138,9 +199,14 @@ export function DualVideoSwiper() {
                 <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-amber-500/10 to-yellow-600/10 pointer-events-none mix-blend-color"
                     style={{ animation: 'hueShift 15s infinite alternate' }} />
 
-                <div className="absolute inset-0 opacity-50 pointer-events-none mix-blend-screen"
+                {/* Loading Overlay (Masks spinner) */}
+                <div className="absolute inset-0 bg-[#0ea5e9] z-20 pointer-events-none"
+                    style={{ animation: 'loadFade 2.5s ease-out forwards' }} />
+
+                <div className="absolute inset-0 pointer-events-none mix-blend-screen"
                     style={{
-                        backgroundImage: `radial-gradient(rgba(255, 200, 100, 0.8) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 200, 100, 0.6) 1.5px, transparent 1.5px)`,
+                        opacity: 0.05, // Drastically reduced for subtle effect
+                        backgroundImage: `radial-gradient(white 1px, transparent 2px), radial-gradient(rgba(255,255,255,0.8) 1px, transparent 2px)`,
                         backgroundSize: '30px 30px',
                         backgroundPosition: '0 0, 15px 15px',
                         animation: 'blink 4s ease-in-out infinite'
@@ -150,22 +216,28 @@ export function DualVideoSwiper() {
                 {/* Sunlight Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                     <Sun className="w-24 h-24 md:w-32 md:h-32 text-white drop-shadow-2xl mb-8" />
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl"
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold drop-shadow-2xl mb-6 px-8 py-4 rounded-2xl text-center"
                         style={{
                             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(254, 243, 199, 0.85))',
                             backdropFilter: 'blur(12px)',
                             color: '#1f2937'
                         }}>
-                        The Sunlight Path
+                        {t.sun_title}
                     </h1>
-                    <p className="text-xl md:text-3xl text-center max-w-3xl px-6 py-3 rounded-xl"
+                    <p className="text-xl md:text-3xl text-center max-w-3xl px-6 py-3 rounded-xl mb-8"
                         style={{
                             background: 'rgba(254, 249, 195, 0.75)',
                             backdropFilter: 'blur(8px)',
                             color: '#92400e'
                         }}>
-                        Active • Projective • The Answer • The Cure
+                        {t.sun_desc}
                     </p>
+
+                    {/* Restored Sunlight CTA */}
+                    <button className="px-8 py-3 bg-white/90 hover:bg-white text-orange-900 border border-orange-200 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 group pointer-events-auto">
+                        <span>Explore Sunlight</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
                 </div>
             </div>
 
@@ -190,7 +262,7 @@ export function DualVideoSwiper() {
             {/* Instruction Hint */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 text-center">
                 <p className="text-white text-sm md:text-base drop-shadow-lg font-semibold">
-                    ← Drag to reveal the dual path →
+                    {t.drag_hint}
                 </p>
             </div>
         </section>
