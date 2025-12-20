@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { SunlightBackground } from "@/components/sunlight-background";
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -70,7 +69,6 @@ export default async function LocaleLayout({
         >
           <div className="min-h-screen flex flex-col">
             <Header locale={validLocale} messages={messages} />
-            <SunlightBackground />
             <main className="flex-1">{children}</main>
             <Footer />
             <LilyChat messages={messages} isRTL={isRTL(validLocale)} />

@@ -99,8 +99,8 @@ export function MajorArcanaGallery({ locale = 'en' }: MajorArcanaGalleryProps) {
     const t_cards = CARD_TRANSLATIONS[locale as keyof typeof CARD_TRANSLATIONS] || CARD_TRANSLATIONS.en
 
     const handleCardClick = (card: typeof majorArcana[0]) => {
-        // Only allow clicking if the card is ready (Major 6)
-        if (card.id === 'major-6') {
+        // Allow clicking if in the ready list
+        if (['major-0', 'major-4', 'major-5', 'major-6'].includes(card.id)) {
             setSelectedCard(card)
             setIsModalOpen(true)
         }
@@ -154,7 +154,8 @@ export function MajorArcanaGallery({ locale = 'en' }: MajorArcanaGalleryProps) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                         {majorArcana.map((card, index) => {
                             const isCommentsExpanded = expandedComments[card.id]
-                            const isReady = card.id === 'major-6' // Only "The Rebuilt Lighthouse" is ready
+                            // Ready cards: 0 (Fool), 4 (Lighthouse), 5 (Garden), 6 (Stars)
+                            const isReady = ['major-0', 'major-4', 'major-5', 'major-6'].includes(card.id)
 
                             // Lookup translation or fallback to default card data
                             const translation = (t_cards as any)[card.id]

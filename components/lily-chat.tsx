@@ -40,14 +40,21 @@ export function LilyChat({ messages, isRTL }: LilyChatProps) {
         if (!hasSeenIntro) {
             // First visit ever: Start Vote Loop
             initialTimer = setTimeout(() => {
-                startTyping("vote_prompt1")
+                // Prevent auto-open on mobile
+                if (window.innerWidth >= 768) {
+                    startTyping("vote_prompt1")
+                }
                 localStorage.setItem('lily_intro_seen', 'true')
             }, 3000)
         } else {
             // Return visit logic
             if (voteCount === 0) {
                 // Hasn't voted yet? Remind them.
-                initialTimer = setTimeout(() => startTyping("vote_prompt1"), 4000)
+                initialTimer = setTimeout(() => {
+                    if (window.innerWidth >= 768) {
+                        startTyping("vote_prompt1")
+                    }
+                }, 4000)
             } else {
                 // Has voted? Just chill or show daily spread (maybe once)
                 setState("daydream")
@@ -246,7 +253,7 @@ export function LilyChat({ messages, isRTL }: LilyChatProps) {
     const t = (key: string, fallback: string) => messages?.lilyChat?.[key] || fallback
 
     return (
-        <div className={cn("fixed bottom-4 z-50 flex items-end gap-3", isRTL ? "left-4 flex-row-reverse" : "right-4 flex-row")}>
+        <div className={cn("hidden md:flex fixed bottom-4 z-50 items-end gap-3", isRTL ? "left-4 flex-row-reverse" : "right-4 flex-row")}>
             {/* Avatar */}
             <AnimatePresence>
                 {state !== "hidden" && (

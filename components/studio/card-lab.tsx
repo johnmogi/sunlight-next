@@ -26,7 +26,7 @@ export function CardLab({ messages, locale }: CardLabProps) {
         "/images/cardbacks/httpss.mj.runywZYwKIWRfY_Tarot_Deck_Box_Outer_Box_The_box_tha_ef2cb837-7fa7-469b-8d72-bd1cbab540a8_0.jpg"
     ]
 
-    const sketches = [
+    const sketches: string[] = [
 
     ]
 

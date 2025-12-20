@@ -6,7 +6,6 @@
 
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { tokens } from '@/lib/design-system/tokens'
 
 export interface DualSplitProps {
     /** Moon-themed content (left side) */
@@ -61,7 +60,7 @@ export function DualSplit({
             <div className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-slate-900">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-[url('/images/stars-pattern.svg')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('/images/stars-pattern.svg')] opacity-[0.02]" />
 
                 {/* Content */}
                 <div className="relative z-10 h-full">
@@ -73,7 +72,7 @@ export function DualSplit({
             <div className="relative overflow-hidden bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-yellow-300/30 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-[url('/images/rays-pattern.svg')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('/images/rays-pattern.svg')] opacity-[0.02]" />
 
                 {/* Content */}
                 <div className="relative z-10 h-full">

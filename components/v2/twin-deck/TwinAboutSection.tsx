@@ -166,9 +166,33 @@ interface TwinAboutSectionProps {
 export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
     const [activeTab, setActiveTab] = React.useState<'overview' | 'symbolism' | 'music'>('symbolism')
     const [isModalOpen, setIsModalOpen] = React.useState(false)
+    const [totalVotes, setTotalVotes] = React.useState(0)
 
     // Translations
     const t = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en
+
+    const [voteBreakdown, setVoteBreakdown] = React.useState({ love: 0, like: 0, wow: 0, sad: 0, fire: 0 })
+
+    React.useEffect(() => {
+        fetch('/api/admin/leaderboard')
+            .then(res => res.json())
+            .then(data => {
+                if (data.leaderboard) {
+                    const stats = data.leaderboard.find((l: any) => l.cardId === 'symbolism-infographic')
+                    if (stats) {
+                        setTotalVotes(stats.total)
+                        setVoteBreakdown({
+                            love: stats.love || 0,
+                            like: stats.like || 0,
+                            wow: stats.wow || 0,
+                            sad: stats.sad || 0,
+                            fire: stats.fire || 0
+                        })
+                    }
+                }
+            })
+            .catch(err => console.error('Failed to fetch votes:', err))
+    }, [])
 
     // Map locale to correct image
     const infographicMap: Record<string, string> = {
@@ -199,8 +223,8 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                         <button
                             onClick={() => setActiveTab('overview')}
                             className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'overview'
-                                    ? 'bg-white dark:bg-gray-700 text-purple-700 dark:text-purple-300 shadow-sm'
-                                    : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
+                                ? 'bg-white dark:bg-gray-700 text-purple-700 dark:text-purple-300 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
                                 }`}
                         >
                             {t.tab_philosophy}
@@ -208,8 +232,8 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                         <button
                             onClick={() => setActiveTab('symbolism')}
                             className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'symbolism'
-                                    ? 'bg-white dark:bg-gray-700 text-amber-700 dark:text-amber-300 shadow-sm'
-                                    : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
+                                ? 'bg-white dark:bg-gray-700 text-amber-700 dark:text-amber-300 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
                                 }`}
                         >
                             {t.tab_symbolism}
@@ -217,8 +241,8 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                         <button
                             onClick={() => setActiveTab('music')}
                             className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'music'
-                                    ? 'bg-white dark:bg-gray-700 text-green-700 dark:text-green-300 shadow-sm'
-                                    : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
+                                ? 'bg-white dark:bg-gray-700 text-green-700 dark:text-green-300 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'
                                 }`}
                         >
                             {t.tab_music}
@@ -297,6 +321,39 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                                     />
                                 </div>
                             </div>
+
+
+                            {/* Vote Results Table */}
+                            {totalVotes > 0 && (
+                                <div className="max-w-md mx-auto bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+                                    <h4 className="text-sm font-semibold text-center mb-3 text-gray-700 dark:text-gray-300">Community Resonance</h4>
+                                    <div className="grid grid-cols-5 gap-2 text-center text-xs">
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xl">❤️</span>
+                                            <span className="font-bold">{voteBreakdown.love}</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xl">👍</span>
+                                            <span className="font-bold">{voteBreakdown.like}</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xl">🤩</span>
+                                            <span className="font-bold">{voteBreakdown.wow}</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xl">😢</span>
+                                            <span className="font-bold">{voteBreakdown.sad}</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-1">
+                                            <span className="text-xl">🔥</span>
+                                            <span className="font-bold">{voteBreakdown.fire}</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-muted-foreground">
+                                        Total Actions: {totalVotes}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -342,6 +399,8 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                             </p>
                         </div>
                     )}
+
+
                 </div>
 
                 {/* Detail Modal - Full Screen / Gallery Mode */}
@@ -400,6 +459,6 @@ export function TwinAboutSection({ locale = 'en' }: TwinAboutSectionProps) {
                     </div>
                 )}
             </div>
-        </section>
+        </section >
     )
 }

@@ -8,6 +8,22 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
+  // Check for Cookie Auth on /admin routes
+  if (pathname.includes('/admin')) {
+    // allow access to login page
+    if (pathname.includes('/login')) {
+      if (pathnameHasLocale) return
+    } else {
+      const hasSession = request.cookies.has('admin_session')
+
+      if (!hasSession) {
+        const url = request.nextUrl.clone()
+        url.pathname = `/${defaultLocale}/admin/login`
+        return NextResponse.redirect(url)
+      }
+    }
+  }
+
   if (pathnameHasLocale) return
 
   // Redirect if there is no locale

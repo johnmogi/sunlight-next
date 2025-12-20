@@ -7,16 +7,18 @@ export async function GET(request: NextRequest) {
     const votes = await prisma.vote.findMany()
 
     // Aggregate votes by card
-    const voteCounts: Record<string, { like: number; dislike: number; love: number }> = {}
+    const voteCounts: Record<string, { love: number; like: number; wow: number; sad: number; fire: number }> = {}
 
     votes.forEach((vote: any) => {
       if (!voteCounts[vote.cardId]) {
-        voteCounts[vote.cardId] = { like: 0, dislike: 0, love: 0 }
+        voteCounts[vote.cardId] = { love: 0, like: 0, wow: 0, sad: 0, fire: 0 }
       }
 
-      if (vote.voteType === 'like') voteCounts[vote.cardId].like++
-      if (vote.voteType === 'dislike') voteCounts[vote.cardId].dislike++
-      if (vote.voteType === 'love') voteCounts[vote.cardId].love++
+      // Safe check for voteType
+      const type = vote.voteType as keyof typeof voteCounts[string]
+      if (['love', 'like', 'wow', 'sad', 'fire'].includes(type)) {
+        voteCounts[vote.cardId][type]++
+      }
     })
 
     return NextResponse.json({ voteCounts })

@@ -64,7 +64,7 @@ export function TwinSystemHeader({ locale = 'en' }: TwinSystemHeaderProps) {
             <div className={`container mx-auto px-4 flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
                 {/* Logo / Title */}
                 <Link
-                    href={`/${locale}/twin-system`}
+                    href={`/${locale}`}
                     className="flex items-center space-x-2 text-gray-900 dark:text-white"
                 >
                     <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 bg-clip-text text-transparent tracking-tight hover:scale-105 transition-transform">
@@ -96,7 +96,7 @@ export function TwinSystemHeader({ locale = 'en' }: TwinSystemHeaderProps) {
 
                     {/* Version 0.20 Link - Styled Button */}
                     <Link
-                        href="/"
+                        href={`/${locale}/v020`}
                         className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 shadow-md transition-colors"
                     >
                         <span>{t.version}</span>
@@ -139,7 +139,7 @@ export function TwinSystemHeader({ locale = 'en' }: TwinSystemHeaderProps) {
                     </div>
 
                     <Link
-                        href="/"
+                        href={`/${locale}/v020`}
                         onClick={() => setMobileMenuOpen(false)}
                         className="block mx-4 px-4 py-2 bg-purple-600/80 hover:bg-purple-700 text-white text-sm rounded-lg shadow-lg transition-colors text-center"
                     >
