@@ -4,6 +4,7 @@
 import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Send, Heart, MessageSquare, ArrowUpRight, Mail, Sparkles } from "lucide-react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -23,6 +24,10 @@ export function LilyChat({ messages, isRTL }: LilyChatProps) {
     const [email, setEmail] = React.useState("")
     const [isTyping, setIsTyping] = React.useState(false)
     const [hasInteracted, setHasInteracted] = React.useState(false)
+
+    // Hide on Game Route
+    const pathname = usePathname()
+    if (pathname?.includes('/game')) return null
 
     // Initial Load & Smart Start
     React.useEffect(() => {

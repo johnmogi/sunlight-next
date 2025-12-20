@@ -1,5 +1,7 @@
 "use client"
 
+import { useTranslations } from 'next-intl'
+
 import * as React from "react"
 import Image from "next/image"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
@@ -34,7 +36,8 @@ interface DrawnCard {
   reading: string
 }
 
-export function DailySpread({ messages }: DailySpreadProps) {
+export function DailySpread() {
+  const t = useTranslations('daily')
   const hasMounted = useHasMounted()
   const sectionRef = React.useRef<HTMLElement>(null)
 
@@ -257,17 +260,17 @@ export function DailySpread({ messages }: DailySpreadProps) {
               exit={{ opacity: 0, y: -20 }}
               className="text-center space-y-8"
             >
-              <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-amber-600 to-purple-600 bg-clip-text text-transparent">
-                Daily Reflection
-              </h2>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Enter the quiet space. Anchor your feeling, choose your path, and find the energy to move forward.
+              <h1 className="text-4xl md:text-5xl font-serif text-slate-800 dark:text-slate-100 drop-shadow-sm">
+                {t('title')}
+              </h1>
+              <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+                {t('description')}
               </p>
               <Button
                 onClick={startJourney}
                 className="bg-black text-white dark:bg-white dark:text-black px-12 py-8 text-xl rounded-full hover:scale-105 transition-transform"
               >
-                Begin Journey
+                {t('start')}
               </Button>
             </motion.div>
           )}
@@ -282,10 +285,10 @@ export function DailySpread({ messages }: DailySpreadProps) {
               className="flex flex-col items-center space-y-8 w-full max-w-2xl mx-auto"
             >
               <div className="text-center space-y-2">
-                <span className="text-sm font-bold text-indigo-500 uppercase tracking-widest">Step 1: Anchor</span>
-                <h3 className="text-3xl md:text-5xl font-bold text-center">One Word.</h3>
+                <span className="text-sm font-bold text-indigo-500 uppercase tracking-widest">{t('step1Anchor')}</span>
+                <h3 className="text-3xl md:text-5xl font-bold text-center">{t('feelingsPrompt')}</h3>
                 <p className="text-gray-500 text-lg md:text-xl">
-                  Close your eyes. What is the dominant feeling or intention you are carrying right now?
+                  {t('feelingsDesc')}
                 </p>
               </div>
 
@@ -293,7 +296,7 @@ export function DailySpread({ messages }: DailySpreadProps) {
                 type="text"
                 value={userFeelings}
                 onChange={(e) => setUserFeelings(e.target.value)}
-                placeholder="e.g. Focus"
+                placeholder={t('feelingsPlaceholder')}
                 className="w-full p-6 text-center text-3xl md:text-5xl border-b-2 border-indigo-200 bg-transparent focus:outline-none focus:border-indigo-600 transition-colors placeholder:text-gray-200"
                 autoFocus
               />
@@ -304,13 +307,13 @@ export function DailySpread({ messages }: DailySpreadProps) {
                   disabled={!userFeelings.trim()}
                   className="w-full md:w-64 px-8 py-6 text-xl"
                 >
-                  Anchor & Continue
+                  {t('continue')}
                 </Button>
                 <button
                   onClick={handleSilence}
                   className="text-gray-400 hover:text-indigo-500 text-sm md:text-base border-b border-transparent hover:border-indigo-500 transition-colors"
                 >
-                  I prefer silence
+                  {t('skip')}
                 </button>
               </div>
             </motion.div>

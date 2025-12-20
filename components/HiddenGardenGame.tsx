@@ -3,13 +3,15 @@
 import * as React from "react"
 import { Dice5, Swords, BookOpen, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from 'next/link'
 
 interface HiddenGardenGameProps {
   messages: any
+  locale: string
   onLearnMore?: () => void
 }
 
-export function HiddenGardenGame({ messages, onLearnMore }: HiddenGardenGameProps) {
+export function HiddenGardenGame({ messages, locale, onLearnMore }: HiddenGardenGameProps) {
   const features = [
     {
       icon: Dice5,
@@ -85,15 +87,14 @@ export function HiddenGardenGame({ messages, onLearnMore }: HiddenGardenGameProp
             {messages.scrollMaze?.stretchGoal || "Stretch goal for our crowdfunding campaign - help us bring this vision to life!"}
           </p>
 
-          {onLearnMore && (
+          <Link href={`/${locale}/game`}>
             <Button
-              onClick={onLearnMore}
               size="lg"
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 text-lg shadow-xl hover:shadow-purple-500/50 transition-all"
             >
               {messages.scrollMaze?.ctaButton || "Join the Adventure"}
             </Button>
-          )}
+          </Link>
         </div>
 
         {/* Decorative element */}

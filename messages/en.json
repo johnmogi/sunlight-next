@@ -562,7 +562,25 @@
     "redrawBtn": "Draw Another",
     "chooseBtn": "Choose Activation",
     "rechooseBtn": "Choose Another",
-    "modalTitle": "Choose Your Activation Card"
+    "modalTitle": "Choose Your Activation Card",
+    "start": "Begin Journey",
+    "step1Anchor": "Step 1: Anchor",
+    "feelingsPrompt": "One Word.",
+    "feelingsDesc": "Close your eyes. What is the dominant feeling or intention you are carrying right now?",
+    "feelingsPlaceholder": "e.g. Anxious about work, hopeful for change...",
+    "continue": "Continue",
+    "skip": "Skip (Enter Silence)",
+    "choosingReflection": "Choosing Reflection...",
+    "tapToReveal": "Tap to Reveal",
+    "doesResonate": "Does this card resonate with your current state?",
+    "yes": "Yes, it resonates",
+    "no": "No, let me draw another",
+    "tryAnother": "Let's try a different perspective...",
+    "choosingActivation": "Now, let's find an energy to help you move forward.",
+    "revealActivation": "Reveal Activation",
+    "summaryTitle": "Your Daily Guidance",
+    "wisdomTitle": "Words of Wisdom",
+    "ritualTitle": "Suggested Ritual"
   },
   "support": {
     "title": "Join Our Journey",
@@ -600,6 +618,17 @@
     "feature3Desc": "Understanding each card's meaning gives you tactical advantage. Learn tarot through engaging gameplay, not memorization.",
     "stretchGoal": "Stretch goal for our crowdfunding campaign - help us bring this vision to life!",
     "ctaButton": "Join the Adventure"
+  },
+  "game": {
+    "loading": "Initializing Game Engine...",
+    "title": "CARD QUEST",
+    "start": "Start New Game",
+    "settings": "Settings",
+    "exit": "Exit to Desktop",
+    "version": "MVP v0.1.0 - Early Access Build",
+    "boardActive": "Game Board Active",
+    "boardPlaceholder": "Card logic will be implemented here.",
+    "pause": "Pause / Menu"
   },
   "cardDetail": {
     "meaning": "Meaning",

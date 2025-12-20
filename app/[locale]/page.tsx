@@ -14,6 +14,7 @@ import { DailySpread } from '@/components/daily-spread'
 import { CompleteDeck } from '@/components/complete-deck'
 import { HiddenGardenGame } from '@/components/HiddenGardenGame'
 import { type Locale } from '@/lib/i18n'
+import { NextIntlClientProvider } from 'next-intl'
 
 // Import i18n messages
 import enMessages from '@/messages/en.json'
@@ -39,31 +40,33 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
   const messages = messagesMap[locale] || enMessages
 
   return (
-    <main className="min-h-screen pt-0">
-      {/* Navigation Header */}
-      <TwinSystemHeader locale={locale} />
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <main className="min-h-screen pt-0">
+        {/* Navigation Header */}
+        <TwinSystemHeader locale={locale} />
 
-      {/* Full Hero Swipe - Above the fold */}
-      <DualVideoSwiper locale={locale} />
+        {/* Full Hero Swipe - Above the fold */}
+        <DualVideoSwiper locale={locale} />
 
-      {/* About Section - Dual Path Philosophy */}
-      <TwinAboutSection locale={locale} />
+        {/* About Section - Dual Path Philosophy */}
+        <TwinAboutSection locale={locale} />
 
-      {/* Daily Spread - Lily Guidance */}
-      <section id="daily-guidance" className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-900 dark:to-slate-800">
-        <DailySpread messages={messages} />
-      </section>
+        {/* Daily Spread - Lily Guidance */}
+        <section id="daily-guidance" className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-900 dark:to-slate-800">
+          <DailySpread />
+        </section>
 
-      {/* Sunlight Deck Collection - moved up since it has more content */}
-      <section id="sunlight-collection" className="py-16 bg-white dark:bg-gray-900">
-        <CompleteDeck messages={messages} locale={locale} />
-      </section>
+        {/* Sunlight Deck Collection - moved up since it has more content */}
+        <section id="sunlight-collection" className="py-16 bg-white dark:bg-gray-900">
+          <CompleteDeck messages={messages} locale={locale} />
+        </section>
 
-      {/* Major Arcana Gallery */}
-      <MajorArcanaGallery locale={locale} />
+        {/* Major Arcana Gallery */}
+        <MajorArcanaGallery locale={locale} />
 
-      {/* Hidden Garden Game Section */}
-      <HiddenGardenGame messages={messages} />
-    </main>
+        {/* Hidden Garden Game Section */}
+        <HiddenGardenGame messages={messages} locale={locale} />
+      </main>
+    </NextIntlClientProvider>
   )
 }
