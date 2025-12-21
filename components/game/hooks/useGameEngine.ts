@@ -1,25 +1,33 @@
 import { useState, useCallback } from 'react';
-import { Tile, PlayerState, GameState, CardData } from '../types';
+import { Tile, PlayerState, GameState, CardData, EncounterState } from '../types';
 import { TAROT_CARDS } from '@/lib/card-sets/set-update129';
+import { GAME_CONFIG } from '../gameConfig';
+import { createTopology } from '@/lib/game/generators/topologyGenerator';
+import { generateEntity } from '@/lib/game/generators/entityGenerator';
+import { resolveFateRoll, applyFogPenalty } from '@/lib/game/generators/encounterEngine';
 
 // Initial Player State
 const INITIAL_PLAYER: PlayerState = {
     currentTileId: 'start',
-    resolve: 100,
-    maxResolve: 100,
-    stats: {
-        empathy: 3,
-        logic: 3,
-        passion: 3,
-        resilience: 3
+    lucidity: 100,
+    maxLucidity: 100,
+    focus: 3,
+    maxFocus: 3,
+    clarity: 0,
+    composure: 0,
+    statuses: [],
+    mastery: {
+        empathy: 1, // Water
+        logic: 1,   // Air
+        passion: 1, // Fire
+        resilience: 1 // Earth
     },
     hand: [],
     deck: [],
     discard: [],
     inventory: {
-        boons: [],
-        keys: 0,
-        dryFlowers: 0
+        artifacts: [],
+        keys: 0
     }
 };
 
@@ -27,85 +35,49 @@ export function useGameEngine() {
     const [gameState, setGameState] = useState<GameState>('LOADING');
     const [player, setPlayer] = useState<PlayerState>(INITIAL_PLAYER);
     const [tiles, setTiles] = useState<Tile[]>([]);
-    const [activeEncounter, setActiveEncounter] = useState<Tile | null>(null);
+    const [activeEncounter, setActiveEncounter] = useState<EncounterState | null>(null);
+    const [eventRollResult, setEventRollResult] = useState<number | null>(null); // New state for D10
+    const [currentAct, setCurrentAct] = useState<number>(1); // New Act State
 
     // --- Actions ---
 
-    const initializeGame = useCallback((archetypeId: string, boonId: string) => {
-        // 1. Create a simple 3x3 Grid Graph
-        // Layout: 
-        // 0--1--2
-        // |  |  |
-        // 3--4--5
-        // |  |  |
-        // 6--7--8
-
-        const newTiles: Tile[] = [];
-        const rows = 3;
-        const cols = 3;
-
-        // Shuffle Deck for Map and Player
-        const fullDeck = [...TAROT_CARDS].sort(() => Math.random() - 0.5);
-
-        // Split: 9 cards for Map, rest for Player Deck
-        const mapCards = fullDeck.slice(0, 9);
-        const playerDeck = fullDeck.slice(9);
-
-        let cardIndex = 0;
-
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const id = `${r * cols + c}`;
-
-                // Calculate position (centered in 33% grid cells)
-                const posX = (c * 33) + 16.5;
-                const posY = (r * 33) + 16.5;
-
-                // Determine Neighbors (Graph Edges)
-                const connections: string[] = [];
-                if (c > 0) connections.push(`${r * cols + (c - 1)}`); // Left
-                if (c < cols - 1) connections.push(`${r * cols + (c + 1)}`); // Right
-                if (r > 0) connections.push(`${(r - 1) * cols + c}`); // Up
-                if (r < rows - 1) connections.push(`${(r + 1) * cols + c}`); // Down
-
-                newTiles.push({
-                    id,
-                    position: { x: posX, y: posY },
-                    isFlipped: id === '0', // Start flipped
-                    isOccupied: id === '0', // Start at top-left for MVP
-                    isCleared: id === '0', // Start cleared
-                    cardContent: mapCards[cardIndex++] as any, // Cast for MVP
-                    connectedTo: connections
-                });
-            }
-        }
-
+    const initializeGame = useCallback((archetypeId: string, artifactId: string) => {
+        // 1. Generate Map (HGE: Topology)
+        const newTiles = createTopology('GRID_3x3');
         setTiles(newTiles);
 
-        // Apply Archetype Stats
-        let stats = { ...INITIAL_PLAYER.stats };
-        if (archetypeId === 'The Daydreamer') stats.empathy += 2; // Water affinity
-        if (archetypeId === 'The Architect') stats.logic += 2;   // Air affinity
-        if (archetypeId === 'The Weaver') stats.passion += 2;    // Fire affinity
+        // 2. Generate Player (HGE: Entity)
+        let newPlayer = generateEntity(archetypeId, 'PLAYER') as PlayerState;
 
-        // Apply Boon Stats
-        if (boonId === 'lantern') stats.logic += 1;
-        if (boonId === 'rose') stats.empathy += 1;
-        if (boonId === 'key') stats.resilience += 1;
+        // Apply Artifacts (Manual Logic for MVP, could be in factory later)
+        const artifacts = [];
+        let maxFocus = newPlayer.maxFocus;
+
+        if (artifactId === 'mask') {
+            maxFocus += 1;
+            artifacts.push({ id: 'mask', name: 'The Golden Mask', description: '+1 Focus', effect: (s: any) => s });
+        }
+        if (artifactId === 'butterfly') {
+            artifacts.push({ id: 'butterfly', name: 'The Blue Butterfly', description: 'Reshuffle Hand', effect: (s: any) => s });
+        }
+        if (artifactId === 'thorn') {
+            artifacts.push({ id: 'thorn', name: 'The Obsidian Thorn', description: 'Reflect Damage', effect: (s: any) => s });
+        }
 
         setPlayer({
-            ...INITIAL_PLAYER,
+            ...newPlayer,
             currentTileId: '0',
-            deck: playerDeck as any, // Cast for MVP
-            stats: stats
+            maxFocus: maxFocus,
+            focus: maxFocus,
+            inventory: { ...newPlayer.inventory, artifacts }
         });
-        setGameState('MAP'); // Jump straight to MAP after setup
+
+        setGameState('MAP');
     }, []);
 
     const drawCard = (count: number = 1) => {
         setPlayer(prev => {
             if (prev.deck.length < count) {
-                // Reshuffle discard (MVP: just ignore empty deck for now)
                 return prev;
             }
             const newHand = [...prev.hand, ...prev.deck.slice(0, count)];
@@ -115,37 +87,32 @@ export function useGameEngine() {
     };
 
     const moveToTile = (targetTileId: string) => {
-        // 1. Validate Adjacency
         const currentTile = tiles.find(t => t.id === player.currentTileId);
-        if (!currentTile || !currentTile.connectedTo.includes(targetTileId)) {
-            console.warn("Invalid Move: Not connected");
-            return;
-        }
+        if (!currentTile || !currentTile.connectedTo.includes(targetTileId)) return;
 
-        // 2. Update Map State
         setTiles((prev: Tile[]) => prev.map(t => ({
             ...t,
             isOccupied: t.id === targetTileId,
-            isFlipped: t.id === targetTileId ? true : t.isFlipped // Auto-flip on move for now
+            isFlipped: t.id === targetTileId ? true : t.isFlipped
         })));
 
-        // 3. Update Player State
         setPlayer((prev: PlayerState) => ({ ...prev, currentTileId: targetTileId }));
 
-        // 4. Trigger Event?
         const targetTile = tiles.find(t => t.id === targetTileId);
-
-        // Special Case: Boss Tile (ID '8' - Bottom Right)
         if (targetTile?.id === '8') {
             setGameState('BOSS');
             return;
         }
 
         if (targetTile && !targetTile.isCleared) {
-            setActiveEncounter(targetTile);
-            // Draw initial hand for encounter
-            drawCard(3);
-            setGameState('ENCOUNTER');
+            // Generate Enemy Stats based on the Card and current Act
+            // Note: generateEntity expects a Card ID as the seed. targetTile.cardContent.id is the Card ID.
+            const enemy = generateEntity(targetTile.cardContent.id, 'ENEMY', currentAct) as EncounterState;
+            setActiveEncounter(enemy);
+
+            // V5 Change: Go to Event Roll first, not Encounter
+            setGameState('EVENT_ROLL');
+            setEventRollResult(null); // Reset
         }
     };
 
@@ -153,25 +120,66 @@ export function useGameEngine() {
         if (!activeEncounter) return;
 
         if (result === 'WIN') {
-            // Mark tile as clears
             setTiles((prev: Tile[]) => prev.map(t =>
-                t.id === activeEncounter.id ? { ...t, isCleared: true } : t
+                t.id === player.currentTileId ? { ...t, isCleared: true } : t
             ));
         } else {
-            // Loss penalty
-            setPlayer((prev: PlayerState) => ({ ...prev, resolve: Math.max(0, prev.resolve - 20) }));
-            // Optional: Retreat logic could go here
+            // Loss penalty: Lose Lucidity
+            setPlayer((prev: PlayerState) => ({ ...prev, lucidity: Math.max(0, prev.lucidity - 20) }));
         }
 
-        // Discard hand after encounter
         setPlayer(prev => ({
             ...prev,
             discard: [...prev.discard, ...prev.hand],
-            hand: []
+            hand: [],
+            // Reset Focus/Composure after encounter
+            focus: prev.maxFocus, // Reset focus
+            composure: 0,
+            clarity: 0
         }));
 
         setGameState('MAP');
         setActiveEncounter(null);
+    };
+
+    const triggerEventRoll = () => {
+        const roll = Math.floor(Math.random() * GAME_CONFIG.dice.fate) + 1;
+        setEventRollResult(roll);
+        return roll;
+    };
+
+    const completeEventRoll = (roll: number) => {
+        const outcome = resolveFateRoll(roll);
+
+        if (outcome === 'COMBAT') {
+            drawCard(5);
+            setGameState('ENCOUNTER');
+        } else if (outcome === 'FOG') {
+            setPlayer(prev => applyFogPenalty(prev));
+            setGameState('TRAP'); // View uses 'TRAP' for Fog currently
+        } else {
+            setGameState('LOOT');
+        }
+    };
+
+    const handleBossVictory = () => {
+        // Increment Act
+        const nextAct = currentAct + 1;
+        setCurrentAct(nextAct);
+
+        // Regenerate Map Difficulty based on Act
+        // Act 2 = SPIRAL
+        const nextShape = nextAct === 2 ? 'SPIRAL' : 'GRID_3x3';
+        const newTiles = createTopology(nextShape);
+        setTiles(newTiles);
+
+        // Reset Player Position for new map
+        setPlayer(prev => ({
+            ...prev,
+            currentTileId: '0'
+        }));
+
+        setGameState('MAP');
     };
 
     return {
@@ -180,11 +188,15 @@ export function useGameEngine() {
         player,
         tiles,
         activeEncounter,
+        eventRollResult,
         actions: {
             initializeGame,
             moveToTile,
             resolveEncounter,
-            drawCard
+            drawCard,
+            triggerEventRoll,
+            completeEventRoll,
+            handleBossVictory
         }
     };
 }

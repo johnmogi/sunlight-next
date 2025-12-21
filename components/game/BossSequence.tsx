@@ -159,6 +159,9 @@ export function BossSequence({ playerResolve, hand, onVictory, onDefeat }: BossS
                         >
                             {isRolling ? "Rolling..." : "Attempt to Break"}
                         </Button>
+                        <Button onClick={onVictory} variant="ghost" className="w-full text-slate-700 text-xs mt-2 hover:bg-transparent hover:text-green-500">
+                            DEBUG: Win
+                        </Button>
                     </>
                 ) : (
                     <p className="text-green-500 font-bold text-xl animate-pulse">The Shadow Fades...</p>

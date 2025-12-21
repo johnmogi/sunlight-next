@@ -10,6 +10,8 @@ import { MapGrid } from './MapGrid'
 import { BoonSelection } from './BoonSelection'
 import { EncounterView } from './EncounterView'
 import { BossSequence } from './BossSequence'
+import { DiceD10 } from './DiceD10'
+import { generateStoryBeat } from '@/lib/game/generators/storyGenerator'
 
 export default function GameCanvas() {
     const t = useTranslations('game')
@@ -138,12 +140,12 @@ export default function GameCanvas() {
                                     The voice is soft, echoing from a lantern held by a hooded figure.
                                 </p>
                                 <p className="text-xl text-slate-300 font-serif leading-relaxed">
-                                    "But the garden isn't built on perfection. It grows from the rain, the mud, the parts of us we actuallly try to hide."
+                                    {generateStoryBeat(1, 'INTRO', selectedArchetype)}
                                 </p>
                                 <div className="p-6 bg-slate-900/50 border border-slate-700 rounded-lg mt-8">
                                     <p className="text-amber-500 font-semibold mb-2">Lily (The Guide)</p>
                                     <p className="text-slate-400 italic text-sm">
-                                        "I'm not here to fix you. You aren't broken. I'm just here to hold the light while you walk."
+                                        "The shadows aren't enemies. They are just questions waiting for an answer. Let's find the light together."
                                     </p>
                                 </div>
                             </motion.div>
@@ -154,93 +156,143 @@ export default function GameCanvas() {
                                 Take the Lantern
                             </Button>
                         </div>
-                    </motion.div>
-                )}
+                    </motion.div >
+                )
+                }
 
                 {/* CHARACTER SELECT STATE */}
-                {gameState === 'CHARACTER_SELECT' && (
-                    <motion.div key="char_select" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center justify-center w-full h-full bg-[url('/images/about/hgcharacterselect.jpg')] bg-cover bg-center relative">
-                        <div className="absolute inset-0 bg-black/70 z-0" />
-                        <div className="z-10 flex flex-col items-center w-full max-w-6xl px-4">
-                            <h2 className="text-4xl text-slate-100 mb-8 font-serif">Who are you in this dream?</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 w-full">
-                                {['The Daydreamer', 'The Architect', 'The Weaver'].map((char, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ scale: 1.05, y: -10 }}
-                                        className="w-full aspect-[2/3] bg-slate-800/80 border-2 border-slate-600 rounded-xl flex flex-col items-center justify-center hover:border-amber-400 cursor-pointer transition-all shadow-2xl relative overflow-hidden group"
-                                        onClick={() => handleCharacterSelect(char)}
-                                    >
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                                        <span className="text-2xl font-bold text-amber-100 relative z-10 font-serif">{char}</span>
-                                        <p className="text-xs text-slate-400 mt-2 relative z-10 group-hover:text-amber-300">Select Archetype</p>
-                                    </motion.div>
-                                ))}
+                {
+                    gameState === 'CHARACTER_SELECT' && (
+                        <motion.div key="char_select" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center justify-center w-full h-full bg-[url('/images/about/hgcharacterselect.jpg')] bg-cover bg-center relative">
+                            <div className="absolute inset-0 bg-black/70 z-0" />
+                            <div className="z-10 flex flex-col items-center w-full max-w-6xl px-4">
+                                <h2 className="text-4xl text-slate-100 mb-8 font-serif">Who are you in this dream?</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 w-full">
+                                    {['The Navigator', 'The Builder', 'The Weaver'].map((char, i) => (
+                                        <motion.div
+                                            key={i}
+                                            whileHover={{ scale: 1.05, y: -10 }}
+                                            className="w-full aspect-[2/3] bg-slate-800/80 border-2 border-slate-600 rounded-xl flex flex-col items-center justify-center hover:border-amber-400 cursor-pointer transition-all shadow-2xl relative overflow-hidden group"
+                                            onClick={() => handleCharacterSelect(char)}
+                                        >
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                                            <span className="text-2xl font-bold text-amber-100 relative z-10 font-serif">{char}</span>
+                                            <p className="text-xs text-slate-400 mt-2 relative z-10 group-hover:text-amber-300">
+                                                {char === 'The Navigator' && 'Water (Vessels)'}
+                                                {char === 'The Builder' && 'Earth (Crystals)'}
+                                                {char === 'The Weaver' && 'Fire (Vines)'}
+                                            </p>
+                                        </motion.div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                )}
+                        </motion.div>
+                    )
+                }
 
                 {/* BOON SELECT STATE */}
-                {gameState === 'BOON_SELECT' && (
-                    <BoonSelection key="boon" onSelectBoon={handleBoonSelect} />
-                )}
+                {
+                    gameState === 'BOON_SELECT' && (
+                        <BoonSelection key="boon" onSelectBoon={handleBoonSelect} />
+                    )
+                }
 
                 {/* BOSS STATE */}
-                {gameState === 'BOSS' && (
-                    <BossSequence
-                        playerResolve={player.resolve}
-                        hand={player.hand}
-                        onVictory={() => setGameState('VICTORY')}
-                        onDefeat={() => {
-                            // Simple loop back for MVP
-                            alert("The shadow overpowers you. Try again.");
-                        }}
-                    />
-                )}
+                {
+                    gameState === 'BOSS' && (
+                        <BossSequence
+                            playerResolve={player.lucidity}
+                            hand={player.hand}
+                            onVictory={actions.handleBossVictory}
+                            onDefeat={() => {
+                                // Simple loop back for MVP
+                                alert("The shadow overpowers you. Try again.");
+                            }}
+                        />
+                    )
+                }
 
                 {/* MAP STATE */}
-                {gameState === 'MAP' && (
-                    <motion.div key="map" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center w-full h-full p-4 bg-[url('/images/about/hggameplay.jpg')] bg-cover bg-center relative">
-                        <div className="absolute inset-0 bg-slate-950/90 z-0" />
+                {
+                    gameState === 'MAP' && (
+                        <motion.div key="map" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center w-full h-full p-4 bg-[url('/images/about/hggameplay.jpg')] bg-cover bg-center relative">
+                            <div className="absolute inset-0 bg-slate-950/90 z-0" />
 
-                        <div className="z-10 w-full max-w-5xl h-full flex flex-col items-center justify-center">
-                            <div className="flex justify-between w-full max-w-2xl mb-6 items-end">
-                                <div>
-                                    <h2 className="text-2xl text-amber-100 font-serif">The Maze of Reality</h2>
-                                    <p className="text-slate-500 text-sm">Explore adjacent cards to find the connection.</p>
+                            <div className="z-10 w-full max-w-5xl h-full flex flex-col items-center justify-center">
+                                <div className="flex justify-between w-full max-w-2xl mb-6 items-end">
+                                    <div>
+                                        <h2 className="text-2xl text-amber-100 font-serif">The Maze of Reality</h2>
+                                        <p className="text-slate-500 text-sm">Explore adjacent cards to find the connection.</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-blue-400 font-bold">Lucidity: {player.lucidity}%</p>
+                                        <p className="text-slate-500 text-xs">Focus: {player.focus} / {player.maxFocus}</p>
+                                    </div>
                                 </div>
-                                <div className="text-right">
-                                    <p className="text-blue-400 font-bold">Resilience: {player.resolve}%</p>
-                                    <p className="text-slate-500 text-xs">Current Logic: {player.stats.logic}</p>
+
+                                {/* THE GRAPH MAP */}
+                                <MapGrid
+                                    tiles={tiles}
+                                    activeTileId={player.currentTileId}
+                                    onTileSelect={handleTileSelect}
+                                />
+
+                                <div className="mt-8 flex gap-4">
+                                    <Button variant="outline" onClick={() => setGameState('MENU')} className="bg-black/50 text-slate-300 border-slate-700">Pause Game</Button>
                                 </div>
                             </div>
+                        </motion.div>
+                    )
+                }
 
-                            {/* THE GRAPH MAP */}
-                            <MapGrid
-                                tiles={tiles}
-                                activeTileId={player.currentTileId}
-                                onTileSelect={handleTileSelect}
-                            />
+                {/* EVENT ROLL STATE - The Fate Dice */}
+                {
+                    gameState === 'EVENT_ROLL' && (
+                        <DiceD10
+                            key="fate-dice"
+                            triggerRoll={actions.triggerEventRoll}
+                            onRollComplete={actions.completeEventRoll}
+                        />
+                    )
+                }
 
-                            <div className="mt-8 flex gap-4">
-                                <Button variant="outline" onClick={() => setGameState('MENU')} className="bg-black/50 text-slate-300 border-slate-700">Pause Game</Button>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
+                {/* MENTAL FOG STATE (Formerly Trap) */}
+                {
+                    gameState === 'TRAP' && (
+                        <motion.div key="trap" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/90 text-center p-8">
+                            <h2 className="text-4xl text-slate-400 font-serif mb-4">Mental Fog</h2>
+                            <p className="text-slate-300 mb-8">{generateStoryBeat(1, 'FOG', selectedArchetype)}</p>
+                            <p className="text-2xl font-bold text-red-400 mb-8">-1 Focus</p>
+                            <Button onClick={() => setGameState('MAP')} className="bg-slate-700 hover:bg-slate-600">Reorient</Button>
+                        </motion.div>
+                    )
+                }
+
+                {/* LOOT STATE - MVP */}
+                {
+                    gameState === 'LOOT' && (
+                        <motion.div key="loot" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/90 text-center p-8">
+                            <h2 className="text-4xl text-amber-400 font-serif mb-4">The Garden's Gift</h2>
+                            <p className="text-slate-300 mb-8">{generateStoryBeat(1, 'GARDEN', selectedArchetype)}</p>
+                            <p className="text-2xl font-bold text-blue-400 mb-8">Obtained: Ancient Coin (Simulated)</p>
+                            <Button onClick={() => setGameState('MAP')} className="bg-amber-600 hover:bg-amber-500">Collect</Button>
+                        </motion.div>
+                    )
+                }
 
                 {/* ENCOUNTER STATE - Dice & Hand Mechanic */}
-                {gameState === 'ENCOUNTER' && activeEncounter && (
-                    <EncounterView
-                        encounter={activeEncounter}
-                        hand={player.hand}
-                        onResolve={actions.resolveEncounter}
-                        key="encounter-view"
-                    />
-                )}
+                {
+                    gameState === 'ENCOUNTER' && activeEncounter && (
+                        <EncounterView
+                            encounter={activeEncounter}
+                            player={player}
+                            onResolve={actions.resolveEncounter}
+                            key="encounter-view"
+                        />
+                    )
+                }
 
-            </AnimatePresence>
-        </div>
+            </AnimatePresence >
+        </div >
     )
 }
