@@ -197,18 +197,27 @@ export default function GameCanvas() {
                     )
                 }
 
-                {/* BOSS STATE */}
                 {
                     gameState === 'BOSS' && (
-                        <BossSequence
-                            playerResolve={player.lucidity}
-                            hand={player.hand}
-                            onVictory={actions.handleBossVictory}
-                            onDefeat={() => {
-                                // Simple loop back for MVP
-                                alert("The shadow overpowers you. Try again.");
-                            }}
-                        />
+                        <>
+                            <div className="absolute top-4 right-4 z-[60]">
+                                <Button
+                                    onClick={() => actions.handleBossVictory()}
+                                    className="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded shadow-lg border border-purple-400"
+                                >
+                                    DEBUG: WIN ACT
+                                </Button>
+                            </div>
+                            <BossSequence
+                                playerResolve={player.lucidity}
+                                hand={player.hand}
+                                onVictory={actions.handleBossVictory}
+                                onDefeat={() => {
+                                    // Simple loop back for MVP
+                                    alert("The shadow overpowers you. Try again.");
+                                }}
+                            />
+                        </>
                     )
                 }
 
