@@ -1,0 +1,32 @@
+node_modules
+dist
+.git
+.ds_store
+.env
+.env.local
+archive
+legacy
+scrollmaze
+upgrade
+.vite
+coverage
+test
+**/Gemini_Generated_Image*
+
+# Exclude heavy/unused image folders and files
+public/images/up112
+public/images/129/*.jpg
+public/images/129/*.png
+public/images/cards/eather
+public/images/cards/update112
+
+# Exclude all PNG files in images (they are duplicates of JPGs but 5-8x larger)
+public/images/*.png
+public/images/129/res/**/*.png
+public/images/cards/cardcollection/*.png
+
+# Exclude heavy unused images in root images folder
+public/images/mj.png
+public/images/tarotheb.png
+public/images/thehiddenriddlleen.png
+public/images/unnamed.png
